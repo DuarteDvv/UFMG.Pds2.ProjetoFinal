@@ -7,7 +7,8 @@ using namespace std;
 
 
 Class Usuario{
-    string nome; 
-}
+    string nome;
+    int cpf
+};
 
 #endif USUARIO_
