@@ -11,16 +11,22 @@ Class Usuario{
     int cpf;
 
     Usuario(){
-        this->nome = ' ';
+        this->nome = {};
         this->cpf = 0;
     }
     
     public:
     Usuario::setUsuario(std::string, int);
+
     Usuario::getUsuario(std::string);
     Usuario::getUsuario(int); //Sobrecarga
-    Usuario::remUsuario();
-    Usuario::impUsuario();
+
+    Usuario::remUsuario(std::string);
+    Usuario::remUsuario(int); //Sobrecarga 
+
+    Usuario::impUsuario(std::string);
+    Usuario::impUsuario(int) //Sobrecarga teste
+    
 };
 
 #endif USUARIO_
