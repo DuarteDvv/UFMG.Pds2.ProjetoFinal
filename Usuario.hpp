@@ -5,7 +5,7 @@
 
 
 
-Class Usuario{
+class Usuario{
     private:
     std::string nome;
     int cpf;
