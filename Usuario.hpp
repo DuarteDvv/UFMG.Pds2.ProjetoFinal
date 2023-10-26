@@ -17,7 +17,8 @@ Class Usuario{
     
     public:
     Usuario::setUsuario(std::string, int);
-    Usuario::getUsuario();
+    Usuario::getUsuario(std::string);
+    Usuario::getUsuario(int); //Sobrecarga
     Usuario::remUsuario();
     Usuario::impUsuario();
 };
