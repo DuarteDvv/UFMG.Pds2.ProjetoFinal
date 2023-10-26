@@ -9,6 +9,11 @@ Class Usuario{
     private:
     std::string nome;
     int cpf;
+
+    Usuario(){
+        this->nome = ' ';
+        this->cpf = 0;
+    }
     
     public:
     Usuario::setUsuario(std::string, int);
