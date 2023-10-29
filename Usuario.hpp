@@ -16,16 +16,16 @@ class Usuario{
     }
     
     public:
-    Usuario::setUsuario(std::string, int);
+    void Usuario::setUsuario(std::string, int);
 
-    Usuario::getUsuario(std::string);
-    Usuario::getUsuario(int); //Sobrecarga
+    void Usuario::getUsuario(std::string);
+    void Usuario::getUsuario(int); //Sobrecarga
 
-    Usuario::remUsuario(std::string);
-    Usuario::remUsuario(int); //Sobrecarga 
+    void Usuario::remUsuario(std::string);
+    void Usuario::remUsuario(int); //Sobrecarga 
 
-    Usuario::impUsuario(std::string);
-    Usuario::impUsuario(int) //Sobrecarga teste
+    void Usuario::impUsuario(std::string);
+    void Usuario::impUsuario(int) //Sobrecarga teste
     
 };
 
