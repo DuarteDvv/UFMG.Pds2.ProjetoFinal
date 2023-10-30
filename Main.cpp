@@ -3,8 +3,9 @@
 
 
 int main(){
+    std::string cmd;
     
-    while ()
+    while (std::cin >> cmd && cmd != "FS")
     {
     
     }
