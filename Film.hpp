@@ -1,6 +1,7 @@
 #ifndef _FILM
 #define _FILM
 #include <iostream>
+#include <string>
 
 class filme{
     private:
