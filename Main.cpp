@@ -4,13 +4,28 @@
 
 int main(){
     std::string cmd;
-    
-   switch(cmd){
-        case "FS":
-        
-            "savedata"
+    int CPFr;
+    std::string NOMEr;
+
+    while(std::cin >> cmd){
+        if (cmd == "FS") {
+
             break;
-   }
-    
+        }
+
+        else if (cmd == "CC"){
+            std::cout << "Digite o CPF" << std::endl;
+            std::cin >> CPFr;
+
+
+
+
+            std::cout << "Digite o NOME " << std::endl;
+            std::getline(std::cin, NOMEr);
+            std::cin.ignore();
+
+
+        }
+    }
   
 }
