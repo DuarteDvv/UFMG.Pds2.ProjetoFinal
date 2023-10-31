@@ -2,8 +2,11 @@
 #include "Film.hpp"
 
 
+
+
 int main(){
-    
+    std::list<Usuario> Banco_de_usuarios;
+    Usuario User;
     std::string cmd;
     int CPFr;
     std::string NOMEr;
@@ -21,9 +24,14 @@ int main(){
 
 
 
+
             std::cout << "Digite o NOME " << std::endl;
             std::getline(std::cin, NOMEr);
             std::cin.ignore();
+
+        User.setUsuario(NOMEr, CPFr);
+        Banco_de_usuarios.push_back(User);
+        
 
 
         }
