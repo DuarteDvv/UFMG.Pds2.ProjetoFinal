@@ -3,6 +3,7 @@
 
 
 int main(){
+    
     std::string cmd;
     int CPFr;
     std::string NOMEr;

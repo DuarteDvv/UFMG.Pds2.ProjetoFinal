@@ -2,6 +2,7 @@
 #define USUARIO_
 #include <string>
 #include <iostream>
+#include <list>
 
 
 
