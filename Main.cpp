@@ -5,10 +5,12 @@
 int main(){
     std::string cmd;
     
-    while (std::cin >> cmd && cmd != "FS")
-    {
-    
-    }
+   switch(cmd){
+        case "FS":
+        
+            "savedata"
+            break;
+   }
     
   
 }

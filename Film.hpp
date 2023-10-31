@@ -22,6 +22,19 @@ class fita : public filme{
 };
 
 class dvd : public filme{
+    //definir metodo abstrato
+
+};
+
+class lanca : public dvd{
+
+};
+
+class estoque : public dvd{
+
+};
+
+class promocao : public dvd{
 
 };
 
