@@ -9,6 +9,5 @@ bool fita::isRebobinado(){
     else{
         return false;
     }
-    return Randombool;
 }
 
