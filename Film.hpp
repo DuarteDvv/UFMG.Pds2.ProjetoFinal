@@ -8,6 +8,8 @@ class filme{
         int codigo;
         std::string titulo;
         int quantidade;
+    public:
+        void filme::setFilm() = 0;
 
     
   
@@ -18,27 +20,17 @@ class fita : public filme{
         bool rebobinado;
 
     public:
+        
         bool fita::isRebobinado();
 };
 
 class dvd : public filme{
-    //definir metodo abstrato
-
+    private:
+        bool promocao;
+        bool estoque;
+        bool lancamento;
+    public:
+        void dvd::isWhat();
 };
-
-class lanca : public dvd{
-
-};
-
-class estoque : public dvd{
-
-};
-
-class promocao : public dvd{
-
-};
-
-
-
 
 #endif
