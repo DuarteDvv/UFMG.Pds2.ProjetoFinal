@@ -4,6 +4,7 @@
 
 
 
+
 int main(){
     std::list<Usuario> Banco_de_usuarios;
     Usuario User;
@@ -20,6 +21,7 @@ int main(){
         else if (cmd == "CC"){
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
+            
 
 
 

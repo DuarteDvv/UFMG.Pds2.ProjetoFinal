@@ -1,12 +1,10 @@
 #include "Usuario.hpp"
 
-void Usuario::setUsuario(std::string nome, std::string cpf){ //Aloca os dados e verifica se já existe
-    if (!função de busca em lista){
-        this->nome = nome;
-        this->cpf = cpf;
-        std::cout << "Cliente registrado" << std::endl;
-    }
-    else{
-        std::cout << "Cliente já existe" << std::endl;
-    }
+std::string Usuario::getCPF(){
+    return this->cpf;
+
+}
+
+std::string Usuario::getNome(){
+    return this->nome;
 }

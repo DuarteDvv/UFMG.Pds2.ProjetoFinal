@@ -1,3 +1,5 @@
+#include "Usuario.hpp"
+#include <list>
 #include <iostream> 
 #include <cctype>  
 #include <string>
@@ -14,8 +16,8 @@ bool verifica_nome(const std::string &nome){
 
 //Função para verificar se um usuário já está registrado na lista de usuários
 bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::string& nome, const std::string& cpf){
-    for(const Usuario& usuario : Banco_de_usuarios){
-        if(usuario.nome == nome && usuario.cpf==cpf)
+    for(Usuario usuario : Banco_de_usuarios){
+        if(usuario.getNome() == nome && usuario.getCPF() == cpf)
         {
             return true;
         }
@@ -26,18 +28,17 @@ bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::strin
  
 
  //Função que vai verificar se o cpf é válido 
-bool verifica_cpf(const std::string &cpf){
-    bool resultado = true; 
+bool verifica_cpf(const std::string &cpf){ 
     for(char a : cpf){
         if(!std::isdigit(a)){
-            resultado = false;
+            return false;
             break;
         }
     } 
     if(cpf.length()!=11){
-        resultado = false;
+        return false;
     }
     
-    return resultado;
+    return true;
 }
     
