@@ -47,6 +47,8 @@ int main(){
         }
 
         else if(cmd == "RC"){
+             std::cout << "Digite o CPF" << std::endl;
+             std::cin >> CPFr;
              removeUsuario(Banco_de_usuarios,CPFr);
 
 
