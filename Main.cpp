@@ -47,9 +47,14 @@ int main(){
         }
 
         else if(cmd == "RC"){
-             std::cout << "Digite o CPF" << std::endl;
+             std::cout << "Digite o CPF:" << std::endl;
              std::cin >> CPFr;
-             removeUsuario(Banco_de_usuarios,CPFr);
+             if(existeUsuario(Banco_de_usuarios,CPFr)){
+             removeUsuario(Banco_de_usuarios,CPFr);}
+             else {std::cout << "ERRO: CPF inexistente" << std::endl;
+break;}
+std::cout << "Cliente" << CPFr << "removido com sucesso" << std::endl;
+
 
 
      
