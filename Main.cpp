@@ -47,6 +47,8 @@ int main(){
         }
 
         else if(cmd == "RC"){
+             removeUsuario(Banco_de_usuarios,CPFr);
+
 
      
      
