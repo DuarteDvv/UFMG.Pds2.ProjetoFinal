@@ -41,4 +41,14 @@ bool verifica_cpf(const std::string &cpf){
     
     return true;
 }
+
+void removeUsuario(std::list<Usuario>& Banco_de_usuarios, const std::string& cpf){
+    for(Usuario usuario : Banco_de_usuarios){
+        if(usuario.getCPF() == cpf)
+        {
+            Banco_de_usuarios.remove(usuario);
+        }
+
+    }
+}
     
