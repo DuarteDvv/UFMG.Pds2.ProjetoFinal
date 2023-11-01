@@ -15,9 +15,9 @@ bool verifica_nome(const std::string &nome){
 } 
 
 //Função para verificar se um usuário já está registrado na lista de usuários
-bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::string& nome, const std::string& cpf){
+bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::string& cpf){
     for(Usuario usuario : Banco_de_usuarios){
-        if(usuario.getNome() == nome && usuario.getCPF() == cpf)
+        if(usuario.getCPF() == cpf)
         {
             return true;
         }

@@ -8,3 +8,8 @@ std::string Usuario::getCPF(){
 std::string Usuario::getNome(){
     return this->nome;
 }
+
+void Usuario::setUsuario(std::string &cpf, std::string &nome){
+    this->cpf = cpf;
+    this->nome = nome;
+}

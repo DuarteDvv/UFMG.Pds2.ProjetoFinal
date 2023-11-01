@@ -1,6 +1,6 @@
 #include "Usuario.hpp"
 #include "Film.hpp"
-
+#include "functions.h"
 
 
 
@@ -21,21 +21,36 @@ int main(){
         else if (cmd == "CC"){
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
+
+            if(!verifica_cpf(CPFr)){
+                std::cout << "ERRO: dados incorretos" << std::endl;
+                break;           
+            }
+            if(existeUsuario(Banco_de_usuarios,CPFr)){
+                std::cout << "ERRO: CPF repetido" << std::endl;
+                break;
+            }
             
-
-
-
-
-
             std::cout << "Digite o NOME " << std::endl;
             std::getline(std::cin, NOMEr);
             std::cin.ignore();
 
-        User.setUsuario(NOMEr, CPFr);
-        Banco_de_usuarios.push_back(User);
-        
+            if(verifica_nome(NOMEr)){
+                std::cout << "ERRO: dados incorretos" << std::endl;
+                break;
+            }
 
+            User.setUsuario(CPFr,NOMEr);
+            Banco_de_usuarios.push_back(User);
 
+            std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
+        }
+
+        else if(cmd == "RC"){
+
+     
+     
+     
         }
     }
   
