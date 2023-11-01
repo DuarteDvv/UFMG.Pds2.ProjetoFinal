@@ -9,16 +9,16 @@
 class Usuario{
     private:
         std::string nome;
-        int cpf;
+        std::string cpf;
     
     public:
         Usuario(){
             this->nome = {};
-            this->cpf = 0;
+            this->cpf = {};
         }
         
         
-        void Usuario::setUsuario(std::string, int);
+        void Usuario::setUsuario(std::string, std::string);
 
         void Usuario::getUsuario(std::string);
         void Usuario::getUsuario(int); //Sobrecarga

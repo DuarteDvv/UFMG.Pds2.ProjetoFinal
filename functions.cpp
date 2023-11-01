@@ -1,9 +1,8 @@
 #include <iostream> 
-#include <cctype> 
+#include <cctype>  
+#include <string>
 
-//essa função verifica se o nome do usuário é escrito com letras comuns, se sim, retorna true, se tiver número ou caractere especial, retorna false
-
-
+//Essa função verifica se o nome do usuário é escrito com letras comuns, se sim, retorna true, se tiver número ou caractere especial, retorna false
 bool verifica_nome(const std::string &nome){
     for(char a : nome){
         if(!isalpha(a) && !isspace(a)){
@@ -24,3 +23,21 @@ bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::strin
     }
     return false;
 }
+ 
+
+ //Função que vai verificar se o cpf é válido 
+bool verifica_cpf(const std::string &cpf){
+    bool resultado = true; 
+    for(char a : cpf){
+        if(!std::isdigit(a)){
+            resultado = false;
+            break;
+        }
+    } 
+    if(cpf.length()!=11){
+        resultado = false;
+    }
+    
+    return resultado;
+}
+    

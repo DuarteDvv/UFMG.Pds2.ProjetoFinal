@@ -1,6 +1,6 @@
 #include "Usuario.hpp"
 
-void Usuario::setUsuario(std::string nome, int cpf){ //Aloca os dados e verifica se já existe
+void Usuario::setUsuario(std::string nome, std::string cpf){ //Aloca os dados e verifica se já existe
     if (!função de busca em lista){
         this->nome = nome;
         this->cpf = cpf;

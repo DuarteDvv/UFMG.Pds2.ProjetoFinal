@@ -8,7 +8,7 @@ int main(){
     std::list<Usuario> Banco_de_usuarios;
     Usuario User;
     std::string cmd;
-    int CPFr;
+    std::string CPFr;
     std::string NOMEr;
 
     while(std::cin >> cmd){
