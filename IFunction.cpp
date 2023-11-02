@@ -1,4 +1,6 @@
 #include "functions.h"
+#include <iostream> 
+
 
 bool verifica_nome(std::string &nome){
     for(char a : nome){
