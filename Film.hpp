@@ -14,8 +14,7 @@ class filme{
 
     
   
-};//utlizar classe abstrata para aluguel
-
+};
 class fita : public filme{
     private:
         bool rebobinado;
