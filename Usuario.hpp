@@ -11,17 +11,17 @@ class Usuario{
         std::string cpf;
         int acessos;
     
-    public:
+     public:
         Usuario(){
             this->nome = {};
             this->cpf = {};
             this->acessos = 1;
-        }
+        } 
         
         
         void setUsuario(std::string&, std::string&);
-        std::string getCPF(void);
-        std::string getNome(void); 
+        std::string getCPF();
+        std::string getNome(); 
         int getAcessos();
         void AcessAdd();
 
