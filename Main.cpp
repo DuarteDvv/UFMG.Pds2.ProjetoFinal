@@ -11,10 +11,11 @@ int main(){
     std::string cmd;
     std::string CPFr;
     std::string NOMEr;
+    
 
     while(std::cin >> cmd){
         if (cmd == "FS") {
-
+            //salvar log
             break;
         }
 
@@ -58,6 +59,16 @@ int main(){
             }
             std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
         }
+
+        else if(cmd == "LC"){
+            std::cin >> CPFr;
+            ordenar(Banco_de_usuarios,CPFr);
+            for(std::Usuario n : Banco_de_usuarios){
+                cout << n.getNOME() << " " << n.getCPF() << std::endl;
+            }
+        }
+
+        
     }
   
 }

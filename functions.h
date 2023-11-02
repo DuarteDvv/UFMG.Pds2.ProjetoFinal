@@ -35,7 +35,7 @@ bool verifica_cpf(const std::string &cpf){
             break;
         }
     } 
-    if(cpf.length()!=11){
+    if(cpf.length() != 11){
         return false;
     }
     
@@ -51,4 +51,16 @@ void removeUsuario(std::list<Usuario>& Banco_de_usuarios, const std::string& cpf
 
     }
 }
-    
+
+// Função que ordena em ordem crescente caso cpf ou alfabetica caso nome;
+void ordenar(std::list<Usuario> &Banco, std::string &tipo){
+    if(tipo == "N"){
+         std::sort(Banco.begin(), Banco.end(),[](const Usuario &a, const Usuario &b){return a.getNOME() < b.getNOME();}); 
+         
+    }
+    else if(tipo == "C"){
+        std::sort(Banco.begin(), Banco.end(),[](const Usuario &a, const Usuario &b){return a.getCPF() < b.getCPF();}); 
+    }
+}
+
+

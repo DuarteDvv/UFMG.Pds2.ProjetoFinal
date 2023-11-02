@@ -23,7 +23,7 @@ class Usuario{
         void Usuario::setUsuario(std::string&, std::string&);
 
         std::string Usuario::getCPF();
-        std::string Usuario::getNome(); //Sobrecarga
+        std::string Usuario::getNome(); 
 
         void Usuario::remUsuario(std::string);
         void Usuario::remUsuario(int); //Sobrecarga 
