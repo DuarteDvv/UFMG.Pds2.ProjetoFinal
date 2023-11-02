@@ -16,7 +16,7 @@ class Usuario{
         Usuario(){
             this->nome = {};
             this->cpf = {};
-            this->acessos = 0;
+            this->acessos = 1;
         }
         
         
