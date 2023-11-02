@@ -37,7 +37,7 @@ int main(){
             std::getline(std::cin, NOMEr);
             std::cin.ignore();
 
-            if(verifica_nome(NOMEr)==false){
+            if(!verifica_nome(NOMEr)){
                 std::cout << "ERRO: dados incorretos" << std::endl;
                 break;
             }
