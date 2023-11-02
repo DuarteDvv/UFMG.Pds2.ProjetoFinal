@@ -3,11 +3,6 @@
 #include <iostream>
 #include <string>
 
-
-//teste 010101
-
-
-
 class filme{
     private:
         int codigo;
