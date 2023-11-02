@@ -27,6 +27,5 @@ class Usuario{
         
         int Usuario::getAcessos();
         void Usuario::AcessAdd();
-};
-
-#endif USUARIO_
+}; 
+#endif
