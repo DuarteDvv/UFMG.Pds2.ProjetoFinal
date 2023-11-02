@@ -56,11 +56,11 @@ void removeUsuario(std::list<Usuario>& Banco_de_usuarios, const std::string& cpf
 // Função que ordena em ordem crescente caso cpf ou alfabetica caso nome;
 void ordenar(std::list<Usuario> &Banco, std::string &tipo){
     if(tipo == "N"){
-         std::sort(Banco.begin(), Banco.end(),[](const Usuario &a, const Usuario &b){return a.getNOME() < b.getNOME();}); 
+         std::sort(Banco.begin(), Banco.end(),[]( Usuario &a, Usuario &b){return a.getNome() < b.getNome();}); 
          
     }
     else if(tipo == "C"){
-        std::sort(Banco.begin(), Banco.end(),[](const Usuario &a, const Usuario &b){return a.getCPF() < b.getCPF();}); 
+        std::sort(Banco.begin(), Banco.end(),[]( Usuario &a, Usuario &b){return a.getCPF() < b.getCPF();}); 
     }
 }
 

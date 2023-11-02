@@ -63,8 +63,8 @@ int main(){
         else if(cmd == "LC"){
             std::cin >> CPFr;
             ordenar(Banco_de_usuarios,CPFr);
-            for(std::Usuario n : Banco_de_usuarios){
-                cout << n.getNOME() << " " << n.getCPF() << std::endl;
+            for(Usuario n : Banco_de_usuarios){
+                std::cout << n.getNome() << " " << n.getCPF() << std::endl;
             }
         }
 
