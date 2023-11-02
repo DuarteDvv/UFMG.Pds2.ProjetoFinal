@@ -5,7 +5,6 @@
 #include <list>
 
 
-
 class Usuario{
     private:
         std::string nome;
@@ -20,7 +19,7 @@ class Usuario{
         }
         
         
-        void setUsuario(std::string&, std::string&);
+        void setUsuario(std::string, std::string);
 
         std::string getCPF();
         std::string getNome(); 

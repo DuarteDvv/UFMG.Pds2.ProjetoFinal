@@ -1,8 +1,8 @@
-# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Main.cpp"
+# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp"
 # 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2//"
 # 1 "<built-in>"
 # 1 "<command-line>"
-# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Main.cpp"
+# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp"
 # 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Usuario.hpp" 1
 
 
@@ -25848,64 +25848,26 @@ class Usuario{
         Usuario(){
             this->nome = {};
             this->cpf = {};
-            this->acessos = 0;
+            this->acessos = 1;
         }
 
 
-        void Usuario::setUsuario(std::string&, std::string&);
+        void setUsuario(std::string&, std::string&);
 
-        std::string Usuario::getCPF();
-        std::string Usuario::getNome();
+        std::string getCPF();
+        std::string getNome();
 
-        int Usuario::getAcessos();
-        void Usuario::AcessAdd();
+        int getAcessos();
+        void AcessAdd();
 };
-# 2 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Main.cpp" 2
-# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Film.hpp" 1
-
-
-
-
-
-
-class filme{
-    private:
-        int codigo;
-        std::string titulo;
-        int quantidade;
-    public:
-        void filme::setFilm() = 0;
-
-
-
-};
-class fita : public filme{
-    private:
-        bool rebobinado;
-
-    public:
-
-        bool fita::isRebobinado();
-};
-
-class dvd : public filme{
-    private:
-        bool promocao;
-        bool estoque;
-        bool lancamento;
-    public:
-        void dvd::isWhat();
-};
-# 3 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Main.cpp" 2
-# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h" 1
-
+# 2 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp" 2
 
 
 # 1 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 1 3
 # 39 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 3
        
 # 40 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 3
-# 5 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h" 2
+# 5 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp" 2
 
 # 1 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\algorithm" 1 3
 # 58 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\algorithm" 3
@@ -33196,11 +33158,59 @@ namespace std
 
 }
 # 63 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\algorithm" 2 3
-# 7 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h" 2
+# 7 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp" 2
+
+# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Film.hpp" 1
 
 
 
-# 9 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h"
+
+
+
+
+# 7 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Film.hpp"
+class filme{
+    private:
+        int codigo;
+        std::string titulo;
+        int quantidade;
+    public:
+        void setFilm();
+
+
+
+};
+class fita : public filme{
+    private:
+        bool rebobinado;
+
+    public:
+
+        bool isRebobinado();
+};
+
+class dvd : public filme{
+    private:
+        bool promocao;
+        bool estoque;
+        bool lancamento;
+    public:
+        void isWhat();
+};
+# 9 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp" 2
+# 1 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h" 1
+
+
+
+# 1 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 1 3
+# 39 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 3
+       
+# 40 "c:\\mingw\\lib\\gcc\\mingw32\\6.3.0\\include\\c++\\cctype" 3
+# 5 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\functions.h" 2
+
+
+
+
 bool verifica_nome(const std::string &nome){
     for(char a : nome){
         if(!isalpha(a) && !isspace(a)){
@@ -33258,75 +33268,22 @@ void ordenar(std::list<Usuario> &Banco, std::string &tipo){
         std::sort(Banco.begin(), Banco.end(),[]( Usuario &a, Usuario &b){return a.getCPF() < b.getCPF();});
     }
 }
-# 4 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\Main.cpp" 2
+# 10 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp" 2
 
-
-
-
-int main(){
+int main() {
     std::list<Usuario> Banco_de_usuarios;
-    Usuario User;
-    std::string cmd;
-    std::string CPFr;
-    std::string NOMEr;
 
 
-    while(std::cin >> cmd){
-        if (cmd == "FS") {
-
-            break;
-        }
-
-        else if (cmd == "CC"){
-            std::cout << "Digite o CPF" << std::endl;
-            std::cin >> CPFr;
-
-            if(!verifica_cpf(CPFr)){
-                std::cout << "ERRO: dados incorretos" << std::endl;
-                break;
-            }
-            if(existeUsuario(Banco_de_usuarios,CPFr)){
-                std::cout << "ERRO: CPF repetido" << std::endl;
-                break;
-            }
-
-            std::cout << "Digite o NOME " << std::endl;
-            std::getline(std::cin, NOMEr);
-            std::cin.ignore();
-
-            if(verifica_nome(NOMEr)){
-                std::cout << "ERRO: dados incorretos" << std::endl;
-                break;
-            }
-
-            User.setUsuario(CPFr,NOMEr);
-            Banco_de_usuarios.push_back(User);
-
-            std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
-        }
-
-        else if(cmd == "RC"){
-            std::cout << "Digite o CPF:" << std::endl;
-            std::cin >> CPFr;
-            if(existeUsuario(Banco_de_usuarios,CPFr)){
-                removeUsuario(Banco_de_usuarios,CPFr);
-            }
-            else{
-                std::cout << "ERRO: CPF inexistente" << std::endl;
-                break;
-            }
-            std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
-        }
-
-        else if(cmd == "LC"){
-            std::cin >> CPFr;
-            ordenar(Banco_de_usuarios,CPFr);
-            for(Usuario n : Banco_de_usuarios){
-                std::cout << n.getNome() << " " << n.getCPF() << std::endl;
-            }
-        }
+    Banco_de_usuarios.emplace_back("Joao", "11111111111");
+    Banco_de_usuarios.emplace_back("Maria", "22222222222");
+    Banco_de_usuarios.emplace_back("Carlos", "33333333333");
 
 
+    std::string nome = "Joao123";
+    if (verifica_nome(nome)) {
+        std::cout << "Nome válido." << std::endl;
+    } else {
+        std::cout << "Nome inválido." << std::endl;
     }
-
+# 58 "C:\\Users\\sousa\\OneDrive\\Documentos\\Projeto-Final---PDS2\\teste.cpp"
 }

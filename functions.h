@@ -6,62 +6,17 @@
 #include <algorithm>
 
 //Essa função verifica se o nome do usuário é escrito com letras comuns, se sim, retorna true, se tiver número ou caractere especial, retorna false
-bool verifica_nome(const std::string &nome){
-    for(char a : nome){
-        if(!isalpha(a) && !isspace(a)){
-            return false;
-        }
-    } 
-    return true;
-} 
+bool verifica_nome(std::string &nome);
 
 //Função para verificar se um usuário já está registrado na lista de usuários
-bool existeUsuario(const std::list<Usuario>& Banco_de_usuarios, const std::string& cpf){
-    for(Usuario usuario : Banco_de_usuarios){
-        if(usuario.getCPF() == cpf)
-        {
-            return true;
-        }
-
-    }
-    return false;
-}
- 
+bool existeUsuario( std::list<Usuario>& Banco_de_usuarios,std::string& cpf);
 
  //Função que vai verificar se o cpf é válido 
-bool verifica_cpf(const std::string &cpf){ 
-    for(char a : cpf){
-        if(!std::isdigit(a)){
-            return false;
-            break;
-        }
-    } 
-    if(cpf.length() != 11){
-        return false;
-    }
-    
-    return true;
-}
+bool verifica_cpf(std::string &cpf);
 // Função que remove um usuario da lista
-void removeUsuario(std::list<Usuario>& Banco_de_usuarios, const std::string& cpf){
-    for(Usuario usuario : Banco_de_usuarios){
-        if(usuario.getCPF() == cpf)
-        {
-            Banco_de_usuarios.remove(usuario);
-        }
-
-    }
-}
+// void removeUsuario(std::list<Usuario> &Banco_de_usuarios, std::string &cpf);
 
 // Função que ordena em ordem crescente caso cpf ou alfabetica caso nome;
-void ordenar(std::list<Usuario> &Banco, std::string &tipo){
-    if(tipo == "N"){
-         std::sort(Banco.begin(), Banco.end(),[]( Usuario &a, Usuario &b){return a.getNome() < b.getNome();}); 
-         
-    }
-    else if(tipo == "C"){
-        std::sort(Banco.begin(), Banco.end(),[]( Usuario &a, Usuario &b){return a.getCPF() < b.getCPF();}); 
-    }
-}
+// void ordenar(std::list<Usuario> &Banco, std::string &tipo);
 
 

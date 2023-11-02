@@ -1,6 +1,7 @@
-#include "Usuario.hpp"
+
 #include "Film.hpp"
 #include "functions.h"
+#include "Usuario.hpp"
 
 
 
@@ -51,7 +52,7 @@ int main(){
             std::cout << "Digite o CPF:" << std::endl;
             std::cin >> CPFr;
             if(existeUsuario(Banco_de_usuarios,CPFr)){
-                removeUsuario(Banco_de_usuarios,CPFr);
+                //removeUsuario(Banco_de_usuarios,CPFr);
             }
             else{
                 std::cout << "ERRO: CPF inexistente" << std::endl;
@@ -61,10 +62,12 @@ int main(){
         }
 
         else if(cmd == "LC"){
+            std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
             std::cin >> CPFr;
-            ordenar(Banco_de_usuarios,CPFr);
+            //ordenar(Banco_de_usuarios,CPFr);
             for(Usuario n : Banco_de_usuarios){
-                std::cout << n.getNome() << " " << n.getCPF() << std::endl;
+               
+                std::cout << n.getNome() << " " <<  n.getCPF() << std::endl;
             }
         }
 
