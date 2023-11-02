@@ -20,12 +20,12 @@ class Usuario{
         }
         
         
-        void Usuario::setUsuario(std::string&, std::string&);
+        void setUsuario(std::string&, std::string&);
 
-        std::string Usuario::getCPF();
-        std::string Usuario::getNome(); 
+        std::string getCPF();
+        std::string getNome(); 
         
-        int Usuario::getAcessos();
-        void Usuario::AcessAdd();
+        int getAcessos();
+        void AcessAdd();
 }; 
 #endif

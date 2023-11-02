@@ -10,7 +10,7 @@ class filme{
         std::string titulo;
         int quantidade;
     public:
-        void filme::setFilm() = 0;
+        void setFilm();
 
     
   
@@ -21,7 +21,7 @@ class fita : public filme{
 
     public:
         
-        bool fita::isRebobinado();
+        bool isRebobinado();
 };
 
 class dvd : public filme{
@@ -30,7 +30,7 @@ class dvd : public filme{
         bool estoque;
         bool lancamento;
     public:
-        void dvd::isWhat();
+        void isWhat();
 };
 
 #endif
