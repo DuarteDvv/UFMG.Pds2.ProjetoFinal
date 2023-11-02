@@ -13,3 +13,10 @@ void Usuario::setUsuario(std::string &cpf, std::string &nome){
     this->cpf = cpf;
     this->nome = nome;
 }
+
+int Usuario::getAcessos(){
+    return this->acessos;
+}
+void Usuario::AcessAdd(){
+    this->acessos++;
+}

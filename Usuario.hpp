@@ -24,13 +24,9 @@ class Usuario{
 
         std::string Usuario::getCPF();
         std::string Usuario::getNome(); 
-
-        void Usuario::remUsuario(std::string);
-        void Usuario::remUsuario(int); //Sobrecarga 
-
-        void Usuario::impUsuario(std::string);
-        void Usuario::impUsuario(int); //Sobrecarga teste
-    
+        
+        int Usuario::getAcessos();
+        void Usuario::AcessAdd();
 };
 
 #endif USUARIO_
