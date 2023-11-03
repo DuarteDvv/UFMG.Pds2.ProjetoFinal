@@ -103,7 +103,7 @@ int main(){
                 std::cin >> cod;
                 std::cin.ignore();
                 if(ExisteFilme(Catalogo,cod)){
-                    std::cout << "ERRO: Codigo repetido" << std::endl;
+                    std::cout << "ERRO: Código repetido" << std::endl;
                     break;
                 }
 
@@ -143,16 +143,10 @@ int main(){
                 std::cout << "Filme" << cod << "cadastrado com sucesso"<<std::endl;
                 delete FITA;
             }
-        
-        else if(cmd == "LF"){
-            std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
-            std::cin >> CPFr;
-            if(CPFr == "T"){
-                Catalogo.sort(compT);
-            }
-            else if(CPFr == "C"){
-                Catalogo.sort(compCf);
-            }
+
+            
+            
+        else if(){
 
             for(filme* n : Catalogo){
                 std::cout << "||" << (*n).getTitulo() <<"|| " << ">> " <<  (*n).getTitulo() << std::endl;
