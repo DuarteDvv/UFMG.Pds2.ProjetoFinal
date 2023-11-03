@@ -16,12 +16,11 @@ int main(){
     std::string NOMEr;
     int cod, quantidade;
     
+    std::cout << "Bem vindo ao sistema de locação" << std::endl << "Segue nossas opçoes de Serviços:" << std::endl;
 
     
 
     while(std::cin >> cmd){
-        std::cout << "Bem vindo ao sistema de locação" << std::endl << "Segue nossas opçoes de Serviços:" << std::endl;
-
 
         if (cmd == "FS") {
             //salvar log
@@ -107,7 +106,7 @@ int main(){
                     break;
                 }
 
-                std::cout << "Nome" << std::endl;
+                std::cout << "Titulo" << std::endl;
                 std::getline(std::cin,NOMEr);
 
                 std::cout << "categoria" << std::endl;
@@ -116,7 +115,7 @@ int main(){
                 DVD->setFilme(quantidade,cod,NOMEr,CPFr);
                 Catalogo.push_back(DVD);
 
-                std::cout << "Filme" << cod << "cadastrado com sucesso"<<std::endl;
+                std::cout << "Filme " << cod << " cadastrado com sucesso"<<std::endl;
                 delete DVD;
 
             }
@@ -134,13 +133,13 @@ int main(){
                     break;
                 }
 
-                std::cout << "Nome" << std::endl;
+                std::cout << "Titulo" << std::endl;
                 std::getline(std::cin,NOMEr);
 
                 FITA->setFilme(quantidade,cod,NOMEr);
                 Catalogo.push_back(FITA);
 
-                std::cout << "Filme" << cod << "cadastrado com sucesso"<<std::endl;
+                std::cout << "Filme " << cod << " cadastrado com sucesso"<<std::endl;
                 delete FITA;
             }
 
@@ -155,9 +154,8 @@ int main(){
             else if(CPFr == "C"){
                 Catalogo.sort(compCf);
             }
-
             for(filme* n : Catalogo){
-                std::cout << "||" << (*n).getTitulo() <<"|| " << ">> " <<  (*n).getTitulo() << std::endl;
+                std::cout << "||" << (n)->getCod() <<"|| " << ">> " <<  (n)->getTitulo() << std::endl;
             }
         }
           
@@ -172,7 +170,7 @@ int main(){
                 break;
             }
             std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
-            }
+        }
 
             
             
