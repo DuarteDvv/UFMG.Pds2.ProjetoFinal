@@ -19,5 +19,5 @@ int Usuario::getAcessos(){
 }
 
 void Usuario::AcessAdd(){
-    acessos++;
+    this->acessos++;
 }

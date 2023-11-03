@@ -9,9 +9,18 @@ class filme{
         std::string titulo;
         int quantidade;
     public:
-        void setFilm();
+        filme(){
+            codigo = 0;
+            titulo = {};
+            quantidade = 0;
+        }
 
-    
+        //Poderiamos criar 2 ou definir na propria classe derivada, entretanto para demonstrar uso de overload usaremos aqui;
+        void setFilme(int,int,std::string); 
+
+        int getCod();
+        std::string getTitulo();
+        int getQuantidade();
   
 };
 class fita : public filme{
@@ -29,7 +38,19 @@ class dvd : public filme{
         bool estoque;
         bool lancamento;
     public:
-        void isWhat();
+        dvd(){
+            promocao = false;
+            estoque = false;
+            lancamento = false;
+        }
+
+
+
+        void setFilme(int,int,std::string,std::string);
+        
+        bool isPromo();
+        bool isEstoque();
+        bool isLanca();
 };
 
 #endif

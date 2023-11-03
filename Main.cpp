@@ -8,13 +8,20 @@
 
 int main(){
     std::list<Usuario> Banco_de_usuarios;
+    std::list<filme> Catalogo;
     Usuario User;
-    std::string cmd;
+    std::string cmd, tipo;
     std::string CPFr;
     std::string NOMEr;
+    int cod, quantidade;
+    
+
     
 
     while(std::cin >> cmd){
+        std::cout << "Bem vindo ao sistema de locação" << std::endl << "Segue nossas opçoes de Serviços:" << std::endl;
+
+
         if (cmd == "FS") {
             //salvar log
             break;
@@ -65,7 +72,7 @@ int main(){
         else if(cmd == "LC"){
             std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
             std::cin >> CPFr;
-            
+
             if (CPFr == "N")
             {
                 Banco_de_usuarios.sort(compN);
@@ -75,8 +82,61 @@ int main(){
             }
 
             for(Usuario n : Banco_de_usuarios){
-                std::cout << n.getCPF() << " " <<  n.getNome() << std::endl;
+                std::cout << "||" << n.getCPF() <<"|| " << ">> " <<  n.getNome() << std::endl;
             }
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        else if(cmd == "CF"){
+            std::cout << "Fita [F] ou DVD [D] ?" << std::endl;
+            std::cin >> tipo;
+
+            if(tipo == "D"){
+                dvd* DVD = new(dvd);
+
+                std::cout << "Quantos ?" << std::endl;
+                std::cin >> quantidade;
+
+                std::cout << "Codigo" << std::endl;
+                std::cin >> cod;
+                std::cin.ignore();
+
+                std::cout << "Nome" << std::endl;
+                std::getline(std::cin,NOMEr);
+
+                std::cout << "categoria" << std::endl;
+                std::cin >> CPFr;
+
+                DVD->setFilme(quantidade,cod,NOMEr,CPFr);
+                
+                delete DVD;
+
+            }
+            else if(tipo == "F"){
+                fita* FITA = new fita;
+
+                std::cout << "Quantos ?" << std::endl;
+                std::cin >> quantidade;
+
+                std::cout << "Codigo" << std::endl;
+                std::cin >> cod;
+                std::cin.ignore();
+
+                std::cout << "Nome" << std::endl;
+                std::getline(std::cin,NOMEr);
+
+                FITA->setFilme(quantidade,cod,NOMEr);
+                delete FITA;
+            }
+
+          
+
+            
+
+            
+            
+            
         }
 
         

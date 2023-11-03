@@ -54,5 +54,6 @@ bool compN( Usuario &a, Usuario &b){
     return a.getNome() < b.getNome(); 
 }
 bool compC( Usuario& a,  Usuario& b){
-    return a.getCPF() < b.getCPF();
+    return std::stoll(a.getCPF())  < std::stoll(b.getCPF());
 }
+
