@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+
 class filme{
     private:
         int codigo;
@@ -15,7 +16,6 @@ class filme{
             quantidade = 0;
         }
 
-        //Poderiamos criar 2 ou definir na propria classe derivada, entretanto para demonstrar uso de overload usaremos aqui;
         void setFilme(int,int,std::string); 
 
         int getCod();

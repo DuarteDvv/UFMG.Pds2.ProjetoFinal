@@ -6,9 +6,10 @@
 
 
 
+
 int main(){
     std::list<Usuario> Banco_de_usuarios;
-    std::list<filme> Catalogo;
+    std::list<filme*> Catalogo;
     Usuario User;
     std::string cmd, tipo;
     std::string CPFr;
@@ -101,6 +102,10 @@ int main(){
                 std::cout << "Codigo" << std::endl;
                 std::cin >> cod;
                 std::cin.ignore();
+                if(existeFilme(Catalogo,cod)){
+                    std::cout << "ERRO: Codigo repetido" << std::endl;
+                    break;
+                }
 
                 std::cout << "Nome" << std::endl;
                 std::getline(std::cin,NOMEr);
@@ -109,6 +114,7 @@ int main(){
                 std::cin >> CPFr;
 
                 DVD->setFilme(quantidade,cod,NOMEr,CPFr);
+                Catalogo.push_back(DVD);
                 
                 delete DVD;
 
@@ -122,11 +128,16 @@ int main(){
                 std::cout << "Codigo" << std::endl;
                 std::cin >> cod;
                 std::cin.ignore();
+                if(existeFilme(Catalogo,cod)){
+                    std::cout << "ERRO: Codigo repetido" << std::endl;
+                    break;
+                }
 
                 std::cout << "Nome" << std::endl;
                 std::getline(std::cin,NOMEr);
 
                 FITA->setFilme(quantidade,cod,NOMEr);
+                Catalogo.push_back(FITA);
                 delete FITA;
             }
 

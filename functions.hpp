@@ -22,5 +22,11 @@ void removeUsuario(std::list<Usuario> &, const std::string &);
 bool compN( Usuario&, Usuario&);
 bool compC(Usuario&, Usuario&);
 
+//Verifica se existe esse filme na lista
+bool ExisteFilme(std::list<filme*>&,const int&);
+
+//Verifica se existe caracte
+bool verificaDados(std::string &);
+
 
 #endif

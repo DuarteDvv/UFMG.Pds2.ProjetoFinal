@@ -57,3 +57,24 @@ bool compC( Usuario& a,  Usuario& b){
     return std::stoll(a.getCPF())  < std::stoll(b.getCPF());
 }
 
+
+bool ExisteFilme(std::list<filme*> &catalogo,const int& codigo){
+    for (auto it = catalogo.begin(); it != catalogo.end() ;++it ) {
+        if (it->getCod() == codigo) {
+            return true; 
+        } 
+    }
+    return false;
+}
+
+//Verifica se existe caracte
+bool verificaDados(std::string &){
+
+}
+
+
+
+
+
+
+
