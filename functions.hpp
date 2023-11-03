@@ -31,9 +31,9 @@ bool verificaDadosFilme(std::string &);
 void removeFilme( std::list<filme*>&, const int&);
 
 //Comparação para titulo
-bool compT(filme&*,filme&*);
+bool compT(filme*&,filme*&);
 //Comparaçã para cod
-bool compCf(filme&*,filme&*);
+bool compCf(filme*&,filme*&);
 
 
 #endif
