@@ -61,7 +61,7 @@ bool compC( Usuario& a,  Usuario& b){
 
 bool ExisteFilme(std::list<filme*> &catalogo,const int& codigo){
     for (auto it = catalogo.begin(); it != catalogo.end() ;++it ) {
-        if (it->getCod() == codigo) {
+        if ((*it)->getCod() == codigo) {
             return true; 
         } 
     }
@@ -76,7 +76,7 @@ bool verificaDados(std::string &){
 // Função que remove um filme do catálogo
 void removeFilme( std::list<filme*> &catalogo, const int& codigo) {
     for (auto it = catalogo.begin(); it != catalogo.end();++it ) {
-        if (it->getCod() == codigo) {
+        if ((*it)->getCod() == codigo) {
             it = catalogo.erase(it); 
         } 
     }
