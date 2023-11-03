@@ -20,13 +20,11 @@ void removeUsuario(std::list<Usuario> &, const std::string &);
 
 // Funçoes que definem o parametro que ordena em ordem crescente caso cpf ou alfabetica caso nome;
 bool compN( Usuario&, Usuario&);
-bool compC(Usuario&, Usuario&);
+bool compC(Usuario&, Usuario&); 
 
 //Verifica se existe esse filme na lista
 bool ExisteFilme(std::list<filme*>&,const int&);
 
-//Verifica se existe caracte
-bool verificaDados(std::string &);
-
+bool verifica_titulo(std::string &);
 
 #endif

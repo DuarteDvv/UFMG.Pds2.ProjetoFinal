@@ -102,7 +102,7 @@ int main(){
                 std::cout << "Codigo" << std::endl;
                 std::cin >> cod;
                 std::cin.ignore();
-                if(existeFilme(Catalogo,cod)){
+                if(ExisteFilme(Catalogo,cod)){
                     std::cout << "ERRO: Codigo repetido" << std::endl;
                     break;
                 }
@@ -128,7 +128,7 @@ int main(){
                 std::cout << "Codigo" << std::endl;
                 std::cin >> cod;
                 std::cin.ignore();
-                if(existeFilme(Catalogo,cod)){
+                if(ExisteFilme(Catalogo,cod)){
                     std::cout << "ERRO: Codigo repetido" << std::endl;
                     break;
                 }
@@ -143,7 +143,6 @@ int main(){
 
           
 
-            
 
             
             
