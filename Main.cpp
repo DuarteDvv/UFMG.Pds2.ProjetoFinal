@@ -164,7 +164,7 @@ int main(){
         else if(cmd == "RF"){
             std::cout << "Digite o Código:" << std::endl;
             std::cin >> cod;
-            if(existeFilme(Catalogo,cod)){
+            if(ExisteFilme(Catalogo,cod)){
                 removeFilme(Catalogo,cod);
             }
             else{

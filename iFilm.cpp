@@ -29,6 +29,7 @@ void dvd::setFilme(int q,int cod,std::string nome,std::string cat){
 
  }
  void filme::setFilme(int q,int cod,std::string nome){
+    
     this->quantidade = q;
     this->codigo = cod;
     this->titulo = nome;

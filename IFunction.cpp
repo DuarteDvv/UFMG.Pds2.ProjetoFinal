@@ -83,12 +83,12 @@ void removeFilme(std::list<filme*> &catalogo, const int& codigo) {
 }
 
 // Define parametro de ordenação por titulo
-bool compT(filme& a*,filme& b*){
+bool compT(filme*& a,filme*& b){
     return a->getTitulo() < b->getTitulo();
 }
 
-bool compCf(filme& a*,filme& b*){
-    return a->getCod() < b->getCod();
+bool compCf(filme*& (a),filme*& (b)){
+    return (a)->getCod() < (b)->getCod();
 
 }
 
