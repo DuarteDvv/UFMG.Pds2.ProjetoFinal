@@ -146,15 +146,33 @@ int main(){
 
             
             
-        else if(){
+        else if(cmd == "LF"){
+            std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
+            std::cin >> CPFr;
+            if(CPFr == "T"){
+                Catalogo.sort(compT);
+            }
+            else if(CPFr == "C"){
+                Catalogo.sort(compCf);
+            }
 
             for(filme* n : Catalogo){
                 std::cout << "||" << (*n).getTitulo() <<"|| " << ">> " <<  (*n).getTitulo() << std::endl;
             }
         }
-
           
-
+        else if(cmd == "RF"){
+            std::cout << "Digite o Código:" << std::endl;
+            std::cin >> cod;
+            if(existeFilme(Catalogo,cod)){
+                removeFilme(Catalogo,cod);
+            }
+            else{
+                std::cout << "ERRO: Código inexistente" << std::endl;
+                break;
+            }
+            std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
+            }
 
             
             
