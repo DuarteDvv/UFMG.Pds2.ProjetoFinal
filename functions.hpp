@@ -6,7 +6,7 @@
 #include <cctype>  
 #include <string>
 #include <algorithm>
-
+#include "Film.hpp"
 //Essa função verifica se o nome do usuário é escrito com letras comuns, se sim, retorna true, se tiver número ou caractere especial, retorna false
 bool verifica_nome(std::string &);
 
