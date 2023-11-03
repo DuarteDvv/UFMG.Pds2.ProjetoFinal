@@ -27,4 +27,7 @@ bool ExisteFilme(std::list<filme*>&,const int&);
 
 bool verifica_titulo(std::string &);
 
+//Remove um filme do catálogo
+void removeFilme( std::list<filme*>&, const int&);
+
 #endif

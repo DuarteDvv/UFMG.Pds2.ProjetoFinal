@@ -39,6 +39,7 @@ bool verifica_cpf(std::string &cpf){
     
     return true;
 }
+
 // Função que remove um usuario da lista
 void removeUsuario( std::list<Usuario> &Banco_de_usuarios, const std::string &cpf) {
     for (auto it = Banco_de_usuarios.begin(); it != Banco_de_usuarios.end();++it ) {
@@ -70,6 +71,15 @@ bool ExisteFilme(std::list<filme*> &catalogo,const int& codigo){
 //Verifica se existe caracte
 bool verificaDados(std::string &){
 
+}
+
+// Função que remove um filme do catálogo
+void removeFilme( std::list<filme*> &catalogo, const int& codigo) {
+    for (auto it = catalogo.begin(); it != catalogo.end();++it ) {
+        if (it->getCod() == codigo) {
+            it = catalogo.erase(it); 
+        } 
+    }
 }
 
 
