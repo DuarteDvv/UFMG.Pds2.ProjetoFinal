@@ -69,17 +69,27 @@ bool ExisteFilme(std::list<filme*> &catalogo,const int& codigo){
 }
 
 //Verifica se existe caracte
-bool verificaDados(std::string &){
+bool verificaDadosFilme(std::string &){
 
 }
 
 // Função que remove um filme do catálogo
-void removeFilme( std::list<filme*> &catalogo, const int& codigo) {
+void removeFilme(std::list<filme*> &catalogo, const int& codigo) {
     for (auto it = catalogo.begin(); it != catalogo.end();++it ) {
         if ((*it)->getCod() == codigo) {
             it = catalogo.erase(it); 
         } 
     }
+}
+
+// Define parametro de ordenação por titulo
+bool compT(filme& a*,filme& b*){
+    return a->getTitulo() < b->getTitulo();
+}
+
+bool compCf(filme& a*,filme& b*){
+    return a->getCod() < b->getCod();
+
 }
 
 

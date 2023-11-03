@@ -144,8 +144,19 @@ int main(){
                 delete FITA;
             }
         
-        else if(){
+        else if(cmd == "LF"){
+            std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
+            std::cin >> CPFr;
+            if(CPFr == "T"){
+                Catalogo.sort(compT);
+            }
+            else if(CPFr == "C"){
+                Catalogo.sort(compCf);
+            }
 
+            for(filme* n : Catalogo){
+                std::cout << "||" << (*n).getTitulo() <<"|| " << ">> " <<  (*n).getTitulo() << std::endl;
+            }
         }
 
           

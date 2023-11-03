@@ -25,9 +25,15 @@ bool compC(Usuario&, Usuario&);
 //Verifica se existe esse filme na lista
 bool ExisteFilme(std::list<filme*>&,const int&);
 
-bool verifica_titulo(std::string &);
+bool verificaDadosFilme(std::string &);
 
 //Remove um filme do catálogo
 void removeFilme( std::list<filme*>&, const int&);
+
+//Comparação para titulo
+bool compT(filme&*,filme&*);
+//Comparaçã para cod
+bool compCf(filme&*,filme&*);
+
 
 #endif
