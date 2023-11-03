@@ -1,17 +1,17 @@
 #include "Usuario.hpp"
 
-void Usuario::setUsuario(std::string &nome, std::string &cpf) {
+void Usuario::setUsuario(std::string nome, std::string cpf) {
     this->nome = nome;
     this->cpf = cpf;
 }
 
-std::string Usuario::getCPF(void)
+std::string Usuario::getCPF()
 {
-    return cpf;
+    return this->cpf;
 }
 
-std::string Usuario::getNome(void){
-    return nome;
+std::string Usuario::getNome(){
+    return this->nome;
 }
 
 int Usuario::getAcessos(){

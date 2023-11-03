@@ -11,15 +11,16 @@
 bool verifica_nome(std::string &);
 
 //Função para verificar se um usuário já está registrado na lista de usuários
-bool existeUsuario( std::list<Usuario>&,std::string&);
+bool existeUsuario( std::list<Usuario>&,const std::string&);
 
  //Função que vai verificar se o cpf é válido 
 bool verifica_cpf(std::string &);
 // Função que remove um usuario da lista
-// void removeUsuario(std::list<Usuario> &Banco_de_usuarios, std::string &cpf);
+void removeUsuario(std::list<Usuario> &, const std::string &);
 
-// Função que ordena em ordem crescente caso cpf ou alfabetica caso nome;
-// void ordenar(std::list<Usuario> &Banco, std::string &tipo);
+// Funçoes que definem o parametro que ordena em ordem crescente caso cpf ou alfabetica caso nome;
+bool compN( Usuario&, Usuario&);
+bool compC(Usuario&, Usuario&);
 
 
 #endif
