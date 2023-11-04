@@ -35,5 +35,7 @@ bool compT(filme*&,filme*&);
 //Comparaçã para cod
 bool compCf(filme*&,filme*&);
 
+//Função que verifica se o título está escrito com caracteres alfanuméricos, se sim, retorna verdadeiro
+bool verifica_titulo(std::string &);
 
 #endif
