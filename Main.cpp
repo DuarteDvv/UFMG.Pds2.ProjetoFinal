@@ -142,7 +142,7 @@ int main(){
                 std::cout << "Filme " << cod << " cadastrado com sucesso"<<std::endl;
                 delete FITA;
             }
-
+        }
             
             
         else if(cmd == "LF"){
@@ -171,13 +171,10 @@ int main(){
             }
             std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
         }
-
-            
-            
-            
-        }
-
         
     }
-  
 }
+        
+
+   
+
