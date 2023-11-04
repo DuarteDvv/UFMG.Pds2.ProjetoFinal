@@ -52,8 +52,16 @@ void removeUsuario( std::list<Usuario> &Banco_de_usuarios, const std::string &cp
 // Funçoes que definem o parametro para ordenar em ordem crescente caso cpf ou alfabetica caso nome;
 // Poderia ter utilizado funções lambdas -> [](const std::string& a, const std::string& b) {return a < b;}
 bool compN( Usuario &a, Usuario &b){
-    return a.getNome() < b.getNome(); 
+    std::string nomeA = a.getNome();
+    std::string nomeB = b.getNome();
+
+    // Converte os títulos para minúsculas antes de comparar
+    std::transform(nomeA.begin(), nomeA.end(), nomeA.begin(), ::tolower);
+    std::transform(nomeB.begin(), nomeB.end(), nomeB.begin(), ::tolower);
+
+    return nomeA < nomeB;
 }
+
 bool compC( Usuario& a,  Usuario& b){
     return std::stoll(a.getCPF())  < std::stoll(b.getCPF());
 }
@@ -84,7 +92,14 @@ void removeFilme(std::list<filme*> &catalogo, const int& codigo) {
 
 // Define parametro de ordenação por titulo
 bool compT(filme*& a,filme*& b){
-    return a->getTitulo() < b->getTitulo();
+    std::string tituloA = a->getTitulo();
+    std::string tituloB = b->getTitulo();
+
+    // Converte os títulos para minúsculas antes de comparar
+    std::transform(tituloA.begin(), tituloA.end(), tituloA.begin(), ::tolower);
+    std::transform(tituloB.begin(), tituloB.end(), tituloB.begin(), ::tolower);
+
+    return tituloA < tituloB;
 }
 
 bool compCf(filme*& (a),filme*& (b)){

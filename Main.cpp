@@ -116,7 +116,6 @@ int main(){
                 Catalogo.push_back(DVD);
 
                 std::cout << "Filme " << cod << " cadastrado com sucesso"<<std::endl;
-                delete DVD;
 
             }
             else if(tipo == "F"){
@@ -138,9 +137,7 @@ int main(){
 
                 FITA->setFilme(quantidade,cod,NOMEr);
                 Catalogo.push_back(FITA);
-
                 std::cout << "Filme " << cod << " cadastrado com sucesso"<<std::endl;
-                delete FITA;
             }
         }
             
