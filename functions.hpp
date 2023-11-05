@@ -42,6 +42,8 @@ bool verifica_titulo(std::string &);
 // OBS: só retorna true ou false
 bool verifica_categoria(std::string &);
 
+/*Função que vai retornar estoque, lancamento ou promocao (forma que tá escrita na classe filme)
+ mesmo que o usuario escreva errado */
 std::string retorna_categoria(std::string &);
 
 #endif
