@@ -155,4 +155,28 @@ bool verifica_categoria(std::string &cat)
         resultado = true;
     }
     return resultado;
+} 
+
+
+std::string retorna_categoria(std::string &cat){
+    std::string resultado; 
+
+    /*mesmo processo do veririca_categoria
+    passa para o minúsculo, vê qual categoria que se aplica e retorna uma string com essa categoria 
+    na formatação certa para o programa conseguir atribuir a categoria na classe DVD
+    */
+
+    std::transform(cat.begin(), cat.end(), cat.begin(), ::tolower);
+    if (cat == "lancamentos" || cat == "lancamento" || cat == "lançamento" || cat == "lançamentos" || cat == "l")
+    {
+        resultado = "lancamento";
+    }
+    else if (cat == "estoque" || cat == "estoques" || cat == "e")
+    {
+        resultado = "estoque";
+    } 
+    else if(cat =="promocao" || cat=="promocoes" || cat =="promoção" || cat == "promoções" || cat =="promoçao" || cat == "promo" || cat =="promoçoes"|| cat == "p" || cat =="promocão" || cat == "promocões"){
+        resultado = "promocao";
+    }
+    return resultado;
 }

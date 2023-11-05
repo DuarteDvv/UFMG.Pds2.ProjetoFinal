@@ -42,6 +42,6 @@ bool verifica_titulo(std::string &);
 // OBS: só retorna true ou false
 bool verifica_categoria(std::string &);
 
-// std::string retorna_categoria(std::string &);
+std::string retorna_categoria(std::string &);
 
 #endif
