@@ -137,3 +137,22 @@ bool verifica_titulo(std::string &titulo)
     }
     return resultado;
 }
+
+bool verifica_categoria(std::string &cat)
+{
+    // Passar tudo para o minúsculo antes de começar
+    std::transform(cat.begin(), cat.end(), cat.begin(), ::tolower);
+    bool resultado = false;
+    if (cat == "lancamentos" || cat == "lancamento" || cat == "lançamento" || cat == "lançamentos" || cat == "l")
+    {
+        resultado = true;
+    }
+    else if (cat == "estoque" || cat == "estoques" || cat == "e")
+    {
+        resultado = true;
+    } 
+    else if(cat =="promocao" || cat=="promocoes" || cat =="promoção" || cat == "promoções" || cat =="promoçao" || cat == "promo" || cat =="promoçoes"|| cat == "p" || cat =="promocão" || cat == "promocões"){
+        resultado = true;
+    }
+    return resultado;
+}
