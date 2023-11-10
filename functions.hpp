@@ -46,4 +46,9 @@ bool verifica_categoria(std::string &);
  mesmo que o usuario escreva errado */
 std::string retorna_categoria(std::string &);
 
+//Uma busca no banco de usuarios pelo CPF disponibilizado
+std::string returnNameByCPF(std::list<Usuario> &, const std::string&);
+
+//Uma busca no banco de filmes pelo codigo;
+std::string returnTituloByCode(std::list<filme *> &, const int &));
 #endif

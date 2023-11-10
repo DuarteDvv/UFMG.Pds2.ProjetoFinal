@@ -6,6 +6,7 @@ int main()
 {
     std::list<Usuario> Banco_de_usuarios;
     std::list<filme *> Catalogo;
+    std::list<filme *> Carrinho;
     Usuario User;
     std::string cmd, tipo;
     std::string CPFr;
@@ -196,6 +197,23 @@ int main()
                 break;
             }
             std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
+        }
+
+        else if(cmd == "AL"){
+            std::cin >> CPFr;
+            if(existeUsuario(CPFr)){
+                while(std::cin >> cod){
+                    if(!ExisteFilme(Catalogo,cod)){
+                        std::cout << "ERRO: Filme " << cod << " inexistente" << std::endl;
+                    }
+                    
+
+                }
+
+            }
+            else{
+                std::cout << "ERRO: CPF inexistente" << std::endl;
+            }
         }
     }
 }
