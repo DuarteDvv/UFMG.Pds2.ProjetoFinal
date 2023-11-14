@@ -12,29 +12,6 @@ bool fita::isRebobinado(){
         return false;
     }
 }
-
-void dvd::setFilme(int q,int cod,std::string nome,std::string cat){
-
-    filme::setFilme(q,cod,nome);
-
-    if(cat == "Estoque"){
-        this->estoque = true;
-    }
-    else if(cat == "Promocao"){
-        this->promocao = true;
-    }
-    else if(cat == "lancamento"){
-        this->lancamento = true;
-    }
-
- }
- void filme::setFilme(int q,int cod,std::string nome){
-    
-    this->quantidade = q;
-    this->codigo = cod;
-    this->titulo = nome;
- }
-
  int filme::getCod(){
     return this->codigo;
  }

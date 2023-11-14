@@ -1,16 +1,15 @@
 #include "Usuario.hpp"
 #include "Film.hpp"
 #include "functions.hpp"
+#include "system.hpp"
 
 int main()
-{
-    std::list<Usuario> Banco_de_usuarios;
-    std::list<filme *> Catalogo;
-    std::list<filme *> Carrinho;
-    Usuario User;
+{   
+
+    Sistema sistema;
+    
     std::string cmd, tipo;
-    std::string CPFr;
-    std::string NOMEr;
+    std::string NOMEr,CPFr;
     int cod, quantidade;
 
     std::cout << "Bem vindo ao sistema de locação" << std::endl
@@ -31,28 +30,19 @@ int main()
             std::cin >> CPFr;
             std::cin.ignore();
 
-            if (!verifica_cpf(CPFr))
-            {
-                std::cout << "ERRO: dados incorretos" << std::endl;
-                break;
-            }
-            else if (existeUsuario(Banco_de_usuarios, CPFr))
-            {
-                std::cout << "ERRO: CPF repetido" << std::endl;
+            if(!sistema.VerificarCpf(CPFr)){
                 break;
             }
 
             std::cout << "Digite o NOME " << std::endl;
             std::getline(std::cin, NOMEr);
 
-            if (!verifica_nome(NOMEr))
-            {
-                std::cout << "ERRO: dados incorretos" << std::endl;
+            if(!sistema.VerificarNome(NOMEr)){
                 break;
-            }
+            }    
 
-            User.setUsuario(NOMEr, CPFr);
-            Banco_de_usuarios.push_back(User);
+            Usuario* user = new Usuario(NOMEr, CPFr);
+            sistema.CadastrarCliente(user);
 
             std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
         }
@@ -61,15 +51,13 @@ int main()
         {
             std::cout << "Digite o CPF:" << std::endl;
             std::cin >> CPFr;
-            if (existeUsuario(Banco_de_usuarios, CPFr))
-            {
-                removeUsuario(Banco_de_usuarios, CPFr);
-            }
-            else
-            {
+
+            if(!sistema.ExisteUsuario(CPFr)){
                 std::cout << "ERRO: CPF inexistente" << std::endl;
                 break;
             }
+            
+            sistema.RemoverCliente(CPFr);
             std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
         }
 
@@ -78,121 +66,79 @@ int main()
             std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
             std::cin >> CPFr;
 
-            if (CPFr == "N")
-            {
-                Banco_de_usuarios.sort(compN);
-            }
-            else if (CPFr == "C")
-            {
-                Banco_de_usuarios.sort(compC);
-            }
-
-            for (Usuario n : Banco_de_usuarios)
-            {
-                std::cout << "||" << n.getCPF() << "|| "
-                          << ">> " << n.getNome() << std::endl;
-            }
+            sistema.ListarCliente(CPFr);
         }
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         else if (cmd == "CF")
         {
             std::cout << "Fita [F] ou DVD [D] ?" << std::endl;
             std::cin >> tipo;
-            if (tipo == "D")
-            {
-                dvd *DVD = new (dvd);
-                std::cout << "Quantos ?" << std::endl;
+
+            std::cout << "Quantos ?" << std::endl;
                 std::cin >> quantidade;
-                std::cout << "Codigo" << std::endl;
-                std::cin >> cod;     
-                if(cod<0 || cod>10000){
-                    std::cout << "O código deve estar entre 0 e 10 mil" << std::endl;
-                    break;
-                }
-                std::cin.ignore();
-                if (ExisteFilme(Catalogo, cod))
-                {
-                    std::cout << "ERRO: Código repetido" << std::endl;
-                    break;
-                }
-                std::cout << "Titulo" << std::endl;
-                std::getline(std::cin, NOMEr);
-                if (verifica_titulo(NOMEr) == false)
-                {
-                    std::cout << "Titulo inválido" << std::endl;
-                    break;
-                }
-                std::cout << "categoria" << std::endl;
+
+            std::cout << "Codigo" << std::endl;
+            std::cin >> cod;
+            if(cod < 0 || cod > 10000){
+                std::cout << "O código deve estar entre 0 e 10 mil" << std::endl;
+                break;
+            }
+
+            std::cin.ignore();
+
+            if (sistema.ExisteFilme(cod))
+            {
+                std::cout << "ERRO: Código repetido" << std::endl;
+                break;
+            }
+
+            std::cout << "Titulo ?" << std::endl;
+            std::getline(std::cin, NOMEr);
+            if (!verifica_titulo(NOMEr))
+            {
+                std::cout << "Titulo inválido" << std::endl;
+                break;
+            }
+
+
+            if(tipo == "D"){
+                std::cout << "categoria ?" << std::endl;
                 std::cin >> CPFr;
-                if (verifica_categoria(CPFr) == true)
+                if (verifica_categoria(CPFr))
                 {
                     CPFr = retorna_categoria(CPFr);
-                    DVD->setFilme(quantidade, cod, NOMEr, CPFr);
-                    Catalogo.push_back(DVD);
+                    dvd* d = new dvd(cod,NOMEr,quantidade,CPFr); 
+                    sistema.CadastrarFilme(d);
                 }
                 else
                 {
                     std::cout << "Categoria invalida" << std::endl;
                     break;
                 }
-                std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
             }
-            else if (tipo == "F")
-            {
-                fita *FITA = new fita;
 
-                std::cout << "Quantos ?" << std::endl;
-                std::cin >> quantidade;
-
-                std::cout << "Codigo" << std::endl;
-                std::cin >> cod;
-                std::cin.ignore();
-                if (ExisteFilme(Catalogo, cod))
-                {
-                    std::cout << "ERRO: Codigo repetido" << std::endl;
-                    break;
-                }
-
-                std::cout << "Titulo" << std::endl;
-                std::getline(std::cin, NOMEr);
-
-                FITA->setFilme(quantidade, cod, NOMEr);
-                Catalogo.push_back(FITA);
-                std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
+            else if(tipo == "F"){
+                fita* fit = new fita(cod,NOMEr,quantidade);
+                sistema.CadastrarFilme(fit);
             }
+
+            std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
         }
+  
 
-        else if (cmd == "LF")
+        else if(cmd == "LF")
         {
             std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
             std::cin >> CPFr;
-            if (CPFr == "T")
-            {
-                Catalogo.sort(compT);
-            }
-            else if (CPFr == "C")
-            {
-                Catalogo.sort(compCf);
-            }
-            for (filme *n : Catalogo)
-            {
-                std::cout << "||" << (n)->getCod() << "|| "
-                          << ">> " << (n)->getTitulo() << std::endl;
-            }
+            
+            sistema.ListarFilmes(CPFr);
         }
 
         else if (cmd == "RF")
         {
             std::cout << "Digite o Código:" << std::endl;
             std::cin >> cod;
-            if (ExisteFilme(Catalogo, cod))
-            {
-                removeFilme(Catalogo, cod);
-            }
-            else
-            {
+            if(!sistema.ExisteFilme(cod)){
                 std::cout << "ERRO: Código inexistente" << std::endl;
                 break;
             }
@@ -201,10 +147,14 @@ int main()
 
         else if(cmd == "AL"){
             std::cin >> CPFr;
-            if(existeUsuario(CPFr)){
+            if(sistema.ExisteUsuario(CPFr)){
                 while(std::cin >> cod){
-                    if(!ExisteFilme(Catalogo,cod)){
+                    if(!sistema.ExisteFilme(cod)){
                         std::cout << "ERRO: Filme " << cod << " inexistente" << std::endl;
+                        break;
+                    }
+                    if(cod == -1){
+                        break;
                     }
                     
 

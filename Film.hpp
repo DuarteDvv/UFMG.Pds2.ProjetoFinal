@@ -9,17 +9,11 @@ class filme{
         std::string titulo;
         int quantidade;
     public:
-        filme(){
-            codigo = 0;
-            titulo = {};
-            quantidade = 0;
-        }
+        filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
 
-        void setFilme(int,int,std::string); 
-
-        int getCod();
-        std::string getTitulo();
-        int getQuantidade();
+        virtual int getCod() = 0;
+        virtual std::string getTitulo() = 0;
+        virtual int getQuantidade() = 0;
   
 };
 class fita : public filme{
@@ -27,25 +21,35 @@ class fita : public filme{
         bool rebobinado;
 
     public:
+        fita(int cod, std::string tit, int quant) : filme(cod,tit,quant){}
+
+        int getCod() override;
+        std::string getTitulo() override;
+        int getQuantidade() override;
         
         bool isRebobinado();
 };
 
 class dvd : public filme{
     private:
-        bool promocao;
-        bool estoque;
-        bool lancamento;
+        bool promocao = false;
+        bool estoque = false;
+        bool lancamento = false;
     public:
-        dvd(){
-            promocao = false;
-            estoque = false;
-            lancamento = false;
+        dvd(int cod, std::string tit, int quant, std::string tipo) : filme(cod,tit,quant){
+            if(tipo == "promocao")
+                promocao = true;
+            else if(tipo == "estoque")
+                estoque = true;
+            else if(tipo == "lancamento")
+                lancamento = true;
         }
 
+        int getCod() override;
+        std::string getTitulo() override;
+        int getQuantidade() override;
 
 
-        void setFilme(int,int,std::string,std::string);
         
         bool isPromo();
         bool isEstoque();

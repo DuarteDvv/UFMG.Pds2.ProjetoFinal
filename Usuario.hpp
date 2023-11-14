@@ -12,14 +12,10 @@ class Usuario{
         int acessos;
     
      public:
-        Usuario(){
-            this->nome = {};
-            this->cpf = {};
+        Usuario(std::string nome, std::string cpf) : nome(nome), cpf(cpf) {
             this->acessos = 1;
         } 
         
-        
-        void setUsuario(std::string, std::string);
         std::string getCPF();
         std::string getNome(); 
         int getAcessos();
