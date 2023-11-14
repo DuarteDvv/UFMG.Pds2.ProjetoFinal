@@ -2,12 +2,6 @@
 #include <iostream>
 #include <string>
 
-// Função para verificar se um usuário já está registrado na lista de usuários
-
-// Função que vai verificar se o cpf é válido
-
-
-// Função que remove um usuario da lista
 
 // Funçoes que definem o parametro para ordenar em ordem crescente caso cpf ou alfabetica caso nome;
 // Poderia ter utilizado funções lambdas -> [](const std::string& a, const std::string& b) {return a < b;}
