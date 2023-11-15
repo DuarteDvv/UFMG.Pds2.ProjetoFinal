@@ -11,7 +11,8 @@ class filme{
     public:
         filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
 
-        void MenosUm();
+        void MaisUm(); //adiciona uma unidade do filme
+        void MenosUm(); //reduz uma unidade do filme
         int getCod();
         std::string getTitulo();
         int getQuantidade();

@@ -30,6 +30,7 @@ void Usuario::ListarCarrinho(){
 void Usuario::recibo(int &dias){
     float total = 0;
     for (auto it = this->Carrinho.begin(); it != this->Carrinho.end(); ++it){
+        (*it)->MaisUm();
         std::cout << (*it)->getCod() << " ";
         if((*it)->getTipo() == "DVD"){
 

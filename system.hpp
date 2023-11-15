@@ -6,6 +6,7 @@
 #include "Usuario.hpp"
 #include "Film.hpp"
 #include "functions.hpp"
+#include <fstream>
 
 class Sistema{
     private:
@@ -30,6 +31,7 @@ class Sistema{
         void AdicionarCarrinho(int &, std::string&);
         void ListarCompras(std::string &);
         void Recibo(std::string &, int &);
+        void CadastrarFilmesDoArquivo(std::ifstream &);
 
         
 

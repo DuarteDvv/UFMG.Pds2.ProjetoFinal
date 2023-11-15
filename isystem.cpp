@@ -164,11 +164,41 @@ void Sistema::Recibo(std::string &cpf, int& dias ){
     for (auto it = this->Usuarios.begin(); it != this->Usuarios.end(); ++it)
     {
         if ((*it)->getCPF() == cpf)
-        {   
+        {     
             std::cout << "Cliente " << (*it)->getCPF() << " " << (*it)->getNome() << " alugou os filmes:" << std::endl;
            (*it)->recibo(dias);
         }    
     }
 
+}
+
+void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
+
+    std::string tipo, titulo, categoria, tituloComCategoria;
+    int quantidade, codigo;
+    int N = 0;
+
+    while (file >> tipo >> quantidade >> codigo) {
+        N++;
+
+        file.ignore();  
+
+        if (tipo == "D") {
+            getline(file,tituloComCategoria);
+            int posicao = tituloComCategoria.find_last_of(' ');
+            titulo = tituloComCategoria.substr(0,posicao);
+            categoria = tituloComCategoria.substr(posicao + 1);
+
+            filme* d = new dvd(codigo,titulo,quantidade,categoria); 
+            Catalogo.push_back(d);
+        } else {
+            getline(file, titulo);
+            filme* fit = new fita(codigo,titulo,quantidade);
+            Catalogo.push_back(fit);
+        }
+    }
+
+    file.close();
+    std::cout << N << "Filmes cadastrados com sucessso" << std::endl;
 }
  

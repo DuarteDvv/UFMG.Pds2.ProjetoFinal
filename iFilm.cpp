@@ -14,8 +14,11 @@ bool fita::isRebobinado(){
     }
 }
 
+void filme::MaisUm(){
+   this->quantidade++;
+}
 void filme::MenosUm(){
-   this->quantidade -= 1;
+   this->quantidade--;
 }
  int filme::getCod(){
     return this->codigo;

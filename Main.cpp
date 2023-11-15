@@ -3,13 +3,14 @@
 #include "functions.hpp"
 #include "system.hpp"
 
+
 int main()
 {   
 
     Sistema sistema;
 
     
-    std::string cmd, tipo;
+    std::string cmd, tipo, NomeDoArquivo;
     std::string NOMEr,CPFr;
     int cod, quantidade;
 
@@ -23,6 +24,18 @@ int main()
         {
             // salvar log
             break;
+        }
+
+
+        else if(cmd == "AL"){
+            std::cin >> NomeDoArquivo;
+            std::ifstream Arquivo(NomeDoArquivo);
+
+            if (!Arquivo.is_open()) {
+                std::cout << "Erro ao abrir o arquivo." << std::endl;
+                return 1;
+            }
+            sistema.CadastrarFilmesDoArquivo(Arquivo);
         }
 
         
@@ -66,6 +79,8 @@ int main()
             std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
         }
 
+
+
         else if (cmd == "LC")
         {
             std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
@@ -84,6 +99,9 @@ int main()
 
             std::cout << "Quantos ?" << std::endl;
                 std::cin >> quantidade;
+            if(quantidade < 0){
+                std::cout << "ERRO: dados incorretos" << std::endl;
+            }
 
             std::cout << "Codigo" << std::endl;
             std::cin >> cod;
@@ -198,5 +216,7 @@ int main()
                 std::cout << "ERRO: CPF inexistente" << std::endl;
             }
         }
+
+        //
     }
 }
