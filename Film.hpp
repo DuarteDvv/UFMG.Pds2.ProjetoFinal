@@ -11,9 +11,11 @@ class filme{
     public:
         filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
 
-        virtual int getCod() = 0;
-        virtual std::string getTitulo() = 0;
-        virtual int getQuantidade() = 0;
+        void MenosUm();
+        int getCod();
+        std::string getTitulo();
+        int getQuantidade();
+        virtual std::string getTipo() = 0;
   
 };
 class fita : public filme{
@@ -23,9 +25,10 @@ class fita : public filme{
     public:
         fita(int cod, std::string tit, int quant) : filme(cod,tit,quant){}
 
-        int getCod() override;
-        std::string getTitulo() override;
-        int getQuantidade() override;
+        std::string getTipo() override{
+            return "FITA";
+        }
+
         
         bool isRebobinado();
 };
@@ -45,10 +48,9 @@ class dvd : public filme{
                 lancamento = true;
         }
 
-        int getCod() override;
-        std::string getTitulo() override;
-        int getQuantidade() override;
-
+        std::string getTipo() override{
+            return "DVD";
+        }
 
         
         bool isPromo();

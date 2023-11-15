@@ -14,6 +14,7 @@ class Sistema{
 
 
     public:
+        //User Methods
         bool VerificarCpf(std::string &);
         bool VerificarNome(std::string &);
         bool ExisteUsuario(std::string &);
@@ -21,13 +22,14 @@ class Sistema{
         void RemoverCliente(std::string &);
         void ListarCliente(std::string &);
 
-
-        void CadastrarFilme(dvd* &);
-        void CadastrarFilme(fita* &);
+        //Film Methods
+        void CadastrarFilme(filme* &);
         bool ExisteFilme(int &);
         void ListarFilmes(std::string &);
         void RemoverFilme(int &);
-
+        void AdicionarCarrinho(int &, std::string&);
+        void ListarCompras(std::string &);
+        void Recibo(std::string &, int &);
 
         
 

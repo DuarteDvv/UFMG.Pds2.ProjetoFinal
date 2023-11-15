@@ -1,5 +1,6 @@
 #include "Film.hpp"
 #include <ctime>
+#include <list>
 
 bool fita::isRebobinado(){
     std::srand(static_cast<unsigned>(std::time(0))); //Torna mais aleatorio
@@ -11,6 +12,10 @@ bool fita::isRebobinado(){
     else{
         return false;
     }
+}
+
+void filme::MenosUm(){
+   this->quantidade -= 1;
 }
  int filme::getCod(){
     return this->codigo;

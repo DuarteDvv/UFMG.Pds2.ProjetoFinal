@@ -7,6 +7,7 @@ int main()
 {   
 
     Sistema sistema;
+
     
     std::string cmd, tipo;
     std::string NOMEr,CPFr;
@@ -23,6 +24,8 @@ int main()
             // salvar log
             break;
         }
+
+        
 
         else if (cmd == "CC")
         {
@@ -47,6 +50,8 @@ int main()
             std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
         }
 
+
+
         else if (cmd == "RC")
         {
             std::cout << "Digite o CPF:" << std::endl;
@@ -68,6 +73,9 @@ int main()
 
             sistema.ListarCliente(CPFr);
         }
+
+
+
 
         else if (cmd == "CF")
         {
@@ -101,13 +109,15 @@ int main()
             }
 
 
+
+
             if(tipo == "D"){
                 std::cout << "categoria ?" << std::endl;
                 std::cin >> CPFr;
                 if (verifica_categoria(CPFr))
                 {
                     CPFr = retorna_categoria(CPFr);
-                    dvd* d = new dvd(cod,NOMEr,quantidade,CPFr); 
+                    filme* d = new dvd(cod,NOMEr,quantidade,CPFr); 
                     sistema.CadastrarFilme(d);
                 }
                 else
@@ -118,12 +128,14 @@ int main()
             }
 
             else if(tipo == "F"){
-                fita* fit = new fita(cod,NOMEr,quantidade);
+                filme* fit = new fita(cod,NOMEr,quantidade);
                 sistema.CadastrarFilme(fit);
             }
 
             std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
         }
+
+    
   
 
         else if(cmd == "LF")
@@ -133,6 +145,8 @@ int main()
             
             sistema.ListarFilmes(CPFr);
         }
+
+
 
         else if (cmd == "RF")
         {
@@ -145,9 +159,13 @@ int main()
             std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
         }
 
+
+
         else if(cmd == "AL"){
+            std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
             if(sistema.ExisteUsuario(CPFr)){
+                std::cout << "Digite o codigo dos filmes que deseja:" << std::endl;
                 while(std::cin >> cod){
                     if(!sistema.ExisteFilme(cod)){
                         std::cout << "ERRO: Filme " << cod << " inexistente" << std::endl;
@@ -156,10 +174,25 @@ int main()
                     if(cod == -1){
                         break;
                     }
-                    
-
+                    sistema.AdicionarCarrinho(cod,CPFr);
                 }
+                sistema.ListarCompras(CPFr);
+            }
+            else{
+                std::cout << "ERRO: CPF inexistente" << std::endl;
+            }
+        }
 
+
+
+        else if(cmd == "DV"){
+            std::cout << "Digite o CPF" << std::endl;
+            std::cin >> CPFr;
+
+            std::cout << "Quantidade de dias" << std::endl;
+            std::cin >> cod;
+            if(sistema.ExisteUsuario(CPFr)){
+                sistema.Recibo(CPFr, cod);
             }
             else{
                 std::cout << "ERRO: CPF inexistente" << std::endl;

@@ -84,11 +84,8 @@ bool Sistema::ExisteUsuario(std::string &cpf){
     return false;
 }
 
-void Sistema::CadastrarFilme(dvd* &film){
-    this->Catalogo.push_back(film);
-}
-void Sistema::CadastrarFilme(fita* &film){
-    this->Catalogo.push_back(film);
+void Sistema::CadastrarFilme(filme* &a){
+    this->Catalogo.push_back(a);
 }
 
  
@@ -129,3 +126,49 @@ void Sistema::ListarFilmes(std::string &cat){
     }
 
  }
+
+ void Sistema::AdicionarCarrinho(int &cod, std::string &cpf){
+    for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it)
+    {
+        if ((*it)->getCod() == cod)
+        {
+            if((*it)->getQuantidade() != 0){
+                (*it)->MenosUm();
+                for (auto U = this->Usuarios.begin(); U != this->Usuarios.end(); ++U){
+                    if((*U)->getCPF() == cpf){
+                        (*U)->addCarrinho(*it);
+                    }
+
+                }
+            }
+            else{
+                std::cout << "ERRO: Filme esgotado" << std::endl;
+            }
+                       
+        }
+    }
+ }
+
+ void Sistema::ListarCompras(std::string &cpf){
+    for (auto it = this->Usuarios.begin(); it != this->Usuarios.end(); ++it)
+    {
+        if ((*it)->getCPF() == cpf)
+        {   
+            std::cout << "Cliente " << (*it)->getCPF() << " " << (*it)->getNome() << " alugou os filmes:" << std::endl;
+           (*it)->ListarCarrinho();
+        }    
+    }
+}
+
+void Sistema::Recibo(std::string &cpf, int& dias ){
+    for (auto it = this->Usuarios.begin(); it != this->Usuarios.end(); ++it)
+    {
+        if ((*it)->getCPF() == cpf)
+        {   
+            std::cout << "Cliente " << (*it)->getCPF() << " " << (*it)->getNome() << " alugou os filmes:" << std::endl;
+           (*it)->recibo(dias);
+        }    
+    }
+
+}
+ 
