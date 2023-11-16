@@ -240,5 +240,9 @@ int main()
             }
         }
 
+        else if(cmd =="LE"){
+            sistema.ListarEstoque();
+        }
+
     }
 }

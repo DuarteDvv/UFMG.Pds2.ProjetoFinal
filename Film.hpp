@@ -8,6 +8,7 @@ class filme{
         int codigo;
         std::string titulo;
         int quantidade;
+
     public:
         filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
         ~filme() = default;

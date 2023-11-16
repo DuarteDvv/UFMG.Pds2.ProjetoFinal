@@ -37,8 +37,13 @@ void Usuario::recibo(int &dias){
 
         std::cout << "| " << (*it)->CalcularPreco(dias) << '$'<< std::endl;
     }
+    if(this->getAcessos() >= 3){
+        std::cout << "Total a pagar: " << total*0.9 << '$' << std::endl;
 
-    std::cout << "Total a pagar: " << total << '$' << std::endl;
+    }
+    else{
+        std::cout << "Total a pagar (desconto de 10% aplicado): " << total << '$' << std::endl;
+    }
 
     for (auto* filmePtr : Carrinho) {
             delete filmePtr;

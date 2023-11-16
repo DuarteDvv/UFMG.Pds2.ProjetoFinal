@@ -51,6 +51,7 @@ class Sistema{
         void AnimacaoEscolha();
         void LoadData();
         void SaveData();
+        void ListarEstoque();
 
         
 

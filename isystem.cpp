@@ -306,4 +306,16 @@ void Sistema::animacaoSalvando() {
     std::cout << "\033[1;32mDados salvos com sucesso!\033[0m\n" << std::endl <<"Volte sempre!";
 }
 
+void Sistema::ListarEstoque(){
+    if(this->Catalogo.size() != 0){
+        for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it){
+            std::cout << (*it)->getTipo() << " " << (*it)->getTitulo() << " Copias: " << (*it)->getQuantidade() << std::endl; 
+
+        }
+    }
+    else{
+        std::cout << "Estoque vazio" << std::endl;
+    }   
+}
+
     
