@@ -36,6 +36,7 @@ std::string retorna_categoria(std::string &);
 void LimparTela();
 //Desenha as animações de carregar
 void Desenha(int progress, int total);
-
+//padroniza as entradas para que CC e cc sejam equivalentes
+std::string padroniza_entrada(std::string &);
 
 #endif
