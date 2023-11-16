@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 #include <thread>
-
+#include <algorithm>
 
 // Funçoes que definem o parametro para ordenar em ordem crescente caso cpf ou alfabetica caso nome;
 // Poderia ter utilizado funções lambdas -> [](const std::string& a, const std::string& b) {return a < b;}
@@ -126,4 +126,10 @@ std::string retorna_categoria(std::string &cat)
         resultado = "promocao";
     }
     return resultado;
+}
+
+
+std::string padroniza_entrada(std::string &entrada){
+    std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::tolower);
+    return entrada;
 }
