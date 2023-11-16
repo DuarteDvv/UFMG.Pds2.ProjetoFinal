@@ -13,8 +13,8 @@ int Usuario::getAcessos(){
     return acessos;
 }
 
-void Usuario::AcessAdd(){
-    this->acessos++;
+void Usuario::AcessAdd(int n){
+    this->acessos += n;
 }
 
 void Usuario::addCarrinho(filme* film){

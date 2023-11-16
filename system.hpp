@@ -7,7 +7,8 @@
 #include "Film.hpp"
 #include "functions.hpp"
 #include <fstream>
-#include <unistd.h>
+#include <thread>
+#include <chrono>
 
 class Sistema{
     private:
@@ -46,6 +47,8 @@ class Sistema{
 
         //Extra
         void AnimCarregarDados();
+        void animacaoSalvando();
+        void AnimacaoEscolha();
         void LoadData();
         void SaveData();
 

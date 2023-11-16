@@ -12,6 +12,9 @@ float dvd::CalcularPreco(int dias) {
    else if (isLanca()) {
       return 20.0 * dias;
    }
+   else{
+      return 0;
+   }
 }
 
 float fita::CalcularPreco(int dias) {

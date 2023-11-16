@@ -29,7 +29,7 @@ class Usuario{
         std::string getCPF();
         std::string getNome(); 
         int getAcessos();
-        void AcessAdd();
+        void AcessAdd(int);
         void addCarrinho(filme*);
         void ListarCarrinho();
         void recibo(int &);

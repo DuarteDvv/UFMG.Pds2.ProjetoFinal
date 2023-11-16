@@ -16,33 +16,31 @@ int main()
     int cod, quantidade;
 
 
-
+    sistema.LoadData();
     sistema.AnimCarregarDados();
     
     std::cout << "Bem vindo ao sistema de locacao" << std::endl << std::endl
     << "Segue nossas opcoes de Servicos:" << std::endl << std::endl
-    << "CC - Cadastrar Cliente" << std::endl 
-    << "RC - Remover Clientes" << std::endl 
-    << "LC - Listar Clientes" << std::endl 
-    << "LA - Ler Arquivo" << std::endl 
-    << "CF - Cadastrar Filme" << std::endl 
-    << "RF - Remover Filme" << std::endl 
-    << "LF - Listar Filme" << std::endl 
-    << "AL - Alugar Filme" << std::endl 
-    << "DV - Devolucao" << std::endl 
-    << "FS - Finalizar" << std::endl;
+    << "CC - Cadastrar Cliente" << "|  RC - Remover Clientes" << std::endl 
+    << "LC - Listar Clientes" << "|  LA - Ler Arquivo" << std::endl 
+    << "CF - Cadastrar Filme" << "|  RF - Remover Filme" << std::endl 
+    << "LF - Listar Filme" << "|  AL - Alugar Filme" << std::endl 
+    << "DV - Devolucao" << "|  FS - Finalizar" << std::endl;
 
     while (std::cin >> cmd)
     {
 
-        if (cmd == "FS")
+        if (cmd == "FS") 
         {
-            // salvar log
+            sistema.AnimacaoEscolha();
+            sistema.SaveData();
+            sistema.animacaoSalvando();
             break;
         }
 
 
         else if(cmd == "LA"){
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o nome do arquivo" << std::endl;
             std::cin >> NomeDoArquivo;
             std::ifstream Arquivo(NomeDoArquivo);
@@ -58,6 +56,7 @@ int main()
 
         else if (cmd == "CC")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
             std::cin.ignore();
@@ -83,6 +82,7 @@ int main()
 
         else if (cmd == "RC")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF:" << std::endl;
             std::cin >> CPFr;
 
@@ -99,6 +99,7 @@ int main()
 
         else if (cmd == "LC")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
             std::cin >> CPFr;
 
@@ -110,6 +111,7 @@ int main()
 
         else if (cmd == "CF")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Fita [F] ou DVD [D] ?" << std::endl;
             std::cin >> tipo;
 
@@ -162,6 +164,7 @@ int main()
             }
 
             else if(tipo == "F"){
+                
                 filme* fit = new fita(cod,NOMEr,quantidade);
                 sistema.CadastrarFilme(fit);
             }
@@ -174,6 +177,7 @@ int main()
 
         else if(cmd == "LF")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
             std::cin >> CPFr;
             
@@ -184,6 +188,7 @@ int main()
 
         else if (cmd == "RF")
         {
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o Código:" << std::endl;
             std::cin >> cod;
             if(!sistema.ExisteFilme(cod)){
@@ -196,6 +201,7 @@ int main()
 
 
         else if(cmd == "AL"){
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
             if(sistema.ExisteUsuario(CPFr)){
@@ -220,6 +226,7 @@ int main()
 
 
         else if(cmd == "DV"){
+            sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
 

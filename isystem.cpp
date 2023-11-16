@@ -203,7 +203,7 @@ void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
     }
 
     file.close();
-    std::cout << N << " Filmes cadastrados com sucessso" << std::endl;
+    std::cout << N << "Filmes cadastrados com sucessso" << std::endl;
 }
  
 
@@ -211,29 +211,99 @@ void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
 //extra
 
 void Sistema::LoadData(){
+    int acessos;
+    std::string nome, cpf;
+
     std::ifstream Data("Data.txt");
+    if(Data.is_open()){
+        while(Data >> acessos >> cpf ){
+            Data.ignore();
+
+            std::getline(Data, nome);
+            Usuario* U = new Usuario(nome,cpf);
+            U->AcessAdd(acessos);
+            Usuarios.push_back(U);
+        }
+
+    }
+    else {
+            std::cerr << "Erro ao abrir o arquivo para escrita.\n";
+    }
 
 }
 
 void Sistema::SaveData(){
     std::ofstream Data("Data.txt");
-
-
+    if (Data.is_open()) {
+            for(auto it = Usuarios.begin(); it != Usuarios.end(); ++it){
+                Data << (*it)->getAcessos() << " " << (*it)->getCPF() << " " << (*it)->getNome() << "\n";
+            }
+            Data.close();
+            
+        } 
+        else {
+            std::cerr << "Erro ao abrir o arquivo para escrita.\n";
+    }
 }
 
 void Sistema::AnimCarregarDados(){
 
         const int totalProgresso = 100;
-        const int duracaoCarregamento = 50;  // Reduzimos o tempo de carregamento
-        const int sleepDuration = 50000;    // Reduzimos o tempo de espera
+        const int duracaoCarregamento = 50;  
+        const int sleepDuration = 50;       
 
         LimparTela();
 
         for (int progresso = 0; progresso <= totalProgresso; ++progresso) {
             Desenha(progresso, totalProgresso);
-            usleep(sleepDuration);
+            std::this_thread::sleep_for(std::chrono::milliseconds(sleepDuration));
         }
 
-        std::cout << std::endl << "\nDados Carregados!\n";
+        LimparTela();
+
+        std::cout << "\033[1;32mDados Carregados!\033[0m\n";
+        
 }
+
+void Sistema::AnimacaoEscolha(){
+    for (int i = 0; i < 18; ++i) {
+            switch (i % 4) {
+                case 0:
+                    std::cout << "\r|";
+                    break;
+                case 1:
+                    std::cout << "\r/";
+                    break;
+                case 2:
+                    std::cout << "\r-";
+                    break;
+                case 3:
+                    std::cout << "\r\\";
+                    break;
+            }
+            std::cout.flush();
+            std::this_thread::sleep_for(std::chrono::milliseconds(80));
+    }
+}
+
+
+void Sistema::animacaoSalvando() {
+    const int duracaoAnimacao = 10; 
+    const int duracaoPonto = 500;   
+
+    for (int i = 0; i < duracaoAnimacao; ++i) {
+        LimparTela();
+        std::cout << "Salvando";
+        for (int j = 0; j < i % 4; ++j) {
+            std::cout << ".";
+        }
+        std::cout.flush();
+        std::this_thread::sleep_for(std::chrono::milliseconds(duracaoPonto));
+    }
+
+    LimparTela();
+
+    std::cout << "\033[1;32mDados salvos com sucesso!\033[0m\n" << std::endl <<"Volte sempre!";
+}
+
     

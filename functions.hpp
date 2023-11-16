@@ -7,14 +7,10 @@
 #include <string>
 #include <algorithm>
 #include "Film.hpp"
-#include <unistd.h>
+#include "system.hpp"
 
 
-//Limpa tela do terminal
-void LimparTela();
 
-
-void Desenha(int progress, int total);
 // Funçoes que definem o parametro que ordena em ordem crescente caso cpf ou alfabetica caso nome;
 bool compN(Usuario *&, Usuario *&);
 bool compC(Usuario *&, Usuario *&);
@@ -34,6 +30,12 @@ bool verifica_categoria(std::string &);
 /*Função que vai retornar estoque, lancamento ou promocao (forma que tá escrita na classe filme)
  mesmo que o usuario escreva errado */
 std::string retorna_categoria(std::string &);
+
+//Extra
+//Limpa tela do terminal
+void LimparTela();
+//Desenha as animações de carregar
+void Desenha(int progress, int total);
 
 
 #endif

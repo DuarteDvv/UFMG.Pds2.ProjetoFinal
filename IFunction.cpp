@@ -1,6 +1,7 @@
 #include "functions.hpp"
 #include <iostream>
 #include <string>
+#include <thread>
 
 
 // Funçoes que definem o parametro para ordenar em ordem crescente caso cpf ou alfabetica caso nome;
@@ -20,18 +21,6 @@ bool compN(Usuario *&a, Usuario *&b)
 bool compC(Usuario *&a, Usuario *&b)
 {
     return std::stoll(a->getCPF()) < std::stoll(b->getCPF());
-}
-
-// Função que remove um filme do catálogo
-void removeFilme(std::list<filme *> &catalogo, const int &codigo)
-{
-    for (auto it = catalogo.begin(); it != catalogo.end(); ++it)
-    {
-        if ((*it)->getCod() == codigo)
-        {
-            it = catalogo.erase(it);
-        }
-    }
 }
 
 // Define parametro de ordenação por titulo
@@ -66,8 +55,13 @@ bool verifica_titulo(std::string &titulo)
     return resultado;
 }
 
+// Limpa a tela do terminal
 void LimparTela() {
-    write(STDOUT_FILENO, "\033[2J\033[1;1H", 10);
+    #ifdef _WIN32
+            system("cls");  // Se estiver usando Windows
+    #else
+            system("clear"); // Se estiver usando Unix/Linux
+    #endif
 }
 
 void Desenha(int progress, int total) {
