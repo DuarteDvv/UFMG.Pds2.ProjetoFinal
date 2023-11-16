@@ -130,6 +130,6 @@ std::string retorna_categoria(std::string &cat)
 
 
 std::string padroniza_entrada(std::string &entrada){
-    std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::tolower);
+    std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::toupper);
     return entrada;
 }

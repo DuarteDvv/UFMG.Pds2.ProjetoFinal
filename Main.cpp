@@ -30,7 +30,7 @@ int main()
     while (std::cin >> cmd)
     {
         cmd = padroniza_entrada(cmd);
-        if (cmd == "fs") 
+        if (cmd == "FS") 
         {
             sistema.AnimacaoEscolha();
             sistema.SaveData();
@@ -39,7 +39,7 @@ int main()
         }
 
 
-        else if(cmd == "la"){
+        else if(cmd == "LA"){
             sistema.AnimacaoEscolha();
             std::cout << "Digite o nome do arquivo" << std::endl;
             std::cin >> NomeDoArquivo;
@@ -54,7 +54,7 @@ int main()
 
         
 
-        else if (cmd == "cc")
+        else if (cmd == "CC")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
@@ -80,7 +80,7 @@ int main()
 
 
 
-        else if (cmd == "rc")
+        else if (cmd == "RC")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF:" << std::endl;
@@ -97,7 +97,7 @@ int main()
 
 
 
-        else if (cmd == "lc")
+        else if (cmd == "LC")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
@@ -109,7 +109,7 @@ int main()
 
 
 
-        else if (cmd == "cf")
+        else if (cmd == "CF")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Fita [F] ou DVD [D] ?" << std::endl;
@@ -147,7 +147,7 @@ int main()
 
 
 
-            if(tipo == "d"){
+            if(tipo == "D"){
                 std::cout << "categoria ?" << std::endl;
                 std::cin >> CPFr;
                 if (verifica_categoria(CPFr))
@@ -163,7 +163,7 @@ int main()
                 }
             }
 
-            else if(tipo == "f"){
+            else if(tipo == "F"){
                 
                 filme* fit = new fita(cod,NOMEr,quantidade);
                 sistema.CadastrarFilme(fit);
@@ -175,7 +175,7 @@ int main()
     
   
 
-        else if(cmd == "lf")
+        else if(cmd == "LF")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Listar por Titulo[T] ou por Codigo[C] ?" << std::endl;
@@ -186,7 +186,7 @@ int main()
 
 
 
-        else if (cmd == "rf")
+        else if (cmd == "RF")
         {
             sistema.AnimacaoEscolha();
             std::cout << "Digite o Código:" << std::endl;
@@ -200,7 +200,7 @@ int main()
 
 
 
-        else if(cmd == "al"){
+        else if(cmd == "AL"){
             sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
@@ -225,7 +225,7 @@ int main()
 
 
 
-        else if(cmd == "dv"){
+        else if(cmd == "DV"){
             sistema.AnimacaoEscolha();
             std::cout << "Digite o CPF" << std::endl;
             std::cin >> CPFr;
@@ -240,7 +240,7 @@ int main()
             }
         }
 
-        else if(cmd =="le"){
+        else if(cmd =="LE"){
             sistema.ListarEstoque();
         }
 
