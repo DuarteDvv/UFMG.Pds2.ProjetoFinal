@@ -3,7 +3,7 @@
 #include <string>
 #include <iostream>
 #include <list>
-#include <Film.hpp>
+#include "Film.hpp"
 
 
 class Usuario{
@@ -14,10 +14,17 @@ class Usuario{
 
         std::list<filme*> Carrinho;
     
-     public:
+    public:
         Usuario(std::string nome, std::string cpf) : nome(nome), cpf(cpf) {
             this->acessos = 1;
         } 
+
+        ~Usuario() {
+        for (auto* filmePtr : Carrinho) {
+            delete filmePtr;
+        }
+        Carrinho.clear();
+        }
         
         std::string getCPF();
         std::string getNome(); 
@@ -30,3 +37,7 @@ class Usuario{
 
 }; 
 #endif
+
+
+        
+ 

@@ -15,6 +15,16 @@ class Sistema{
 
 
     public:
+        ~Sistema(){
+            for (auto& usuarioPtr : Usuarios) {
+                delete usuarioPtr;
+            }
+
+            for (auto& filmePtr : Catalogo) {
+                delete filmePtr;
+            }
+        }
+
         //User Methods
         bool VerificarCpf(std::string &);
         bool VerificarNome(std::string &);
@@ -32,6 +42,10 @@ class Sistema{
         void ListarCompras(std::string &);
         void Recibo(std::string &, int &);
         void CadastrarFilmesDoArquivo(std::ifstream &);
+
+        //Extra
+        void LoadData();
+        void SaveData();
 
         
 

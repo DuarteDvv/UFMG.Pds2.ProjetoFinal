@@ -2,6 +2,25 @@
 #include <ctime>
 #include <list>
 
+float dvd::CalcularPreco(int dias) {
+   if (isEstoque()) {
+      return 10.0 * dias;
+   } 
+   else if (isPromo()) {
+      return 10.0;
+    } 
+   else if (isLanca()) {
+      return 20.0 * dias;
+   }
+}
+
+float fita::CalcularPreco(int dias) {
+   if (isRebobinado()) {
+      return 5.0;
+   }
+   return 7.0; 
+}
+
 bool fita::isRebobinado(){
     std::srand(static_cast<unsigned>(std::time(0))); //Torna mais aleatorio
 

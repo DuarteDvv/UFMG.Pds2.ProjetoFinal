@@ -32,43 +32,18 @@ void Usuario::recibo(int &dias){
     for (auto it = this->Carrinho.begin(); it != this->Carrinho.end(); ++it){
         (*it)->MaisUm();
         std::cout << (*it)->getCod() << " ";
-        if((*it)->getTipo() == "DVD"){
 
-            dvd* D = dynamic_cast<dvd*>(*it);
-            if(D->isEstoque()){
-                total += 10*dias;
-                std::cout << dias << "x10 = " << dias*10 << std::endl;
+        total += (*it)->CalcularPreco(dias);
 
-
-            }
-            else if(D->isPromo()){
-                total += 10;
-                std::cout << "10" << std::endl;
-
-
-            }
-            else if(D->isLanca()){
-                total += 20*dias;
-                std::cout << dias << "x20 = " << dias*20 << std::endl;
-            }
-        }
-        else{
-
-            fita* F = dynamic_cast<fita*>(*it);
-
-            if(F->isRebobinado()){
-                total += 5;
-                std::cout << "5" << std::endl;
-
-
-            }
-            else{
-                total += 7;
-                std::cout << "7" << std::endl;
-            }
-
-        }
+        std::cout << "| " << (*it)->CalcularPreco(dias) << '$'<< std::endl;
     }
 
-    std::cout << "Total a pagar: " << total << std::endl;
+    std::cout << "Total a pagar: " << total << '$' << std::endl;
+
+    for (auto* filmePtr : Carrinho) {
+            delete filmePtr;
+    }
+    Carrinho.clear();
 }
+
+   

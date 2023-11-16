@@ -14,8 +14,18 @@ int main()
     std::string NOMEr,CPFr;
     int cod, quantidade;
 
-    std::cout << "Bem vindo ao sistema de locação" << std::endl
-              << "Segue nossas opçoes de Serviços:" << std::endl;
+    std::cout << "Bem vindo ao sistema de locacao" << std::endl
+    << "Segue nossas opcoes de Servicos:" << std::endl
+    << "CC - Cadastrar Cliente" << std::endl 
+    << "RC - Remover Clientes" << std::endl 
+    << "LC - Listar Clientes" << std::endl 
+    << "LA - Ler Arquivo" << std::endl 
+    << "CF - Cadastrar Filme" << std::endl 
+    << "RF - Remover Filme" << std::endl 
+    << "LF - Listar Filme" << std::endl 
+    << "AL - Alugar Filme" << std::endl 
+    << "DV - Devolucao" << std::endl 
+    << "FS - Finalizar" << std::endl;
 
     while (std::cin >> cmd)
     {
@@ -27,7 +37,8 @@ int main()
         }
 
 
-        else if(cmd == "AL"){
+        else if(cmd == "LA"){
+            std::cout << "Digite o nome do arquivo" << std::endl;
             std::cin >> NomeDoArquivo;
             std::ifstream Arquivo(NomeDoArquivo);
 
@@ -185,11 +196,11 @@ int main()
             if(sistema.ExisteUsuario(CPFr)){
                 std::cout << "Digite o codigo dos filmes que deseja:" << std::endl;
                 while(std::cin >> cod){
-                    if(!sistema.ExisteFilme(cod)){
-                        std::cout << "ERRO: Filme " << cod << " inexistente" << std::endl;
+                     if(cod == -1){
                         break;
                     }
-                    if(cod == -1){
+                    if(!sistema.ExisteFilme(cod)){
+                        std::cout << "ERRO: Filme " << cod << " inexistente" << std::endl;
                         break;
                     }
                     sistema.AdicionarCarrinho(cod,CPFr);
@@ -217,6 +228,5 @@ int main()
             }
         }
 
-        //
     }
 }

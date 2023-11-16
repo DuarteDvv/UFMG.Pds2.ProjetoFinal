@@ -1,3 +1,3 @@
-D 3 145 Filme1 Estoque
+D 3 145 Filme1 estoque
 F 6 354 Filme teste 
-D 96 7543 filme teste Estoque
+D 96 7543 filme teste estoque

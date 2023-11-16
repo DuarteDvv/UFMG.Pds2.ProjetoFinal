@@ -7,10 +7,12 @@ void Sistema::CadastrarCliente(Usuario* &user){
 
 void Sistema::RemoverCliente(std::string &cpf){
     for (auto it = this->Usuarios.begin(); it != this->Usuarios.end(); ++it)
-    {
+    { 
         if ((*it)->getCPF() == cpf)
-        {
+        {   
+            delete (*it);
             this->Usuarios.erase(it);   
+            break;
         }
     }
 }
@@ -27,7 +29,7 @@ void Sistema::ListarCliente(std::string &cat){
 
     for (Usuario* n : this->Usuarios)
     {
-        std::cout << "||" << (*n).getCPF() << "|| "<< ">> " << (*n).getNome() << std::endl;
+        std::cout << "|| " << (*n).getCPF() << " || "<< ">> " << (*n).getNome() << std::endl;
     }
 }
 
@@ -120,8 +122,10 @@ void Sistema::ListarFilmes(std::string &cat){
     for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it)
     {
         if ((*it)->getCod() == cod)
-        {
+        {   
+            delete (*it);
             this->Catalogo.erase(it);   
+            break;
         }
     }
 
@@ -165,7 +169,7 @@ void Sistema::Recibo(std::string &cpf, int& dias ){
     {
         if ((*it)->getCPF() == cpf)
         {     
-            std::cout << "Cliente " << (*it)->getCPF() << " " << (*it)->getNome() << " alugou os filmes:" << std::endl;
+            std::cout << "Cliente " << (*it)->getCPF() << " " << (*it)->getNome() << " devolveu os filmes:" << std::endl;
            (*it)->recibo(dias);
         }    
     }
@@ -199,6 +203,20 @@ void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
     }
 
     file.close();
-    std::cout << N << "Filmes cadastrados com sucessso" << std::endl;
+    std::cout << N << " Filmes cadastrados com sucessso" << std::endl;
 }
  
+
+
+//extra
+
+void Sistema::LoadData(){
+    std::ifstream Data("Data.txt");
+
+}
+
+void Sistema::SaveData(){
+    std::ofstream Data("Data.txt");
+
+
+}
