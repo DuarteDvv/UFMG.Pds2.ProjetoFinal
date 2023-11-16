@@ -1,3 +1,4 @@
+// g++ -o arq Main.cpp Usuario.hpp iUsuario.cpp Film.hpp iFilm.cpp system.hpp isystem.cpp functions.hpp IFunction.cpp
 #include "Usuario.hpp"
 #include "Film.hpp"
 #include "functions.hpp"
@@ -14,8 +15,12 @@ int main()
     std::string NOMEr,CPFr;
     int cod, quantidade;
 
-    std::cout << "Bem vindo ao sistema de locacao" << std::endl
-    << "Segue nossas opcoes de Servicos:" << std::endl
+
+
+    sistema.AnimCarregarDados();
+    
+    std::cout << "Bem vindo ao sistema de locacao" << std::endl << std::endl
+    << "Segue nossas opcoes de Servicos:" << std::endl << std::endl
     << "CC - Cadastrar Cliente" << std::endl 
     << "RC - Remover Clientes" << std::endl 
     << "LC - Listar Clientes" << std::endl 

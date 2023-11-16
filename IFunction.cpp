@@ -66,6 +66,29 @@ bool verifica_titulo(std::string &titulo)
     return resultado;
 }
 
+void LimparTela() {
+    write(STDOUT_FILENO, "\033[2J\033[1;1H", 10);
+}
+
+void Desenha(int progress, int total) {
+
+    int larguraBarra = 40;
+    int larguraBarraProgresso = (progress * larguraBarra) / total;
+
+    std::cout << "[";
+
+    for (int i = 0; i < larguraBarraProgresso; ++i) {
+        std::cout << "=";
+    }
+
+    for (int i = larguraBarraProgresso; i < larguraBarra; ++i) {
+        std::cout << " ";
+    }
+
+    std::cout << "] " << (progress * 100) / total << "%\r";
+    std::cout.flush();
+}
+
 bool verifica_categoria(std::string &cat)
 {
     // Passar tudo para o minúsculo antes de começar

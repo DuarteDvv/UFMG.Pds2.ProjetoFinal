@@ -7,6 +7,7 @@
 #include "Film.hpp"
 #include "functions.hpp"
 #include <fstream>
+#include <unistd.h>
 
 class Sistema{
     private:
@@ -44,6 +45,7 @@ class Sistema{
         void CadastrarFilmesDoArquivo(std::ifstream &);
 
         //Extra
+        void AnimCarregarDados();
         void LoadData();
         void SaveData();
 

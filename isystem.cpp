@@ -220,3 +220,20 @@ void Sistema::SaveData(){
 
 
 }
+
+void Sistema::AnimCarregarDados(){
+
+        const int totalProgresso = 100;
+        const int duracaoCarregamento = 50;  // Reduzimos o tempo de carregamento
+        const int sleepDuration = 50000;    // Reduzimos o tempo de espera
+
+        LimparTela();
+
+        for (int progresso = 0; progresso <= totalProgresso; ++progresso) {
+            Desenha(progresso, totalProgresso);
+            usleep(sleepDuration);
+        }
+
+        std::cout << std::endl << "\nDados Carregados!\n";
+}
+    

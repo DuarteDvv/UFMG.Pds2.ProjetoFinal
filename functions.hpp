@@ -7,7 +7,14 @@
 #include <string>
 #include <algorithm>
 #include "Film.hpp"
+#include <unistd.h>
 
+
+//Limpa tela do terminal
+void LimparTela();
+
+
+void Desenha(int progress, int total);
 // Funçoes que definem o parametro que ordena em ordem crescente caso cpf ou alfabetica caso nome;
 bool compN(Usuario *&, Usuario *&);
 bool compC(Usuario *&, Usuario *&);
