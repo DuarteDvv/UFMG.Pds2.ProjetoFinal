@@ -51,6 +51,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -101,7 +102,8 @@ int main()
                 std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd == "FS"; 
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -132,6 +134,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -158,7 +161,8 @@ int main()
                 std::cout <<"\n";
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd == "FS"; 
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -256,6 +260,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -284,6 +289,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -313,6 +319,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -358,6 +365,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -396,6 +404,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -407,6 +416,7 @@ int main()
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -463,6 +473,7 @@ int main()
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -501,6 +512,7 @@ int main()
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
@@ -537,6 +549,7 @@ int main()
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd == "FS";
+                    break;
                 }
                 else {
                     mostrarOpcoes();
