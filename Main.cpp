@@ -22,13 +22,8 @@ int main()
     sistema.AnimCarregarDados();
     
     std::cout << "Bem vindo ao sistema de locacao" << std::endl << std::endl
-    << "Segue nossas opcoes de Servicos:" << std::endl << std::endl
-    << "CC - Cadastrar Cliente" << "|  RC - Remover Clientes" << std::endl 
-    << "LC - Listar Clientes" << "|  LA - Ler Arquivo" << std::endl 
-    << "CF - Cadastrar Filme" << "|  RF - Remover Filme" << std::endl 
-    << "LF - Listar Filme" << "|  AL - Alugar Filme" << std::endl 
-    << "DV - Devolucao" << "|  FS - Finalizar" << std::endl
-    << "OE - Opcoes de Estoque" << "|  RA - Registros De Alugueis" << std::endl;
+    << "Segue nossas opcoes de Servicos:" << std::endl << std::endl;
+    mostrarOpcoes();
 
     while (std::cin >> cmd)
     {   

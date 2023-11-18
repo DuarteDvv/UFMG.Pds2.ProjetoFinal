@@ -35,5 +35,12 @@ void Desenha(int progress, int total);
 //padroniza as entradas para que CC e cc sejam equivalentes
 std::string padroniza_entrada(std::string &);
 
+//função que vai me dizer se o usuário quer encerrar o programa, se verdadeiro, o programa encerra
+bool finalizar_prog();
 
+//função que serve para o usuário voltar á tela inicial 
+void retorno_menu(); 
+
+//função que mostra as opções ao usuário 
+void mostrarOpcoes(); 
 #endif
