@@ -190,6 +190,17 @@ void Sistema::TratarCod(int &c){
     }
 }
 
+void Sistema::TratarCodN(int &c){
+    std::cin >> c;
+    LimparTela();
+
+    while(c < 0 || c > 10000 || !this->ExisteFilme(c)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> c;
+        LimparTela();
+    }
+}
+
 
 void Sistema::TratarTIPO(std::string & tipo){
     std::cin >> tipo;

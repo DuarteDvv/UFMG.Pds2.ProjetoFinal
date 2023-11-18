@@ -47,6 +47,7 @@ class Sistema{
         void CadastrarFilme(filme* &);
         bool VerificaTitulo(std::string&);
         void TratarCat(std::string&);
+        void TratarCodN(int &);
         void TratarListagemF(std::string&);
         void TratarExistenciaF(int &);
         bool ExisteFilme(int &);

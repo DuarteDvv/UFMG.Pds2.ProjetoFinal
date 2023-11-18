@@ -260,13 +260,13 @@ int main()
                     if(cod < 0 || cod > 10000){
                         throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                     }
-                    else if(sistema.ExisteFilme(cod)){
+                    else if(!sistema.ExisteFilme(cod)){
 
-                        throw std::invalid_argument("Filme Já cadastrado- Digite novamente");
+                        throw std::invalid_argument("Filme Não existe- Digite novamente");
                     }
                 }catch(std::invalid_argument &e){
                     std::cout << e.what() << std::endl;
-                    sistema.TratarCod(cod);
+                    sistema.TratarCodN(cod);
                 }
                 std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
             }
@@ -295,13 +295,13 @@ int main()
                     if(cod < -1 || cod > 10000){
                         throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                     }
-                    else if(sistema.ExisteFilme(cod)){
+                    else if(!sistema.ExisteFilme(cod)){
 
-                    throw std::invalid_argument(" filme inexistente- Digite novamente");
+                    throw std::invalid_argument(" filme inexistente- Digite novamente"); //tratar cod revisar
                     }
                     }catch(std::invalid_argument &e){
                         std::cout << e.what() << std::endl;
-                        sistema.TratarCod(cod);
+                        sistema.TratarCodN(cod);
                     }
 
                     sistema.AdicionarCarrinho(cod,CPFr);
@@ -407,7 +407,7 @@ int main()
                         }
                     }catch(std::invalid_argument &e){
                         std::cout << e.what() << std::endl;
-                        sistema.TratarCod(cod);
+                        sistema.TratarCodN(cod);
                     }
 
                     std::cout << "Quantos ?" << std::endl;
@@ -438,7 +438,7 @@ int main()
                         }
                     }catch(std::invalid_argument &e){
                             std::cout << e.what() << std::endl;
-                            sistema.TratarCod(cod);
+                            sistema.TratarCodN(cod);
                     }
                     std::cout << "Quantos ?" << std::endl;
                     std::cin >> quantidade;
