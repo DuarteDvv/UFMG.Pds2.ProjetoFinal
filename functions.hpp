@@ -35,4 +35,5 @@ void Desenha(int progress, int total);
 //padroniza as entradas para que CC e cc sejam equivalentes
 std::string padroniza_entrada(std::string &);
 
+
 #endif

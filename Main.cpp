@@ -292,7 +292,7 @@ int main()
                         break;
                     }
                     try{
-                    if(cod < 0 || cod > 10000){
+                    if(cod < -1 || cod > 10000){
                         throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                     }
                     else if(sistema.ExisteFilme(cod)){
