@@ -3,6 +3,8 @@
 #include <string>
 #include <thread>
 #include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
 
 // Funçoes que definem o parametro para ordenar em ordem crescente caso cpf ou alfabetica caso nome;
 // Poderia ter utilizado funções lambdas -> [](const std::string& a, const std::string& b) {return a < b;}
@@ -41,19 +43,6 @@ bool compCf(filme *&(a), filme *&(b))
     return (a)->getCod() < (b)->getCod();
 }
 
-bool verifica_titulo(std::string &titulo)
-{
-    bool resultado = true;
-    for (char a : titulo)
-    {
-        if (!isalnum(a) && !isspace(a))
-        {
-            resultado = false;
-            break;
-        }
-    }
-    return resultado;
-}
 
 // Limpa a tela do terminal
 void LimparTela() {
@@ -83,49 +72,56 @@ void Desenha(int progress, int total) {
     std::cout.flush();
 }
 
-bool verifica_categoria(std::string &cat)
-{
-    // Passar tudo para o minúsculo antes de começar
-    std::transform(cat.begin(), cat.end(), cat.begin(), ::tolower);
-    bool resultado = false;
-    if (cat == "lancamentos" || cat == "lancamento" || cat == "lançamento" || cat == "lançamentos" || cat == "l")
+bool verifica_categoria(const std::string &cat) {
+
+    for (char a : cat)
     {
-        resultado = true;
+        if (!isalpha(a) && !isspace(a))
+        {
+            std::cout << "ERRO: Apenas letras e espacos" << std::endl;
+            return false;
+        }
     }
-    else if (cat == "estoque" || cat == "estoques" || cat == "e")
-    {
-        resultado = true;
-    }
-    else if (cat == "promocao" || cat == "promocoes" || cat == "promoção" || cat == "promoções" || cat == "promoçao" || cat == "promo" || cat == "promoçoes" || cat == "p" || cat == "promocão" || cat == "promocões")
-    {
-        resultado = true;
-    }
-    return resultado;
+
+    std::string categoria = cat;
+    std::transform(categoria.begin(), categoria.end(), categoria.begin(), ::tolower);
+
+    std::unordered_set<std::string> categoriasValidas = {
+        "lancamentos", "lancamento", "lançamento", "lançamentos", "l",
+        "estoque", "estoques", "e",
+        "promocao", "promocoes", "promoção", "promoções", "promoçao", "promo", "promoçoes", "p", "promocão", "promocões"
+    };
+
+    return categoriasValidas.find(categoria) != categoriasValidas.end();
 }
 
-std::string retorna_categoria(std::string &cat)
-{
-    std::string resultado;
+std::string retorna_categoria(const std::string &cat) {
+    std::unordered_map<std::string, std::string> mapeamentoCategorias = {
+        {"lancamentos", "lancamento"},
+        {"lancamento", "lancamento"},
+        {"lançamento", "lancamento"},
+        {"lançamentos", "lancamento"},
+        {"l", "lancamento"},
+        {"estoque", "estoque"},
+        {"estoques", "estoque"},
+        {"e", "estoque"},
+        {"promocao", "promocao"},
+        {"promocoes", "promocao"},
+        {"promoção", "promocao"},
+        {"promoções", "promocao"},
+        {"promoçao", "promocao"},
+        {"promo", "promocao"},
+        {"promoçoes", "promocao"},
+        {"p", "promocao"},
+        {"promocão", "promocao"},
+        {"promocões", "promocao"}
+    };
 
-    /*mesmo processo do veririca_categoria
-    passa para o minúsculo, vê qual categoria que se aplica e retorna uma string com essa categoria
-    na formatação certa para o programa conseguir atribuir a categoria na classe DVD
-    */
+    std::string categoria = cat;
+    std::transform(categoria.begin(), categoria.end(), categoria.begin(), ::tolower);
 
-    std::transform(cat.begin(), cat.end(), cat.begin(), ::tolower);
-    if (cat == "lancamentos" || cat == "lancamento" || cat == "lançamento" || cat == "lançamentos" || cat == "l")
-    {
-        resultado = "lancamento";
-    }
-    else if (cat == "estoque" || cat == "estoques" || cat == "e")
-    {
-        resultado = "estoque";
-    }
-    else if (cat == "promocao" || cat == "promocoes" || cat == "promoção" || cat == "promoções" || cat == "promoçao" || cat == "promo" || cat == "promoçoes" || cat == "p" || cat == "promocão" || cat == "promocões")
-    {
-        resultado = "promocao";
-    }
-    return resultado;
+    auto it = mapeamentoCategorias.find(categoria);
+    return (it != mapeamentoCategorias.end()) ? it->second : "";
 }
 
 

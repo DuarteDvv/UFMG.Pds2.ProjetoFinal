@@ -28,6 +28,10 @@ class Sistema{
         }
 
         //User Methods
+        void TratarCPF(std::string &); 
+        void TratarNome(std::string &); 
+        void TratarExistenciaU(std::string &);
+        void TratarListagemU(std::string &);
         bool VerificarCpf(std::string &);
         bool VerificarNome(std::string &);
         bool ExisteUsuario(std::string &);
@@ -36,7 +40,15 @@ class Sistema{
         void ListarCliente(std::string &);
 
         //Film Methods
+        void TratarTIPO(std::string &);
+        void TratarQuantidade(int &);
+        void TratarCod(int &);
+        void TratarTitulo(std::string&);
         void CadastrarFilme(filme* &);
+        bool VerificaTitulo(std::string&);
+        void TratarCat(std::string&);
+        void TratarListagemF(std::string&);
+        void TratarExistenciaF(int &);
         bool ExisteFilme(int &);
         void ListarFilmes(std::string &);
         void RemoverFilme(int &);
@@ -46,12 +58,17 @@ class Sistema{
         void CadastrarFilmesDoArquivo(std::ifstream &);
 
         //Extra
+        void TratarOE(std::string &);
+        void TratarSenha(std::string &);
         void AnimCarregarDados();
         void animacaoSalvando();
         void AnimacaoEscolha();
         void LoadData();
         void SaveData();
         void ListarEstoque();
+        void RegistroDeAlugays();
+        void incrementarEstoque(int &, int&);
+        void decrementarEstoque(int&, int&);
 
         
 

@@ -1,4 +1,51 @@
 #include "system.hpp"
+#include <cassert>
+
+void Sistema::TratarCPF(std::string &cpf){
+    std::cin >> cpf;
+    LimparTela();
+    
+    while(!this->VerificarCpf(cpf)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> cpf;
+        LimparTela();
+    }
+}
+
+void Sistema::TratarNome( std::string &nome){
+    std::cin >> nome;
+    LimparTela();
+
+    while(!this->VerificarNome(nome)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> nome;
+        LimparTela();
+    }
+}
+
+void Sistema::TratarExistenciaU(std::string &CPFr){
+    std::cin >> CPFr;
+    LimparTela();
+
+    while(this->ExisteUsuario(CPFr)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> CPFr;
+        LimparTela();
+    }
+
+}
+
+void Sistema::TratarListagemU(std::string &U){
+    std::cin >> U;
+    LimparTela();
+
+    while(U != "C" && U != "N"){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> U;
+        LimparTela();
+    }
+
+}
 
 void Sistema::CadastrarCliente(Usuario* &user){
 
@@ -38,13 +85,13 @@ bool Sistema::VerificarCpf(std::string &cpf){
     {
         if (!std::isdigit(a))
         {
-            std::cout << "ERRO: dados incorretos" << std::endl;
+            std::cout << "ERRO: Apenas numeros sao permitidos" << std::endl;
             return false;
         }
     }
     if (cpf.length() != 11)
     {
-        std::cout << "ERRO: dados incorretos" << std::endl;
+        std::cout << "ERRO: CPF possui 11 digitos" << std::endl;
         return false;
         
     }
@@ -67,7 +114,7 @@ bool Sistema::VerificarNome(std::string &nome){
     {
         if (!isalpha(a) && !isspace(a))
         {
-            std::cout << "ERRO: dados incorretos" << std::endl;
+            std::cout << "ERRO: Apenas letras e espacos" << std::endl;
             return false;
         }
     }
@@ -85,6 +132,99 @@ bool Sistema::ExisteUsuario(std::string &cpf){
     }
     return false;
 }
+
+void Sistema::TratarListagemF(std::string &F){
+    std::cin >> F;
+    LimparTela();
+
+    while(F != "C" && F != "N"){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> F;
+        LimparTela();
+    }
+
+}
+
+void Sistema::TratarExistenciaF(int & cod){
+    std::cin >> cod;
+    LimparTela();
+
+    while(!this->ExisteFilme(cod)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> cod;
+        LimparTela();
+    }
+}
+
+void Sistema::TratarCat(std::string &cat){
+    std::cin >> cat;
+    LimparTela();
+
+    while(!verifica_categoria(cat)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> cat;
+        LimparTela();
+    }
+}
+
+void Sistema::TratarQuantidade(int &q){
+    std::cin >> q;
+    LimparTela();
+
+    while(q < 0){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> q;
+        LimparTela();
+    }
+
+}
+
+void Sistema::TratarCod(int &c){
+    std::cin >> c;
+    LimparTela();
+
+    while(c < 0 || c > 10000 || this->ExisteFilme(c)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> c;
+        LimparTela();
+    }
+}
+
+
+void Sistema::TratarTIPO(std::string & tipo){
+    std::cin >> tipo;
+    LimparTela();
+
+    while(tipo != "D" && tipo != "F"){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> tipo;
+        LimparTela();
+    }
+}
+
+bool Sistema::VerificaTitulo(std::string &tit){
+    for (char a : tit)
+    {
+        if (!isalnum(a) && !isspace(a))
+        {
+           return false;
+        }
+    }
+    return true;
+}
+
+void Sistema::TratarTitulo(std::string &tit){
+    std::cin >> tit;
+    LimparTela();
+
+    while(!VerificaTitulo(tit)){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> tit;
+        LimparTela();
+    }
+}
+
+
 
 void Sistema::CadastrarFilme(filme* &a){
     this->Catalogo.push_back(a);
@@ -210,40 +350,45 @@ void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
 
 //extra
 
+
+void Sistema::TratarSenha(std::string &sen){
+    std::cin >> sen;
+    LimparTela();
+
+    while(sen.length() != 4){
+        std::cout << "Digite o padrão correto" << std::endl;
+        std::cin >> sen;
+        LimparTela();
+    }
+}
+
 void Sistema::LoadData(){
     int acessos;
     std::string nome, cpf;
 
     std::ifstream Data("Data.txt");
-    if(Data.is_open()){
-        while(Data >> acessos >> cpf ){
-            Data.ignore();
 
-            std::getline(Data, nome);
-            Usuario* U = new Usuario(nome,cpf);
-            U->AcessAdd(acessos);
-            Usuarios.push_back(U);
-        }
+    assert(Data.is_open() && "ERRO na abertura do aquivo de leitura");
+    
+    while(Data >> acessos >> cpf ){
+        Data.ignore();
 
+        std::getline(Data, nome);
+        Usuario* U = new Usuario(nome,cpf);
+        U->AcessAdd(acessos);
+        Usuarios.push_back(U);
     }
-    else {
-            std::cerr << "Erro ao abrir o arquivo para escrita.\n";
-    }
-
 }
 
 void Sistema::SaveData(){
     std::ofstream Data("Data.txt");
-    if (Data.is_open()) {
-            for(auto it = Usuarios.begin(); it != Usuarios.end(); ++it){
-                Data << (*it)->getAcessos() << " " << (*it)->getCPF() << " " << (*it)->getNome() << "\n";
-            }
-            Data.close();
-            
-        } 
-        else {
-            std::cerr << "Erro ao abrir o arquivo para escrita.\n";
+
+    assert(Data.is_open() && "ERRO na abertura do aquivo de escrita");
+
+    for(auto it = Usuarios.begin(); it != Usuarios.end(); ++it){
+        Data << (*it)->getAcessos() << " " << (*it)->getCPF() << " " << (*it)->getNome() << "\n";
     }
+    Data.close();       
 }
 
 void Sistema::AnimCarregarDados(){
@@ -316,6 +461,47 @@ void Sistema::ListarEstoque(){
     else{
         std::cout << "Estoque vazio" << std::endl;
     }   
+}
+
+void Sistema::RegistroDeAlugays(){
+    for(auto it = Usuarios.begin(); it != Usuarios.end(); ++it){
+        std::cout << "O usuario "<< (*it)->getNome() << "tem alugado os filmes:" << std::endl;
+        (*it)->ListarCarrinho();
+        std::cout << "----------------------------------------------------------------------" << std::endl;
+    }
+
+}
+
+void Sistema::incrementarEstoque(int & cod, int &q){
+    for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it)
+    {
+        if ((*it)->getCod() == cod){
+            (*it)->addQuantidade(q);
+
+
+        }
+    }
+}
+
+void Sistema::decrementarEstoque(int & cod, int &q){
+    for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it)
+    {
+        if ((*it)->getCod() == cod){
+            (*it)->reduzirQuantidade(q);
+        }
+    }
+}
+
+void Sistema::TratarOE(std::string & o){
+    std::cin >> o;
+    LimparTela();
+
+    while(o != "IE" && o != "DE" && o != "LE"){
+        std::cout << "Digite um valido" << std::endl;
+        std::cin >> o;
+        LimparTela();
+    }
+
 }
 
     

@@ -11,7 +11,7 @@ class filme{
 
     public:
         filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
-        ~filme() = default;
+        virtual ~filme() = default;
 
         void MaisUm(); //adiciona uma unidade do filme
         void MenosUm(); //reduz uma unidade do filme
@@ -20,6 +20,8 @@ class filme{
         int getQuantidade();
         virtual std::string getTipo() = 0;
         virtual float CalcularPreco(int) = 0;
+        void addQuantidade(int &);
+        void reduzirQuantidade(int &);
   
 };
 class fita : public filme{
@@ -28,6 +30,7 @@ class fita : public filme{
 
     public:
         fita(int cod, std::string tit, int quant) : filme(cod,tit,quant){}
+        ~fita() = default;
 
         std::string getTipo() override{
             return "FITA";
@@ -42,6 +45,7 @@ class fita : public filme{
 class dvd : public filme{
     private:
         bool promocao = false;
+
         bool estoque = false;
         bool lancamento = false;
     public:
@@ -53,12 +57,13 @@ class dvd : public filme{
             else if(tipo == "lancamento")
                 lancamento = true;
         }
+        ~dvd() = default;
 
         std::string getTipo() override{
             return "DVD";
         }
 
-        float CalcularPreco(int)override;
+        float CalcularPreco(int) override;
 
         
         bool isPromo();

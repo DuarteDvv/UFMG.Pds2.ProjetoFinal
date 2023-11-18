@@ -64,4 +64,9 @@ void filme::MenosUm(){
     return this->promocao;
  }
 
-
+void filme::addQuantidade(int &q){
+   this->quantidade += q;
+}
+void filme::reduzirQuantidade(int &q){
+   this->quantidade -= q;
+}

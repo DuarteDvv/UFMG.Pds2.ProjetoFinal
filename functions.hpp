@@ -10,7 +10,6 @@
 #include "system.hpp"
 
 
-
 // Funçoes que definem o parametro que ordena em ordem crescente caso cpf ou alfabetica caso nome;
 bool compN(Usuario *&, Usuario *&);
 bool compC(Usuario *&, Usuario *&);
@@ -20,16 +19,13 @@ bool compT(filme *&, filme *&);
 // Comparaçã para cod
 bool compCf(filme *&, filme *&);
 
-// Função que verifica se o título está escrito com caracteres alfanuméricos, se sim, retorna verdadeiro
-bool verifica_titulo(std::string &);
-
 // Função que verifica se o usuário colocou uma categoria que existe (com as exeções)
 // OBS: só retorna true ou false
-bool verifica_categoria(std::string &);
+bool verifica_categoria(const std::string &);
 
 /*Função que vai retornar estoque, lancamento ou promocao (forma que tá escrita na classe filme)
  mesmo que o usuario escreva errado */
-std::string retorna_categoria(std::string &);
+std::string retorna_categoria(const std::string &cat);
 
 //Extra
 //Limpa tela do terminal
