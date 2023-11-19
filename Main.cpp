@@ -131,7 +131,7 @@ int main()
                 std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
                 std::cin >> CPFr;
                 try{
-                    if(CPFr != "C" && CPFr != "N"){
+                    if(CPFr != "N" && CPFr != "C"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
                     }
                 } catch(std::invalid_argument &e){
@@ -152,7 +152,7 @@ int main()
                 std::cin >> tipo;
 
                 try{
-                    if(tipo != "C" && tipo != "N"){
+                    if(tipo != "F" && tipo != "D"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
                     }
                 } catch(std::invalid_argument &e){
