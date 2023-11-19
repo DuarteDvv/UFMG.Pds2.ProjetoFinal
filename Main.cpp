@@ -473,7 +473,7 @@ int main()
                     sistema.ListarEstoque();
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -512,7 +512,7 @@ int main()
                     sistema.incrementarEstoque(cod,quantidade);
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
