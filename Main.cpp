@@ -50,7 +50,7 @@ int main()
                 sistema.CadastrarFilmesDoArquivo(Arquivo);
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
