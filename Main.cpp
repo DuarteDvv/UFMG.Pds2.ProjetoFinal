@@ -16,19 +16,14 @@ int main()
     std::string cmd, tipo, NomeDoArquivo;
     std::string NOMEr,CPFr;
     int cod, quantidade;
-
+    
 
     sistema.LoadData();
     sistema.AnimCarregarDados();
     
     std::cout << "Bem vindo ao sistema de locacao" << std::endl << std::endl
-    << "Segue nossas opcoes de Servicos:" << std::endl << std::endl
-    << "CC - Cadastrar Cliente" << "|  RC - Remover Clientes" << std::endl 
-    << "LC - Listar Clientes" << "|  LA - Ler Arquivo" << std::endl 
-    << "CF - Cadastrar Filme" << "|  RF - Remover Filme" << std::endl 
-    << "LF - Listar Filme" << "|  AL - Alugar Filme" << std::endl 
-    << "DV - Devolucao" << "|  FS - Finalizar" << std::endl
-    << "OE - Opcoes de Estoque" << "|  RA - Registros De Alugueis" << std::endl;
+    << "Segue nossas opcoes de Servicos:" << std::endl << std::endl;
+    mostrarOpcoes();
 
     while (std::cin >> cmd)
     {   
@@ -53,6 +48,14 @@ int main()
                 assert(Arquivo.is_open() && "ERRO na abertura do aquivo");
 
                 sistema.CadastrarFilmesDoArquivo(Arquivo);
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
             
@@ -97,7 +100,14 @@ int main()
                 sistema.CadastrarCliente(user);
 
                 std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
-            
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS"; 
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
                 
             }
 
@@ -121,6 +131,14 @@ int main()
                 }
                 sistema.RemoverCliente(CPFr);
                 std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
 
@@ -139,7 +157,18 @@ int main()
                     sistema.TratarListagemU(CPFr);
                 }
 
-                sistema.ListarCliente(CPFr);
+                sistema.ListarCliente(CPFr); 
+                std::cout <<"\n";
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS"; 
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
+
+
             }
 
 
@@ -218,6 +247,7 @@ int main()
                     CPFr = retorna_categoria(CPFr);
                     filme* d = new dvd(cod,NOMEr,quantidade,CPFr); 
                     sistema.CadastrarFilme(d);
+                    
                 }
 
                 else if(tipo == "F"){
@@ -227,6 +257,14 @@ int main()
                 }
 
                 std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
         
@@ -247,6 +285,15 @@ int main()
                 }
                 
                 sistema.ListarFilmes(CPFr);
+                std::cout <<"\n";
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
 
@@ -269,6 +316,14 @@ int main()
                     sistema.TratarCodN(cod);
                 }
                 std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
 
@@ -292,7 +347,7 @@ int main()
                         break;
                     }
                     try{
-                    if(cod < 0 || cod > 10000){
+                    if(cod < -1 || cod > 10000){
                         throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                     }
                     else if(!sistema.ExisteFilme(cod)){
@@ -307,7 +362,14 @@ int main()
                     sistema.AdicionarCarrinho(cod,CPFr);
                 }
                 sistema.ListarCompras(CPFr);
-                
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
                 
             }
 
@@ -339,10 +401,26 @@ int main()
                 }
 
                 sistema.Recibo(CPFr, cod);
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
             else if(cmd =="RA"){
                 sistema.RegistroDeAlugays();
+                bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
             }
 
             else if(cmd == "OE"){
@@ -392,6 +470,14 @@ int main()
                 }
                 if(CPFr == "LE"){
                     sistema.ListarEstoque();
+                    bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
                 }
 
                 else if(CPFr == "IE"){
@@ -423,7 +509,14 @@ int main()
                     }
 
                     sistema.incrementarEstoque(cod,quantidade);
-    
+                    bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
                 }
                 else if(CPFr == "DE"){
                     std::cout << "Qual filme deseja decrementar ? [cod]" << std::endl;
@@ -453,7 +546,14 @@ int main()
                     }
 
                     sistema.decrementarEstoque(cod,quantidade);
-
+                    bool finalizar_porgrama = finalizar_prog();
+                if(finalizar_porgrama){
+                    cmd == "FS";
+                    break;
+                }
+                else {
+                    mostrarOpcoes();
+                }
                 }
 
             }else{

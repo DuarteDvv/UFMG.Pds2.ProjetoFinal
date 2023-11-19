@@ -128,4 +128,43 @@ std::string retorna_categoria(const std::string &cat) {
 std::string padroniza_entrada(std::string &entrada){
     std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::toupper);
     return entrada;
+} 
+
+
+void mostrarOpcoes() {
+    std::cout << "CC - Cadastrar Cliente | RC - Remover Clientes\n"
+              << "LC - Listar Clientes | LA - Ler Arquivo\n"
+              << "CF - Cadastrar Filme | RF - Remover Filme\n"
+              << "LF - Listar Filme | AL - Alugar Filme\n"
+              << "DV - Devolucao | FS - Finalizar\n"
+              << "OE - Opcoes de Estoque | RA - Registros De Alugueis\n";
+}
+
+bool finalizar_prog() {
+    bool a = true;
+
+    try {
+        std::cout << "Deseja retornar à tela inicial?\n"
+                  << "Sim [S]\n"
+                  << "Não [N]" << std::endl;
+
+        std::string resposta;
+        std::getline(std::cin, resposta);
+        std::transform(resposta.begin(), resposta.end(), resposta.begin(), ::tolower);
+
+        LimparTela();
+
+        if (resposta == "sim" || resposta == "s") {
+            a = false;
+        } else if (resposta == "nao" || resposta == "n") {
+            std:: cout << "O programa sera fechado\n";
+            a = true;
+        } else {
+            throw std::invalid_argument("Opcao invalida.");
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Erro: " << e.what() << std::endl;
+    }
+
+    return a;
 }
