@@ -41,6 +41,7 @@ public:
     void CadastrarCliente(Usuario *&);
     void RemoverCliente(std::string &);
     void ListarCliente(std::string &);
+    void SugerirFilme();
 
     // Film Methods
     void TratarTIPO(std::string &);
