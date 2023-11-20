@@ -158,6 +158,7 @@ bool finalizar_prog() {
             a = false;
         } else if (resposta == "nao" || resposta == "n") {
             std:: cout << "O programa sera fechado\n";
+
             a = true;
         } else {
             throw std::invalid_argument("Opcao invalida.");

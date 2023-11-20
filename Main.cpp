@@ -48,7 +48,6 @@ int main()
                 assert(Arquivo.is_open() && "ERRO na abertura do aquivo");
 
                 sistema.CadastrarFilmesDoArquivo(Arquivo);
-
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
                     cmd = "FS";
@@ -150,7 +149,7 @@ int main()
                 std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
                 std::cin >> CPFr;
                 try{
-                    if(CPFr != "N" && CPFr != "C"){
+                    if(CPFr != "C" && CPFr != "N"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
                     }
                 } catch(std::invalid_argument &e){
@@ -182,7 +181,7 @@ int main()
                 std::cin >> tipo;
 
                 try{
-                    if(tipo != "F" && tipo != "D"){
+                    if(tipo != "C" && tipo != "N"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
                     }
                 } catch(std::invalid_argument &e){
