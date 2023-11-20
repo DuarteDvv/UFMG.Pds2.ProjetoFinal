@@ -180,6 +180,7 @@ int main()
                 sistema.AnimacaoEscolha();
                 std::cout << "Fita [F] ou DVD [D] ?" << std::endl;
                 std::cin >> tipo;
+                tipo = padroniza_entrada(tipo);
 
                 try{
                     if(tipo != "F" && tipo != "D"){

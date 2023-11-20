@@ -157,7 +157,7 @@ bool finalizar_prog() {
         if (resposta == "sim" || resposta == "s") {
             a = false;
         } else if (resposta == "nao" || resposta == "n") {
-            std:: cout << "O programa sera fechado\n";
+            std:: cout << "\033[1;32mO Pograma foi fechado corretamente\033[0m\n";
 
             a = true;
         } else {
