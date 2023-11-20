@@ -520,7 +520,7 @@ void Sistema::SugerirFilme()
     std::string nomeFilme;
     std::cout<< "\nNão encontrou o filme que queria?\n";
     std::cout<< "Indique um novo filme para nossa locadora ou digite C para continuar!\n";
-    std::cout<< "(Para indicar o filme basta digitar o titulo)\n"
+    std::cout<< "(Para indicar o filme basta digitar o titulo)\n";
     
     std::cin>>nomeFilme;
     
