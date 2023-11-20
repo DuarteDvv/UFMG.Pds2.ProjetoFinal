@@ -287,7 +287,8 @@ int main()
                 }
                 
                 sistema.ListarFilmes(CPFr);
-                
+                sistema.SugerirFilme();
+                /*
                 std::cout <<"\n";
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
@@ -297,6 +298,7 @@ int main()
                 else {
                     mostrarOpcoes();
                 }
+                */
             } 
 
 
