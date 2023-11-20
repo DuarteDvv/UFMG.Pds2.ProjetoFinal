@@ -149,7 +149,7 @@ bool finalizar_prog() {
                   << "Não [N]" << std::endl;
 
         std::string resposta;
-        std::getline(std::cin, resposta);
+        std::cin >> resposta;
         std::transform(resposta.begin(), resposta.end(), resposta.begin(), ::tolower);
 
         LimparTela();
