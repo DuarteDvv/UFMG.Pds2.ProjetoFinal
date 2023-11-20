@@ -476,7 +476,7 @@ void Sistema::ListarEstoque(){
 
 void Sistema::RegistroDeAlugays(){
     for(auto it = Usuarios.begin(); it != Usuarios.end(); ++it){
-        std::cout << "O usuario "<< (*it)->getNome() << "tem alugado os filmes:" << std::endl;
+        std::cout << "O usuario "<< (*it)->getNome() << " tem alugado os filmes:" << std::endl;
         (*it)->ListarCarrinho();
         std::cout << "----------------------------------------------------------------------" << std::endl;
     }
