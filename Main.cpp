@@ -181,7 +181,7 @@ int main()
                 std::cin >> tipo;
 
                 try{
-                    if(tipo != "C" && tipo != "N"){
+                    if(tipo != "F" && tipo != "D"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
                     }
                 } catch(std::invalid_argument &e){
@@ -285,6 +285,7 @@ int main()
                 }
                 
                 sistema.ListarFilmes(CPFr);
+                
                 std::cout <<"\n";
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
@@ -294,7 +295,7 @@ int main()
                 else {
                     mostrarOpcoes();
                 }
-            }
+            } 
 
 
 
