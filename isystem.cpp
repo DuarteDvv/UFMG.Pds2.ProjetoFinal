@@ -515,5 +515,80 @@ void Sistema::TratarOE(std::string & o){
 
 }
 
+void Sistema::SugerirFilme() 
+{
+    std::string nomeFilme;
+    std::cout<< "\nNão encontrou o filme que queria?\n";
+    std::cout<< "Indique um novo filme para nossa locadora ou digite C para continuar!\n";
+    std::cout<< "(Para indicar o filme basta digitar o titulo)\n"
+    
+    std::cin>>nomeFilme;
+    
+    
+    if(nomeFilme!="C")
+    {
+        // Abre o arquivo para escrita, em modo de adição ao final do arquivo
+        std::ofstream arquivoSugestoes("SugestaoDosUsuarios.txt", std::ios::app);
+    
+        // Verifica se o arquivo foi aberto com sucesso
+        if (arquivoSugestoes.is_open()) 
+        {
+        // Escreve a sugestão no arquivo
+        arquivoSugestoes << nomeFilme << std::endl;
+        std::cout << "Sugestão registrada com sucesso!\n";
+        std::cout<< "Agradecemos sua contribuicao! ;)"
+        // Fecha o arquivo
+        arquivoSugestoes.close();
+        
+        std::cout <<"\n";
+        bool finalizar_porgrama = finalizar_prog();
+        if(finalizar_porgrama)
+        {
+            cmd = "FS";
+            break;
+            
+        }
+        else 
+        {
+            mostrarOpcoes();
+        }
+        
+        } 
+    
+        else 
+        {
+        std::cerr << "Erro ao abrir o arquivo.\n";
+        bool finalizar_porgrama = finalizar_prog();
+        if(finalizar_porgrama)
+        {
+            cmd = "FS";
+            break;
+            
+        }
+        else 
+        {
+            mostrarOpcoes();
+        }
+        }
+    
+    }
+    else
+    {
+        std::cout <<"\n";
+        bool finalizar_porgrama = finalizar_prog();
+        if(finalizar_porgrama)
+        {
+            cmd = "FS";
+            break;
+            
+        }
+        else 
+        {
+            mostrarOpcoes();
+        }
+    }
+    
+}
+
 
     
