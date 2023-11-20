@@ -539,53 +539,18 @@ void Sistema::SugerirFilme()
         std::cout<< "Agradecemos sua contribuicao! ;)";
         // Fecha o arquivo
         arquivoSugestoes.close();
-        
-        std::cout <<"\n";
-        bool finalizar_porgrama = finalizar_prog();
-        if(finalizar_porgrama)
-        {
-            cmd = "FS";
-            break;
-            
         }
-        else 
-        {
-            mostrarOpcoes();
-        }
-        
-        } 
     
         else 
         {
         std::cerr << "Erro ao abrir o arquivo.\n";
-        bool finalizar_porgrama = finalizar_prog();
-        if(finalizar_porgrama)
-        {
-            cmd = "FS";
-            break;
-            
         }
-        else 
-        {
-            mostrarOpcoes();
-        }
-        }
+        
     
     }
     else
     {
-        std::cout <<"\n";
-        bool finalizar_porgrama = finalizar_prog();
-        if(finalizar_porgrama)
-        {
-            cmd = "FS";
-            break;
-            
-        }
-        else 
-        {
-            mostrarOpcoes();
-        }
+        LimparTela();
     }
     
 }
