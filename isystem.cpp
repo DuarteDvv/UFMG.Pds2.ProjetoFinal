@@ -536,7 +536,7 @@ void Sistema::SugerirFilme()
         // Escreve a sugestão no arquivo
         arquivoSugestoes << nomeFilme << std::endl;
         std::cout << "Sugestão registrada com sucesso!\n";
-        std::cout<< "Agradecemos sua contribuicao! ;)"
+        std::cout<< "Agradecemos sua contribuicao! ;)";
         // Fecha o arquivo
         arquivoSugestoes.close();
         
