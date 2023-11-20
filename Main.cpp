@@ -102,7 +102,7 @@ int main()
                 std::cout << "Cliente " << CPFr << " cadastrado com sucesso" << std::endl;
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS"; 
+                    cmd = "FS"; 
                     break;
                 }
                 else {
@@ -133,7 +133,7 @@ int main()
                 std::cout << "Cliente " << CPFr << " removido com sucesso" << std::endl;
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -161,7 +161,7 @@ int main()
                 std::cout <<"\n";
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS"; 
+                    cmd = "FS"; 
                     break;
                 }
                 else {
@@ -259,7 +259,7 @@ int main()
                 std::cout << "Filme " << cod << " cadastrado com sucesso" << std::endl;
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -288,7 +288,7 @@ int main()
                 std::cout <<"\n";
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -318,7 +318,7 @@ int main()
                 std::cout << "Filme " << cod << " removido com sucesso" << std::endl;
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -364,7 +364,7 @@ int main()
                 sistema.ListarCompras(CPFr);
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -403,7 +403,7 @@ int main()
                 sistema.Recibo(CPFr, cod);
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -415,7 +415,7 @@ int main()
                 sistema.RegistroDeAlugays();
                 bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -472,7 +472,7 @@ int main()
                     sistema.ListarEstoque();
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -511,7 +511,7 @@ int main()
                     sistema.incrementarEstoque(cod,quantidade);
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
@@ -548,7 +548,7 @@ int main()
                     sistema.decrementarEstoque(cod,quantidade);
                     bool finalizar_porgrama = finalizar_prog();
                 if(finalizar_porgrama){
-                    cmd == "FS";
+                    cmd = "FS";
                     break;
                 }
                 else {
