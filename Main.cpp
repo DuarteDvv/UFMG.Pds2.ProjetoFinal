@@ -148,6 +148,7 @@ int main()
                 sistema.AnimacaoEscolha();
                 std::cout << "Quer listar por nome[N] ou cpf[C]" << std::endl;
                 std::cin >> CPFr;
+                CPFr = padroniza_entrada(CPFr);
                 try{
                     if(CPFr != "C" && CPFr != "N"){
                         throw std::invalid_argument("Entrada invalida - Digite novamente");
