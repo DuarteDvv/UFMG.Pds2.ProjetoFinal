@@ -525,7 +525,7 @@ void Sistema::SugerirFilme()
     std::cin>>nomeFilme;
     
     
-    if(nomeFilme!="C")
+    if(nomeFilme!="C" && nomeFilme!="c")
     {
         // Abre o arquivo para escrita, em modo de adição ao final do arquivo
         std::ofstream arquivoSugestoes("SugestaoDosUsuarios.txt", std::ios::app);
