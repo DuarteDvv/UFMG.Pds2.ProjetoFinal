@@ -1,4 +1,4 @@
-#include "functions.hpp"
+#include "Function.hpp"
 #include <iostream>
 #include <string>
 #include <thread>
