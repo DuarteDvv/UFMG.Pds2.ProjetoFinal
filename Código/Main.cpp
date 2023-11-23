@@ -359,12 +359,14 @@ int main()
 
                     throw std::invalid_argument(" filme inexistente- Digite novamente"); //tratar cod revisar
                     }
+
                     }catch(std::invalid_argument &e){
                         std::cout << e.what() << std::endl;
                         sistema.TratarCodN(cod);
                     }
 
                     sistema.AdicionarCarrinho(cod,CPFr);
+                    std::cout << "Digite mais um ou finalize[-1]" << std::endl;
                 }
                 sistema.ListarCompras(CPFr);
                 bool finalizar_porgrama = finalizar_prog();
