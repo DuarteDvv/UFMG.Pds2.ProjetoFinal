@@ -2,6 +2,9 @@
 #include "doctest.h"
 #include "iFilm.cpp"
 
+//Criar objeto
+//Verificar existencia
+
 TEST_CASE("Calculo de preço - Operações básicas") 
 {
 CHECK(CalcularPreco(10) == 100);
