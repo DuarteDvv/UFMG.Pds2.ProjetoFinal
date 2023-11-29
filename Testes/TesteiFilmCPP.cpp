@@ -43,5 +43,16 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
         CHECK(d->CalcularPreco(5) == doctest::Approx(100.0));
     }
 
+     SUBCASE("Tipo Não Especificado") 
+    {
+        Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "qualquer";
+        filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
+        sistema.CadastrarFilme(d);
+
+        CHECK(d->CalcularPreco(5) == doctest::Approx(0.0));
+    }
+
 
 }
