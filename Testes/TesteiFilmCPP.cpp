@@ -143,6 +143,22 @@ TEST_CASE("Obter Título do filme")
         CHECK(d->getTitulo()=="Título teste");
 }
 
+TEST_CASE("Verifica tipo")
+{
+    SUBCASE("É estoque?")
+    {
+        Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "estoque";
+        dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
+        dvd* e = new dvd(456,"Título teste II",1,"promocao"); 
+
+        CHECK(d->isEstoque()==true);
+        CHECK(e->isEstoque()==false);
+
+    }
+}
+
 
 
 
