@@ -54,12 +54,13 @@ void LimparTela() {
 }
 
 void Desenha(int progress, int total) {
-
-    int larguraBarra = 40;
+    // Define a largura total da barra de progresso
+    int larguraBarra = 40; 
+    // Calcula a largura da barra de progresso proporcional ao progresso atual em relação ao total
     int larguraBarraProgresso = (progress * larguraBarra) / total;
 
     std::cout << "[";
-
+    // Imprime a barra de progresso no formato [=====      ] x%
     for (int i = 0; i < larguraBarraProgresso; ++i) {
         std::cout << "=";
     }
@@ -68,7 +69,8 @@ void Desenha(int progress, int total) {
         std::cout << " ";
     }
 
-    std::cout << "] " << (progress * 100) / total << "%\r";
+    std::cout << "] " << (progress * 100) / total << "%\r"; 
+    // Força a saída do buffer para o terminal
     std::cout.flush();
 }
 
@@ -84,6 +86,8 @@ bool verifica_categoria(const std::string &cat) {
     }
 
     std::string categoria = cat;
+
+    // Padroniza as entradas deixando todas como minúsculo
     std::transform(categoria.begin(), categoria.end(), categoria.begin(), ::tolower);
 
     std::unordered_set<std::string> categoriasValidas = {
@@ -95,7 +99,8 @@ bool verifica_categoria(const std::string &cat) {
     return categoriasValidas.find(categoria) != categoriasValidas.end();
 }
 
-std::string retorna_categoria(const std::string &cat) {
+std::string retorna_categoria(const std::string &cat) { 
+    // Mapeamento de categorias alternativas para padrão
     std::unordered_map<std::string, std::string> mapeamentoCategorias = {
         {"lancamentos", "lancamento"},
         {"lancamento", "lancamento"},
@@ -117,21 +122,25 @@ std::string retorna_categoria(const std::string &cat) {
         {"promocões", "promocao"}
     };
 
-    std::string categoria = cat;
+    std::string categoria = cat; 
+    // Padroniza as entradas deixando todas como minúsculo
     std::transform(categoria.begin(), categoria.end(), categoria.begin(), ::tolower);
 
+    // Procura a categoria no mapeamento 
     auto it = mapeamentoCategorias.find(categoria);
     return (it != mapeamentoCategorias.end()) ? it->second : "";
 }
 
 
 std::string padroniza_entrada(std::string &entrada){
-    std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::toupper);
+    // Padroniza as entradas deixando todas como maiúsculo 
+    std::transform(entrada.begin(), entrada.end(), entrada.begin(), ::toupper); 
     return entrada;
 } 
 
 
-void mostrarOpcoes() {
+void mostrarOpcoes() { 
+    // Função simples, que ajudará a deixar o código mais orgânico no main
     std::cout << "CC - Cadastrar Cliente | RC - Remover Clientes\n"
               << "LC - Listar Clientes | LA - Ler Arquivo\n"
               << "CF - Cadastrar Filme | RF - Remover Filme\n"
@@ -141,19 +150,22 @@ void mostrarOpcoes() {
 }
 
 bool finalizar_prog() {
+    // Uso o bool a como resposta para saber se o usuário quer finalizar o programa 
     bool a = true;
-
     try {
+        // Imprimo as opções na tela
         std::cout << "Deseja retornar à tela inicial?\n"
                   << "Sim [S]\n"
                   << "Não [N]" << std::endl;
 
         std::string resposta;
         std::cin >> resposta;
+
+        //Transformo tudo para o minúsculo para padronizar a entrada 
         std::transform(resposta.begin(), resposta.end(), resposta.begin(), ::tolower);
 
         LimparTela();
-
+        // Verificação 
         if (resposta == "sim" || resposta == "s") {
             a = false;
         } else if (resposta == "nao" || resposta == "n") {
@@ -163,9 +175,10 @@ bool finalizar_prog() {
         } else {
             throw std::invalid_argument("Opcao invalida.");
         }
+        // Captura e imprime qualquer exceção ocorrida durante o processamento.
     } catch (const std::exception& e) {
         std::cerr << "Erro: " << e.what() << std::endl;
     }
-
+    
     return a;
 }
