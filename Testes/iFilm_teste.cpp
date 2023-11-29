@@ -166,6 +166,16 @@ TEST_CASE("Verifica tipo")
 
 }
 
+TEST_CASE("Incrementar quantidade do filme (com parâmetro)")
+{
+   std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "estoque";
+        dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
+        int a =27;
+        d->addQuantidade(a);
+        
+        CHECK(d->getQuantidade()==28);
+}
 
 
 
