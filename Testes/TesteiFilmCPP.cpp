@@ -5,9 +5,9 @@
 TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
 
     /* -------------------------------------------------------------------
-        Adendo: A hipótese em que a quantidade de dias inserida é negativa
-        não foi inserida neste escopo pois essa exceção é tratada ainda
-        na função main.    
+        Adendo: A hipótese em que a quantidade de dias inserida é um nú-
+        mero negativo não foi inserida neste escopo pois essa exceção é 
+        tratada ainda na função main.    
     ---------------------------------------------------------------------- */
 
     SUBCASE("Tipo Estoque") 
