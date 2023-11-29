@@ -11,3 +11,12 @@ TEST_CASE("Obter CPF do usuário")
         CHECK(u->getCPF() == "00100100101");
 }
 
+TEST_CASE("Obter Nome do usuário")
+{
+        std::string nome = "Ludovicus";
+        std::string cpf = "00100100101";
+        Usuario* u = new Usuario(nome, cpf);
+
+        CHECK(u->getNome()=="Ludovicus");
+}
+
