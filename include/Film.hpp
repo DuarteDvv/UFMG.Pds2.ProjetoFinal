@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+// Uma das classes principais em todo o sistema, classe pai 
 class filme{
     private:
         int codigo;
@@ -13,22 +14,31 @@ class filme{
         filme(int cod, std::string tit, int quant) : codigo(cod), titulo(tit), quantidade(quant){} 
         virtual ~filme() = default;
 
-        void MaisUm(); //adiciona uma unidade do filme
-        void MenosUm(); //reduz uma unidade do filme
+        void MaisUm(); // Adiciona uma unidade do filme
+        void MenosUm(); // Eeduz uma unidade do filme
+
+        // Métodos de acesso aos membros privados da classe.
         int getCod();
         std::string getTitulo();
         int getQuantidade();
-        virtual std::string getTipo() = 0;
-        virtual float CalcularPreco(int) = 0;
+
+        // Métodos virtuais puros que serão implementados nas classes derivadas
+        virtual std::string getTipo() = 0; // Retorna o tipo do filme
+        virtual float CalcularPreco(int) = 0; // Calcula o preço do filme com base em um parâmetro
+        
+        // Métodos para manipulação da quantidade de filmes
         void addQuantidade(int &);
         void reduzirQuantidade(int &);
   
-};
+}; 
+
+// Classe derivada de "filme" 
 class fita : public filme{
     private:
         bool rebobinado;
 
-    public:
+    public: 
+    // Construtor que inicializa os membros da classe base e já determina o tipo do DVD
         fita(int cod, std::string tit, int quant) : filme(cod,tit,quant){}
         ~fita() = default;
 
@@ -38,10 +48,11 @@ class fita : public filme{
 
         float CalcularPreco(int) override;
 
-        
+        // Método para verificar se a fita está rebobinada
         bool isRebobinado();
 };
 
+// Classe derivada de "filme"
 class dvd : public filme{
     private:
         bool promocao = false;
@@ -65,7 +76,7 @@ class dvd : public filme{
 
         float CalcularPreco(int) override;
 
-        
+        // Métodos para verificar o tipo do DVD
         bool isPromo();
         bool isEstoque();
         bool isLanca();
