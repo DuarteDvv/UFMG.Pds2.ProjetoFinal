@@ -488,7 +488,7 @@ int main()
                 }
 
                 else if(CPFr == "IE"){
-                    std::cout << "Qual filme deseja incrimentar ? [cod]" << std::endl;
+                    std::cout << "Qual filme deseja incrementar ? [cod]" << std::endl;
                     std::cin >> cod;
                     try{
                         if(cod < 0 || cod > 10000){
