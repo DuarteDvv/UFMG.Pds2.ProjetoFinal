@@ -86,3 +86,37 @@ TEST_CASE("Fita rebobinada ou não") {
 
 }
 */
+
+TEST_CASE("Incrementar quantidade")
+{
+    Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "promocao";
+        filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
+        sistema.CadastrarFilme(d);
+        
+        d->MaisUm();
+        CHECK(d->getQuantidade()==2);
+        d->MaisUm();
+        CHECK(d->getQuantidade()==3);
+
+}
+
+TEST_CASE("Decrementar quantidade")
+{
+    /* -------------------------------------------------------------------
+        Adendo: A hipótese em que a quantidade de filmes é igual 0 e mesmo
+        assim é decrementada não foi incluída nos testes pois foi tratada
+        como exceção no arquivo isystem.cpp
+    ---------------------------------------------------------------------- */
+
+    Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "promocao";
+        filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
+        sistema.CadastrarFilme(d);
+        
+        d->MenosUm();
+        CHECK(d->getQuantidade()==0);
+}
+
