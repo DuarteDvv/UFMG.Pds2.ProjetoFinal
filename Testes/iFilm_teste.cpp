@@ -1,6 +1,5 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
-#include "system.hpp"
 #include "Film.hpp"
 
 
@@ -15,44 +14,36 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme")
 
     SUBCASE("Tipo Estoque") 
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "estoque";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
-
+        
         CHECK(d->CalcularPreco(5) == doctest::Approx(10.0 * 5));
     }
 
      SUBCASE("Tipo Promocao") 
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "promocao";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
 
         CHECK(d->CalcularPreco(5) == doctest::Approx(10.0));
     }
 
     SUBCASE("Tipo Lançamento") 
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "lancamento";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
 
         CHECK(d->CalcularPreco(5) == doctest::Approx(100.0));
     }
 
     SUBCASE("Tipo Não Especificado") 
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "qualquer";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
 
         CHECK(d->CalcularPreco(5) == doctest::Approx(0.0));
     }
@@ -90,11 +81,9 @@ TEST_CASE("Fita rebobinada ou não") {
 
 TEST_CASE("Incrementar quantidade do filme e obter quantidade")
 {
-    Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "promocao";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
         
         d->MaisUm();
         CHECK(d->getQuantidade()==2);
@@ -111,11 +100,9 @@ TEST_CASE("Decrementar quantidade do filme e obter quantidade")
         como exceção no arquivo isystem.cpp
     ---------------------------------------------------------------------- */
 
-    Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "promocao";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
         
         d->MenosUm();
         CHECK(d->getQuantidade()==0);
@@ -123,22 +110,18 @@ TEST_CASE("Decrementar quantidade do filme e obter quantidade")
 
 TEST_CASE("Obter Código do filme")
 {
-    Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "promocao";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
 
         CHECK(d->getCod()==123);        
 }
 
 TEST_CASE("Obter Título do filme")
 {
-    Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "promocao";
         filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
-        sistema.CadastrarFilme(d);
 
         CHECK(d->getTitulo()=="Título teste");
 }
@@ -147,7 +130,6 @@ TEST_CASE("Verifica tipo")
 {
     SUBCASE("É estoque?")
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "estoque";
         dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
@@ -160,7 +142,6 @@ TEST_CASE("Verifica tipo")
 
     SUBCASE("É promoção?")
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "estoque";
         dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
@@ -173,7 +154,6 @@ TEST_CASE("Verifica tipo")
 
     SUBCASE("É lançamento?")
     {
-        Sistema sistema;
         std::string TituloTeste = "Título teste";
         std::string TipoTeste = "lancamento";
         dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
