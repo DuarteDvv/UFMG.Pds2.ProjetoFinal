@@ -177,6 +177,17 @@ TEST_CASE("Incrementar quantidade do filme (com parâmetro)")
         CHECK(d->getQuantidade()==28);
 }
 
+TEST_CASE("Decrementar quantidade do filme (com parâmetro)")
+{
+   std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "estoque";
+        dvd* d = new dvd(123,TituloTeste,12,TipoTeste);
+        int a =10;
+        d->reduzirQuantidade(a);
+        
+        CHECK(d->getQuantidade()==2);
+}
+
 
 
 
