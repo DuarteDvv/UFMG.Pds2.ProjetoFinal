@@ -7,7 +7,7 @@ BUILD_DIR = ./ProjetoFinal_PDS2/build
 SRC_DIR = ./ProjetoFinal_PDS2/src
 INCLUDE_DIR = ./ProjetoFinal_PDS2/include
 
-./ProjetoFinal_PDS2/${TARGET}: ${BUILD_DIR}/Filmes.o ${BUILD_DIR}/Usuario.o ${BUILD_DIR}/Sistema.o ${BUILD_DIR}/main.o
+./ProjetoFinal_PDS2/Exe/${TARGET}: ${BUILD_DIR}/Filmes.o ${BUILD_DIR}/Usuario.o ${BUILD_DIR}/Sistema.o ${BUILD_DIR}/main.o
  ${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ./${TARGET}
  
 ${BUILD_DIR}/Filmes.o: ${INCLUDE_DIR}/Filme.hpp ${SRC_DIR}/IClasses/iFilme.cpp
