@@ -6,6 +6,7 @@ all = ${TARGET}
 BUILD_DIR = ./ProjetoFinal_PDS2/build
 SRC_DIR = ./ProjetoFinal_PDS2/src
 INCLUDE_DIR = ./ProjetoFinal_PDS2/include
+
 ./${TARGET}: ${BUILD_DIR}/Filmes.o ${BUILD_DIR}/Usuario.o ${BUILD_DIR}/Sistema.o ${BUILD_DIR}/main.o
  ${CC} ${CFLAGS} ${BUILD_DIR}/*.o -o ./${TARGET}
  
