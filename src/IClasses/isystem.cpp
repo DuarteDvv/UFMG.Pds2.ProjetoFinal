@@ -171,7 +171,11 @@ void Sistema::TratarQuantidade(int &q){
     std::cin >> q;
     LimparTela();
 
-    while(q < 0){
+    while(q < 0 || q > 10000){
+         if (std::cin.fail()) {
+            std::cin.clear();  // Limpa o estado de erro
+            std::cin.ignore();
+        }
         std::cout << "Digite um valido" << std::endl;
         std::cin >> q;
         LimparTela();
@@ -179,22 +183,31 @@ void Sistema::TratarQuantidade(int &q){
 
 }
 
-void Sistema::TratarCod(int &c){
+void Sistema::TratarCod(int &c){ //Existe
     std::cin >> c;
     LimparTela();
 
     while(c < 0 || c > 10000 || this->ExisteFilme(c)){
+        if (std::cin.fail()) {
+            std::cin.clear();  // Limpa o estado de erro
+            std::cin.ignore();
+        }
         std::cout << "Digite um valido" << std::endl;
         std::cin >> c;
         LimparTela();
     }
 }
 
-void Sistema::TratarCodN(int &c){
+void Sistema::TratarCodN(int &c){  //Não existe
     std::cin >> c;
     LimparTela();
 
     while(c < 0 || c > 10000 || !this->ExisteFilme(c)){
+        if (std::cin.fail()) {
+            std::cin.clear();  // Limpa o estado de erro
+            std::cin.ignore();
+        }
+       
         std::cout << "Digite um valido" << std::endl;
         std::cin >> c;
         LimparTela();
@@ -367,6 +380,11 @@ void Sistema::TratarSenha(std::string &sen){
     LimparTela();
 
     while(sen.length() != 4){
+         if (std::cin.fail()) {
+            std::cin.clear();  // Limpa o estado de erro
+            std::cin.ignore();
+        }
+
         std::cout << "Digite o padrão correto" << std::endl;
         std::cin >> sen;
         LimparTela();
@@ -404,8 +422,7 @@ void Sistema::SaveData(){
 
 void Sistema::AnimCarregarDados(){
 
-        const int totalProgresso = 100;
-        const int duracaoCarregamento = 50;  
+        const int totalProgresso = 100;  
         const int sleepDuration = 50;       
 
         LimparTela();
@@ -498,7 +515,12 @@ void Sistema::decrementarEstoque(int & cod, int &q){
     for (auto it = this->Catalogo.begin(); it != this->Catalogo.end(); ++it)
     {
         if ((*it)->getCod() == cod){
-            (*it)->reduzirQuantidade(q);
+            if((*it)->getQuantidade() - q < 0){
+                std::cout << ("Estoque disponivel insuficiente") << std::endl;
+            }
+            else{
+                (*it)->reduzirQuantidade(q);
+            }
         }
     }
 }

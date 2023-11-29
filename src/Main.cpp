@@ -481,10 +481,10 @@ int main()
                 if(CPFr == "LE"){
                     sistema.ListarEstoque();
                     bool finalizar_porgrama = finalizar_prog();
-                if(finalizar_porgrama){
-                    cmd = "FS";
-                    break;
-                }
+                    if(finalizar_porgrama){
+                        cmd = "FS";
+                        break;
+                    }
                 else {
                     mostrarOpcoes();
                 }
@@ -495,7 +495,7 @@ int main()
                     std::cin >> cod;
                     try{
                         if(cod < 0 || cod > 10000){
-                            throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
+                            throw std::invalid_argument("Codigo tem que ser maior que 0 e menor que 10000- Digite novamente");
                         }
                         else if(!sistema.ExisteFilme(cod)){
 
@@ -511,7 +511,7 @@ int main()
 
                     try{
                         if(quantidade < 0){
-                            throw std::invalid_argument("Os dias tem que ser maior que 0 - Digite novamente");
+                            throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                         }
                     }catch(std::invalid_argument &e){
                         std::cout << e.what() << std::endl;
@@ -520,9 +520,9 @@ int main()
 
                     sistema.incrementarEstoque(cod,quantidade);
                     bool finalizar_porgrama = finalizar_prog();
-                if(finalizar_porgrama){
-                    cmd = "FS";
-                    break;
+                    if(finalizar_porgrama){
+                        cmd = "FS";
+                        break;
                 }
                 else {
                     mostrarOpcoes();
@@ -531,7 +531,7 @@ int main()
                 else if(CPFr == "DE"){
                     std::cout << "Qual filme deseja decrementar ? [cod]" << std::endl;
                     std::cin >> cod;
-                        try{
+                    try{
                         if(cod < 0 || cod > 10000){
                             throw std::invalid_argument("Quantidade tem que ser maior que 0 e menor que 10000- Digite novamente");
                         }
@@ -547,8 +547,8 @@ int main()
                     std::cin >> quantidade;
 
                     try{
-                        if(quantidade < 0){
-                            throw std::invalid_argument("Os dias tem que ser maior que 0 - Digite novamente");
+                        if(quantidade < 0 || quantidade > 10000){
+                            throw std::invalid_argument("A quantidade tem que ser maior que 0 e menor que 10000 - Digite novamente");
                         }
                     }catch(std::invalid_argument &e){
                         std::cout << e.what() << std::endl;
@@ -556,14 +556,15 @@ int main()
                     }
 
                     sistema.decrementarEstoque(cod,quantidade);
+
                     bool finalizar_porgrama = finalizar_prog();
-                if(finalizar_porgrama){
-                    cmd = "FS";
-                    break;
-                }
-                else {
-                    mostrarOpcoes();
-                }
+                    if(finalizar_porgrama){
+                        cmd = "FS";
+                        break;
+                    }
+                    else {
+                        mostrarOpcoes();
+                    }
                 }
 
             }else{
