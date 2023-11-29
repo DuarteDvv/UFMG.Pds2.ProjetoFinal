@@ -57,6 +57,48 @@ TEST_CASE("Adicionar filme no carrinho e listar Carrinho")
 
 }
 
+TEST_CASE("Impressão do recibo")
+{
+        SUBCASE("Total de acessos menor que 3")
+        {
+                dvd* e = new dvd(456,"Título teste II",1,"promocao");
+
+                std::string nome = "Ludovicus";
+                std::string cpf = "00100100101";
+                int aux =20;
+      
+                Usuario u(nome, cpf);
+                u.addCarrinho(e);
+                std::stringstream buffer;
+                std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+                u.recibo(aux);
+                std::cout.rdbuf(old);
+                std::string saida = buffer.str();
+
+                CHECK(saida=="456 | 10$\nTotal a pagar: 10$\n");
+        }
+
+        SUBCASE("Total de acessos maior que 3")
+        {
+             dvd* e = new dvd(456,"Título teste II",1,"promocao");
+
+                std::string nome = "Ludovicus";
+                std::string cpf = "00100100101";
+                int aux =20;
+      
+                Usuario u(nome, cpf);
+                u.addCarrinho(e);
+                u.AcessAdd(4); // <----Acessos maior que 3
+                std::stringstream buffer;
+                std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+                u.recibo(aux);
+                std::cout.rdbuf(old);
+                std::string saida = buffer.str();
+
+                CHECK(saida=="456 | 10$\nTotal a pagar (desconto de 10% aplicado): 9$\n");   
+        }
+}
+
 
 
 
