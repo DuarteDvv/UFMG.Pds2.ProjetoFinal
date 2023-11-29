@@ -354,7 +354,7 @@ void Sistema::CadastrarFilmesDoArquivo(std::ifstream & file){
     }
 
     file.close();
-    std::cout << N << "Filmes cadastrados com sucessso" << std::endl;
+    std::cout << N << " Filmes cadastrados com sucessso" << std::endl;
 }
  
 
@@ -377,7 +377,7 @@ void Sistema::LoadData(){
     int acessos;
     std::string nome, cpf;
 
-    std::ifstream Data("Data.txt");
+    std::ifstream Data("./Exe/Data.txt");
 
     assert(Data.is_open() && "ERRO na abertura do aquivo de leitura");
     
@@ -392,7 +392,7 @@ void Sistema::LoadData(){
 }
 
 void Sistema::SaveData(){
-    std::ofstream Data("Data.txt");
+    std::ofstream Data("./Exe/Data.txt");
 
     assert(Data.is_open() && "ERRO na abertura do aquivo de escrita");
 
@@ -528,7 +528,7 @@ void Sistema::SugerirFilme()
     if(nomeFilme!="C" && nomeFilme!="c")
     {
         // Abre o arquivo para escrita, em modo de adição ao final do arquivo
-        std::ofstream arquivoSugestoes("SugestaoDosUsuarios.txt", std::ios::app);
+        std::ofstream arquivoSugestoes("./Exe/SugestaoDosUsuarios.txt", std::ios::app);
     
         // Verifica se o arquivo foi aberto com sucesso
         if (arquivoSugestoes.is_open()) 
@@ -541,10 +541,7 @@ void Sistema::SugerirFilme()
         arquivoSugestoes.close();
         }
     
-        else 
-        {
-        std::cerr << "Erro ao abrir o arquivo.\n";
-        }
+        assert(arquivoSugestoes.is_open() && "ERRO na abertura do aquivo de escrita");
         
     
     }

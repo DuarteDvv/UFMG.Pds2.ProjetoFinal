@@ -43,6 +43,9 @@ int main()
                 sistema.AnimacaoEscolha();
                 std::cout << "Digite o nome do arquivo" << std::endl;
                 std::cin >> NomeDoArquivo;
+                if(NomeDoArquivo == "filmes.txt"){
+                    NomeDoArquivo = "./Exe/filmes.txt";
+                }
                 std::ifstream Arquivo(NomeDoArquivo);
 
                 assert(Arquivo.is_open() && "ERRO na abertura do aquivo");
