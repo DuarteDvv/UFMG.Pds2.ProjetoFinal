@@ -2,6 +2,7 @@
 #include "doctest.h"
 #include "Usuario.hpp"
 #include "Film.hpp" //Biblioteca incluída para teste da função addCarrinho e ListarCarrinho
+#include <sstream>
 
 TEST_CASE("Obter CPF do usuário")
 {
@@ -35,3 +36,28 @@ TEST_CASE("Obter e incrementar número de acessos do usuário")
         u->AcessAdd(25); 
         CHECK(u->getAcessos()==26);
 }
+
+TEST_CASE("Adicionar filme no carrinho e listar Carrinho")
+{
+        dvd* e = new dvd(456,"Título teste II",1,"promocao");
+
+        std::string nome = "Ludovicus";
+        std::string cpf = "00100100101";
+      
+        Usuario u(nome, cpf);
+        u.addCarrinho(e);
+        std::stringstream buffer;
+        std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+        u.ListarCarrinho();
+
+        std::cout.rdbuf(old);
+        std::string saida = buffer.str();
+        CHECK(saida == "456 Título teste II DVD\n");
+
+}
+
+
+
+
+
