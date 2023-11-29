@@ -22,12 +22,16 @@ TEST_CASE("Obter Nome do usuário")
 
 TEST_CASE("Obter número de acessos do usuário")
 {
+         /* --------------------------------------------------------
+        Este TEST_CASE verifica os métodos getAcessos e AcessAdd
+        ao mesmo tempo
+        -------------------------------------------------------- */
         std::string nome = "Ludovicus";
         std::string cpf = "00100100101";
         Usuario* u = new Usuario(nome, cpf);
 
         CHECK(u->getAcessos()==1);
-        u->AcessAdd(25);
+        u->AcessAdd(25); 
         CHECK(u->getAcessos()==26);
 }
 
