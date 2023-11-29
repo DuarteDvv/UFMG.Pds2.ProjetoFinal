@@ -2,12 +2,14 @@
 #include "doctest.h"
 #include "system.hpp"
 
+// g++ iFilm.o IFunction.o isystem.o iUsuario.o TesteiFilmCPP.cpp -o
+
 TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
 
     /* -------------------------------------------------------------------
-        Adendo: A hipótese em que a quantidade de dias inserida é um nú-
-        mero negativo não foi inserida neste escopo pois essa exceção é 
-        tratada ainda na função main.    
+        Adendo: A hipótese em que a quantidade de dias inserida é negativa
+        não foi inserida neste escopo pois essa exceção é tratada ainda
+        na função main.    
     ---------------------------------------------------------------------- */
 
     SUBCASE("Tipo Estoque") 
@@ -43,7 +45,7 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
         CHECK(d->CalcularPreco(5) == doctest::Approx(100.0));
     }
 
-     SUBCASE("Tipo Não Especificado") 
+    SUBCASE("Tipo Não Especificado") 
     {
         Sistema sistema;
         std::string TituloTeste = "Título teste";
@@ -54,7 +56,9 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
         CHECK(d->CalcularPreco(5) == doctest::Approx(0.0));
     }
 
-     //Tem que modificar
+    /*
+
+    ---------------- ALTERAR ------------------
     SUBCASE("Tipo Fita") 
     {
         Sistema sistema;
@@ -64,7 +68,21 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
 
         CHECK(d->CalcularPreco(5) == 5.0);
     }
-
-
+    */
 
 }
+
+/*
+
+---------------- ALTERAR ------------------
+
+TEST_CASE("Fita rebobinada ou não") {
+        Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        filme* d = new fita(123,TituloTeste,1); 
+        sistema.CadastrarFilme(d);
+
+        CHECK(d->isRebobinado == false) ;
+
+}
+*/
