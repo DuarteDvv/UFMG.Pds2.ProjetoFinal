@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "system.hpp"
+#include "Film.hpp"
 
 
 TEST_CASE("Cálculo de Preço para diferentes tipos de filme")
