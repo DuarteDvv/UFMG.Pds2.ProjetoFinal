@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "Usuario.hpp"
+#include "Film.hpp" //Biblioteca incluída para teste da função addCarrinho e ListarCarrinho
 
 TEST_CASE("Obter CPF do usuário")
 {
@@ -20,9 +21,9 @@ TEST_CASE("Obter Nome do usuário")
         CHECK(u->getNome()=="Ludovicus");
 }
 
-TEST_CASE("Obter número de acessos do usuário")
-{
-         /* --------------------------------------------------------
+TEST_CASE("Obter e incrementar número de acessos do usuário")
+{       
+        /* --------------------------------------------------------
         Este TEST_CASE verifica os métodos getAcessos e AcessAdd
         ao mesmo tempo
         -------------------------------------------------------- */
@@ -34,4 +35,3 @@ TEST_CASE("Obter número de acessos do usuário")
         u->AcessAdd(25); 
         CHECK(u->getAcessos()==26);
 }
-
