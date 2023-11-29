@@ -2,7 +2,6 @@
 #include "doctest.h"
 #include "system.hpp"
 
-// g++ iFilm.o IFunction.o isystem.o iUsuario.o TesteiFilmCPP.cpp -o
 
 TEST_CASE("Cálculo de Preço para diferentes tipos de filme")
 {
@@ -157,6 +156,33 @@ TEST_CASE("Verifica tipo")
         CHECK(e->isEstoque()==false);
 
     }
+
+    SUBCASE("É promoção?")
+    {
+        Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "estoque";
+        dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
+        dvd* e = new dvd(456,"Título teste II",1,"promocao");
+
+        CHECK(e->isPromo()==true);
+        CHECK(d->isPromo()==false);
+
+    }
+
+    SUBCASE("É lançamento?")
+    {
+        Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "lancamento";
+        dvd* d = new dvd(123,TituloTeste,1,TipoTeste);
+        dvd* e = new dvd(456,"Título teste II",1,"promocao");
+
+        CHECK(d->isLanca()==true);
+        CHECK(e->isLanca()==false);
+
+    }
+
 }
 
 
