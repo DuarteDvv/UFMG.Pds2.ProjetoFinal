@@ -4,7 +4,8 @@
 
 // g++ iFilm.o IFunction.o isystem.o iUsuario.o TesteiFilmCPP.cpp -o
 
-TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
+TEST_CASE("Cálculo de Preço para diferentes tipos de filme")
+{
 
     /* -------------------------------------------------------------------
         Adendo: A hipótese em que a quantidade de dias inserida é negativa
@@ -56,7 +57,7 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme") {
         CHECK(d->CalcularPreco(5) == doctest::Approx(0.0));
     }
 
-    /*
+/*
 
     ---------------- ALTERAR ------------------
     SUBCASE("Tipo Fita") 
@@ -87,7 +88,7 @@ TEST_CASE("Fita rebobinada ou não") {
 }
 */
 
-TEST_CASE("Incrementar quantidade")
+TEST_CASE("Incrementar quantidade do filme e obter quantidade")
 {
     Sistema sistema;
         std::string TituloTeste = "Título teste";
@@ -102,7 +103,7 @@ TEST_CASE("Incrementar quantidade")
 
 }
 
-TEST_CASE("Decrementar quantidade")
+TEST_CASE("Decrementar quantidade do filme e obter quantidade")
 {
     /* -------------------------------------------------------------------
         Adendo: A hipótese em que a quantidade de filmes é igual 0 e mesmo
@@ -119,4 +120,19 @@ TEST_CASE("Decrementar quantidade")
         d->MenosUm();
         CHECK(d->getQuantidade()==0);
 }
+
+TEST_CASE("Obter Código do filme")
+{
+    Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "promocao";
+        filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
+        sistema.CadastrarFilme(d);
+
+        CHECK(d->getCod()==123);        
+}
+
+
+
+
 
