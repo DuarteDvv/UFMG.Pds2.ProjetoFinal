@@ -1,6 +1,7 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 #include "system.hpp"
+#include "Usuario.hpp"
 #include <sstream>
 
 TEST_CASE("Verificação de CPF")
@@ -82,3 +83,46 @@ TEST_CASE("Verificação de nome")
         }
 }
 
+TEST_CASE("Cadastrar cliente e verificar existência de Usuário")
+{
+    /*---------------------------------------------------
+        Adendo: a função TratarExistenciaU não foi testada 
+        neste escopo pois cumpre apenas a função de 
+        auxiliar a função ExisteUsuario
+    ----------------------------------------------------*/
+
+    SUBCASE("O usuário existe")
+    {
+        Sistema sistema;
+
+        //Criando usuário
+        std::string nome = "Ludovicus";
+        std::string cpf = "00100100101";
+        Usuario* u = new Usuario(nome, cpf); 
+
+        sistema.CadastrarCliente(u);
+        CHECK(sistema.ExisteUsuario(cpf)==true);
+    }
+
+    SUBCASE("O usuário não existe")
+    {
+        Sistema sistema;
+        std::string cpf = "00100100101";
+        CHECK(sistema.ExisteUsuario(cpf)==false);
+    }
+
+}
+
+TEST_CASE("Remover Cliente")
+{
+   Sistema sistema;
+
+        //Criando usuário
+        std::string nome = "Ludovicus";
+        std::string cpf = "00100100101";
+        Usuario* u = new Usuario(nome, cpf); 
+
+        sistema.CadastrarCliente(u);
+        sistema.RemoverCliente(cpf);
+        CHECK(sistema.ExisteUsuario(cpf)==false); 
+}
