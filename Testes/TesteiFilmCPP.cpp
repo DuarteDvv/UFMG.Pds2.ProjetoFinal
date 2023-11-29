@@ -132,6 +132,17 @@ TEST_CASE("Obter Código do filme")
         CHECK(d->getCod()==123);        
 }
 
+TEST_CASE("Obter Título do filme")
+{
+    Sistema sistema;
+        std::string TituloTeste = "Título teste";
+        std::string TipoTeste = "promocao";
+        filme* d = new dvd(123,TituloTeste,1,TipoTeste); 
+        sistema.CadastrarFilme(d);
+
+        CHECK(d->getTitulo()=="Título teste");
+}
+
 
 
 
