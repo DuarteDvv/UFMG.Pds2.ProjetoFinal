@@ -2,6 +2,7 @@
 #include "doctest.h"
 #include "system.hpp"
 #include "Usuario.hpp"
+#include "Film.hpp"
 #include <sstream>
 
 TEST_CASE("Verificação de CPF")
@@ -125,4 +126,50 @@ TEST_CASE("Remover Cliente")
         sistema.CadastrarCliente(u);
         sistema.RemoverCliente(cpf);
         CHECK(sistema.ExisteUsuario(cpf)==false); 
+}
+
+TEST_CASE("Listar clientes")
+{
+    Sistema sistema;
+    std::string nome = "Ludovicus";
+    std::string cpf = "00100100101";
+    Usuario* u = new Usuario(nome, cpf);
+    std::string cat ="N"; 
+    std::stringstream buffer;
+    std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+
+    sistema.CadastrarCliente(u);
+    sistema.ListarCliente(cat);
+    std::cout.rdbuf(old);
+    std::string saida = buffer.str();
+
+    CHECK(saida=="|| 00100100101 || >> Ludovicus\n");
+
+}
+
+TEST_CASE("Verificar título")
+{
+    SUBCASE("Título válido")
+    {
+    Sistema sistema;
+    std::string tit = "Titulo de Teste";
+    CHECK(sistema.VerificaTitulo(tit)==true);
+    }
+
+    SUBCASE("Título inválido")
+    {
+    Sistema sistema;
+    std::string tit = "Teste/////";
+    CHECK(sistema.VerificaTitulo(tit)==false);
+    }
+}
+
+TEST_CASE("Cadastrar filme e Existe filme")
+{
+    Sistema sistema;
+    int cod=456;
+    filme* e = new dvd(cod,"Título teste II",1,"promocao");
+    sistema.CadastrarFilme(e);
+    CHECK(sistema.ExisteFilme(cod)==true);
+    
 }
