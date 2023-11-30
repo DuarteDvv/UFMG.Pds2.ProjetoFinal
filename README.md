@@ -1,7 +1,7 @@
 # Projeto PDS2
 
 Nossa documentação: <br>
-< https://duartedvv.github.io/ProjetoFinal_PDS2/index.html >
+https://duartedvv.github.io/ProjetoFinal_PDS2/index.html 
 
 
 Trabalho prático de programação e desenvolvimento de software 2. 
