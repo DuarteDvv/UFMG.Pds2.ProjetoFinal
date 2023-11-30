@@ -1,0 +1,137 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ProjetoFinal_PDS2: Código-Fonte de C:/Users/Diego/Desktop/trabalho_final_pdsII/function.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ProjetoFinal_PDS2
+   </div>
+   <div id="projectbrief">Sistema que simula uma vídeo-locadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/Diego/Desktop/trabalho_final_pdsII/function.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="function_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef FUNCT_</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define FUNCT_</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="usuario_8hpp.html">Usuario.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;cctype&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="film_8hpp.html">Film.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="system_8hpp.html">system.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="function_8hpp.html#af421ff377115d1b668c34b0fa153f1c5">   22</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#af421ff377115d1b668c34b0fa153f1c5">compN</a>(<a class="code hl_class" href="class_usuario.html">Usuario</a> *&amp;, <a class="code hl_class" href="class_usuario.html">Usuario</a> *&amp;);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="function_8hpp.html#a549ac522fc1633b2d689641c7ac30dca">   30</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#a549ac522fc1633b2d689641c7ac30dca">compC</a>(<a class="code hl_class" href="class_usuario.html">Usuario</a> *&amp;, <a class="code hl_class" href="class_usuario.html">Usuario</a> *&amp;);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="function_8hpp.html#a4aad495da17c69670b5e576e8b642195">   38</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#a4aad495da17c69670b5e576e8b642195">compT</a>(<a class="code hl_class" href="classfilme.html">filme</a> *&amp;, <a class="code hl_class" href="classfilme.html">filme</a> *&amp;);</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="function_8hpp.html#ad67142c27798d7b7dde1867b31c7b8a1">   46</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#ad67142c27798d7b7dde1867b31c7b8a1">compCf</a>(<a class="code hl_class" href="classfilme.html">filme</a> *&amp;, <a class="code hl_class" href="classfilme.html">filme</a> *&amp;);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="function_8hpp.html#a50dee9dceb529a543705118737a987f0">   53</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#a50dee9dceb529a543705118737a987f0">verifica_categoria</a>(<span class="keyword">const</span> std::string &amp;cat);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="function_8hpp.html#a96d9b861cb8ae8ea1f5b907411f62b4e">   60</a></span>std::string <a class="code hl_function" href="function_8hpp.html#a96d9b861cb8ae8ea1f5b907411f62b4e">retorna_categoria</a>(<span class="keyword">const</span> std::string &amp;cat);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="function_8hpp.html#a379c5fad04f2151e302efd66fb6a4907">   65</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="function_8hpp.html#a379c5fad04f2151e302efd66fb6a4907">LimparTela</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="function_8hpp.html#a0044a1794e9f8b6c0974fc90d2d9718f">   72</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="function_8hpp.html#a0044a1794e9f8b6c0974fc90d2d9718f">desenha</a>(<span class="keywordtype">int</span> progress, <span class="keywordtype">int</span> total);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="function_8hpp.html#abd7807e54ff3ce5cd61f29639b996fe5">   79</a></span>std::string <a class="code hl_function" href="function_8hpp.html#abd7807e54ff3ce5cd61f29639b996fe5">padroniza_entrada</a>(std::string &amp;str);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="function_8hpp.html#ab567d7f102d767a94c3b45d1e1d8f574">   85</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="function_8hpp.html#ab567d7f102d767a94c3b45d1e1d8f574">finalizar_prog</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="function_8hpp.html#a3b8bdb8458b5d810bf7ca8bff7b94108">   90</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="function_8hpp.html#a3b8bdb8458b5d810bf7ca8bff7b94108">mostrarOpcoes</a>();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_usuario_html"><div class="ttname"><a href="class_usuario.html">Usuario</a></div><div class="ttdef"><b>Definição</b> usuario.hpp:14</div></div>
+<div class="ttc" id="aclassfilme_html"><div class="ttname"><a href="classfilme.html">filme</a></div><div class="ttdoc">Representa os filmes da locadora. Classe que contém informações básicas de um filme,...</div><div class="ttdef"><b>Definição</b> film.hpp:6</div></div>
+<div class="ttc" id="afilm_8hpp_html"><div class="ttname"><a href="film_8hpp.html">film.hpp</a></div></div>
+<div class="ttc" id="afunction_8hpp_html_a0044a1794e9f8b6c0974fc90d2d9718f"><div class="ttname"><a href="function_8hpp.html#a0044a1794e9f8b6c0974fc90d2d9718f">desenha</a></div><div class="ttdeci">void desenha(int progress, int total)</div><div class="ttdoc">desenha as animaçoes de carregamento.</div></div>
+<div class="ttc" id="afunction_8hpp_html_a379c5fad04f2151e302efd66fb6a4907"><div class="ttname"><a href="function_8hpp.html#a379c5fad04f2151e302efd66fb6a4907">LimparTela</a></div><div class="ttdeci">void LimparTela()</div><div class="ttdoc">limpa a tela</div></div>
+<div class="ttc" id="afunction_8hpp_html_a3b8bdb8458b5d810bf7ca8bff7b94108"><div class="ttname"><a href="function_8hpp.html#a3b8bdb8458b5d810bf7ca8bff7b94108">mostrarOpcoes</a></div><div class="ttdeci">void mostrarOpcoes()</div><div class="ttdoc">mostra as opçoes disponiveis ao usuario</div></div>
+<div class="ttc" id="afunction_8hpp_html_a4aad495da17c69670b5e576e8b642195"><div class="ttname"><a href="function_8hpp.html#a4aad495da17c69670b5e576e8b642195">compT</a></div><div class="ttdeci">bool compT(filme *&amp;, filme *&amp;)</div><div class="ttdoc">funçao de comparaçao para ordenar filmes por título</div></div>
+<div class="ttc" id="afunction_8hpp_html_a50dee9dceb529a543705118737a987f0"><div class="ttname"><a href="function_8hpp.html#a50dee9dceb529a543705118737a987f0">verifica_categoria</a></div><div class="ttdeci">bool verifica_categoria(const std::string &amp;cat)</div><div class="ttdoc">verifica se a categoria fornecida eh valida</div></div>
+<div class="ttc" id="afunction_8hpp_html_a549ac522fc1633b2d689641c7ac30dca"><div class="ttname"><a href="function_8hpp.html#a549ac522fc1633b2d689641c7ac30dca">compC</a></div><div class="ttdeci">bool compC(Usuario *&amp;, Usuario *&amp;)</div><div class="ttdoc">funçao de comparaçao para ordenar usuarios por CPF</div></div>
+<div class="ttc" id="afunction_8hpp_html_a96d9b861cb8ae8ea1f5b907411f62b4e"><div class="ttname"><a href="function_8hpp.html#a96d9b861cb8ae8ea1f5b907411f62b4e">retorna_categoria</a></div><div class="ttdeci">std::string retorna_categoria(const std::string &amp;cat)</div><div class="ttdoc">retorna a categoria padronizada mesmo se o usuario escrever de forma diferente</div></div>
+<div class="ttc" id="afunction_8hpp_html_ab567d7f102d767a94c3b45d1e1d8f574"><div class="ttname"><a href="function_8hpp.html#ab567d7f102d767a94c3b45d1e1d8f574">finalizar_prog</a></div><div class="ttdeci">bool finalizar_prog()</div><div class="ttdoc">verifica se o usuario deseja encerrar o programa</div></div>
+<div class="ttc" id="afunction_8hpp_html_abd7807e54ff3ce5cd61f29639b996fe5"><div class="ttname"><a href="function_8hpp.html#abd7807e54ff3ce5cd61f29639b996fe5">padroniza_entrada</a></div><div class="ttdeci">std::string padroniza_entrada(std::string &amp;str)</div><div class="ttdoc">converte todas as letras em minusculas</div></div>
+<div class="ttc" id="afunction_8hpp_html_ad67142c27798d7b7dde1867b31c7b8a1"><div class="ttname"><a href="function_8hpp.html#ad67142c27798d7b7dde1867b31c7b8a1">compCf</a></div><div class="ttdeci">bool compCf(filme *&amp;, filme *&amp;)</div><div class="ttdoc">funçao de comparaçao para ordenar filmes por código</div></div>
+<div class="ttc" id="afunction_8hpp_html_af421ff377115d1b668c34b0fa153f1c5"><div class="ttname"><a href="function_8hpp.html#af421ff377115d1b668c34b0fa153f1c5">compN</a></div><div class="ttdeci">bool compN(Usuario *&amp;, Usuario *&amp;)</div><div class="ttdoc">Declara as funções auxiliares para o sistema da locadora.</div></div>
+<div class="ttc" id="asystem_8hpp_html"><div class="ttname"><a href="system_8hpp.html">system.hpp</a></div></div>
+<div class="ttc" id="ausuario_8hpp_html"><div class="ttname"><a href="usuario_8hpp.html">usuario.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
