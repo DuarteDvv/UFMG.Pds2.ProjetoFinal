@@ -47,37 +47,7 @@ TEST_CASE("Cálculo de Preço para diferentes tipos de filme")
 
         CHECK(d->CalcularPreco(5) == doctest::Approx(0.0));
     }
-
-/*
-
-    ---------------- ALTERAR ------------------
-    SUBCASE("Tipo Fita") 
-    {
-        Sistema sistema;
-        std::string TituloTeste = "Título teste";
-        filme* d = new fita(123,TituloTeste,1); 
-        sistema.CadastrarFilme(d);
-
-        CHECK(d->CalcularPreco(5) == 5.0);
-    }
-    */
-
 }
-
-/*
-
----------------- ALTERAR ------------------
-
-TEST_CASE("Fita rebobinada ou não") {
-        Sistema sistema;
-        std::string TituloTeste = "Título teste";
-        filme* d = new fita(123,TituloTeste,1); 
-        sistema.CadastrarFilme(d);
-
-        CHECK(d->isRebobinado == false) ;
-
-}
-*/
 
 TEST_CASE("Incrementar quantidade do filme e obter quantidade")
 {
