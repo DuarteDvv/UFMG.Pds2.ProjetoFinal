@@ -173,3 +173,36 @@ TEST_CASE("Cadastrar filme e Existe filme")
     CHECK(sistema.ExisteFilme(cod)==true);
     
 }
+
+TEST_CASE("Listar filmes")
+{
+    Sistema sistema;
+    int cod=456;
+    std::string cmd = "T";
+    std::stringstream buffer;
+    std::streambuf* old = std::cout.rdbuf(buffer.rdbuf());
+    filme* e = new dvd(cod,"Título teste II",1,"promocao");
+    sistema.CadastrarFilme(e);
+    sistema.ListarFilmes(cmd);
+    std::cout.rdbuf(old);
+    std::string saida = buffer.str();
+
+    CHECK(saida=="||456|| >> Título teste II\n");
+}
+
+TEST_CASE("Remoção de filme")
+{
+     Sistema sistema;
+    int cod=456;
+    filme* e = new dvd(cod,"Título teste II",1,"promocao");
+    sistema.CadastrarFilme(e);
+    sistema.RemoverFilme(cod);
+    
+    CHECK(sistema.ExisteFilme(cod)==false);
+}
+
+/*
+    Adendo: Os demais métodos desta classe foram suprimidos
+    nos testes por cumprirem funções auxiliares ou apenas
+    reproduzirem o funcionamento das aqui já testadas. 
+*/
