@@ -1,0 +1,218 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt-BR">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>ProjetoFinal_PDS2: Código-Fonte de C:/Users/Diego/Desktop/trabalho_final_pdsII/system.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">ProjetoFinal_PDS2
+   </div>
+   <div id="projectbrief">Sistema que simula uma vídeo-locadora</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('',true,false,'search.php','Busca');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrado</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/Diego/Desktop/trabalho_final_pdsII/system.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="system_8hpp.html">Ir para a documentação desse arquivo.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _sys</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _sys</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="usuario_8hpp.html">Usuario.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="film_8hpp.html">Film.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="function_8hpp.html">Function.hpp</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;thread&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="class_sistema.html">   17</a></span><span class="keyword">class </span><a class="code hl_class" href="class_sistema.html">Sistema</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::list&lt;Usuario *&gt; Usuarios;   <span class="comment">// lista de ponteiros para objetos da classe Usuario</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    std::list&lt;filme *&gt; Catalogo;    <span class="comment">// lista de ponteiros para objetos da classe filme</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">public</span>:</div>
+<div class="foldopen" id="foldopen00024" data-start="{" data-end="}">
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_sistema.html#aafc86e0f2c3d734fb4c0985f70c27a1a">   24</a></span>    <a class="code hl_function" href="class_sistema.html#aafc86e0f2c3d734fb4c0985f70c27a1a">~Sistema</a>()</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <span class="comment">// destrutor da classe Sistema</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="comment">// libera a memoria alocada para objetos das classes Usuario e filme</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;usuarioPtr : Usuarios)</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>        {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>            <span class="keyword">delete</span> usuarioPtr;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        }</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;filmePtr : Catalogo)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>            <span class="keyword">delete</span> filmePtr;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        }</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    }</div>
+</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="comment">// metodos relacionados aos usuarios</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ae53cb4481bb0fd274851aafa59dfc373">TratarCPF</a>(std::string &amp;);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aecf6c160fcbe4412dd7a7ea20161023e">TratarNome</a>(std::string &amp;);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#abdf7bb57e8d0a0909604ea8acea7137d">TratarExistenciaU</a>(std::string &amp;);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a8b601e66c0d09fe689d01664042ab78f">TratarListagemU</a>(std::string &amp;);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_sistema.html#a103a42dc7e868f7096986d2b432652cd">VerificarCpf</a>(std::string &amp;);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_sistema.html#ae9911431bf2d901ffe6a5c071fe8d9d2">VerificarNome</a>(std::string &amp;);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_sistema.html#a8c2354bea3738a93cb1c97af9ebd08bd">ExisteUsuario</a>(std::string &amp;);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ace6ae0977f7b8df45e5fc5eeef99da6b">CadastrarCliente</a>(<a class="code hl_class" href="class_usuario.html">Usuario</a> *&amp;);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#adf1e7f892c5783ab8bb94593649f7c64">RemoverCliente</a>(std::string &amp;);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a380b98e9accf6a5d47570456ab3496ab">ListarCliente</a>(std::string &amp;);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a834e54e412fd43af406f1372ce993189">SugerirFilme</a>();</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="comment">// metodos relacionados aos filmes</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aab6487a3583a2de5a9cc21e2e15f56a9">TratarTIPO</a>(std::string &amp;);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a99f4792e325595d926889ffdc4ea1c20">TratarQuantidade</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aa42fde18efeb939c0d863838ec64d842">TratarCod</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a5a2037c9b70572beda9a120395c56c4e">TratarTitulo</a>(std::string &amp;);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ac16c2bd691dcc5e2d5c3f4de6d312b88">CadastrarFilme</a>(<a class="code hl_class" href="classfilme.html">filme</a> *&amp;);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_sistema.html#aef9f3f9294e93493fb0a525865ce8e93">VerificaTitulo</a>(std::string &amp;);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ac95fdc6ad7fd4c9007154357a1f45edb">TratarCat</a>(std::string &amp;);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a544fee9356e0a69c18eeae47485a7a0c">TratarCodN</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a8e75980801dbb7512a454314d5736e43">TratarListagemF</a>(std::string &amp;);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ae0fee079ef82d6e4d80e371d670192df">TratarExistenciaF</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_sistema.html#a8102edc59a6671b26efcecae89c44993">ExisteFilme</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#af9dad634b8058eeedc6cffd6541089df">ListarFilmes</a>(std::string &amp;);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a2fb610a2ddcded02165357ac84c5672f">RemoverFilme</a>(<span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#afa3e3a9e36354a8eaf02ea67cc38b0d8">AdicionarCarrinho</a>(<span class="keywordtype">int</span> &amp;, std::string &amp;);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a1994901fd917465affd49cbbdbae3287">ListarCompras</a>(std::string &amp;);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aad031a561e162ba13a6968fae727116e">Recibo</a>(std::string &amp;, <span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aa9d25c52f5c57a3de43ba081f3b9f256">CadastrarFilmesDoArquivo</a>(std::ifstream &amp;);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// outros metodos</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ae4fca6b4cd6e1022c5388afeba41f305">TratarOE</a>(std::string &amp;);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a889ceaa0b0c95b113ea0dea5ff7fba46">TratarSenha</a>(std::string &amp;);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#ac28072400c37b923306d51fd0ca0af6c">AnimCarregarDados</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a84c8dd898bf56c221aa82d59098791a2">animacaoSalvando</a>();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a5ac76a338cb70240138d9ddf1a93663a">AnimacaoEscolha</a>();</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a80f71c1286fea0e8ed8165336db58cd3">LoadData</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#aaf1c9b1139b9519bceaa8a16afa6311a">SaveData</a>();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#add6e0e472ee1f8d97cc18d6496d3d598">ListarEstoque</a>();</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a2c2fea71660043434c635a689036c771">RegistroDeAlugays</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a0cdd0bdd950103be448b00cd406e09b8">incrementarEstoque</a>(<span class="keywordtype">int</span> &amp;, <span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_sistema.html#a8a5c53b3a8f71860f9e9a97751fddb77">decrementarEstoque</a>(<span class="keywordtype">int</span> &amp;, <span class="keywordtype">int</span> &amp;);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>};</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclass_sistema_html"><div class="ttname"><a href="class_sistema.html">Sistema</a></div><div class="ttdef"><b>Definição</b> system.hpp:18</div></div>
+<div class="ttc" id="aclass_sistema_html_a0cdd0bdd950103be448b00cd406e09b8"><div class="ttname"><a href="class_sistema.html#a0cdd0bdd950103be448b00cd406e09b8">Sistema::incrementarEstoque</a></div><div class="ttdeci">void incrementarEstoque(int &amp;, int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:496</div></div>
+<div class="ttc" id="aclass_sistema_html_a103a42dc7e868f7096986d2b432652cd"><div class="ttname"><a href="class_sistema.html#a103a42dc7e868f7096986d2b432652cd">Sistema::VerificarCpf</a></div><div class="ttdeci">bool VerificarCpf(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:88</div></div>
+<div class="ttc" id="aclass_sistema_html_a1994901fd917465affd49cbbdbae3287"><div class="ttname"><a href="class_sistema.html#a1994901fd917465affd49cbbdbae3287">Sistema::ListarCompras</a></div><div class="ttdeci">void ListarCompras(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:317</div></div>
+<div class="ttc" id="aclass_sistema_html_a2c2fea71660043434c635a689036c771"><div class="ttname"><a href="class_sistema.html#a2c2fea71660043434c635a689036c771">Sistema::RegistroDeAlugays</a></div><div class="ttdeci">void RegistroDeAlugays()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:487</div></div>
+<div class="ttc" id="aclass_sistema_html_a2fb610a2ddcded02165357ac84c5672f"><div class="ttname"><a href="class_sistema.html#a2fb610a2ddcded02165357ac84c5672f">Sistema::RemoverFilme</a></div><div class="ttdeci">void RemoverFilme(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:284</div></div>
+<div class="ttc" id="aclass_sistema_html_a380b98e9accf6a5d47570456ab3496ab"><div class="ttname"><a href="class_sistema.html#a380b98e9accf6a5d47570456ab3496ab">Sistema::ListarCliente</a></div><div class="ttdeci">void ListarCliente(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:71</div></div>
+<div class="ttc" id="aclass_sistema_html_a544fee9356e0a69c18eeae47485a7a0c"><div class="ttname"><a href="class_sistema.html#a544fee9356e0a69c18eeae47485a7a0c">Sistema::TratarCodN</a></div><div class="ttdeci">void TratarCodN(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:202</div></div>
+<div class="ttc" id="aclass_sistema_html_a5a2037c9b70572beda9a120395c56c4e"><div class="ttname"><a href="class_sistema.html#a5a2037c9b70572beda9a120395c56c4e">Sistema::TratarTitulo</a></div><div class="ttdeci">void TratarTitulo(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:239</div></div>
+<div class="ttc" id="aclass_sistema_html_a5ac76a338cb70240138d9ddf1a93663a"><div class="ttname"><a href="class_sistema.html#a5ac76a338cb70240138d9ddf1a93663a">Sistema::AnimacaoEscolha</a></div><div class="ttdeci">void AnimacaoEscolha()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:433</div></div>
+<div class="ttc" id="aclass_sistema_html_a80f71c1286fea0e8ed8165336db58cd3"><div class="ttname"><a href="class_sistema.html#a80f71c1286fea0e8ed8165336db58cd3">Sistema::LoadData</a></div><div class="ttdeci">void LoadData()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:384</div></div>
+<div class="ttc" id="aclass_sistema_html_a8102edc59a6671b26efcecae89c44993"><div class="ttname"><a href="class_sistema.html#a8102edc59a6671b26efcecae89c44993">Sistema::ExisteFilme</a></div><div class="ttdeci">bool ExisteFilme(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:256</div></div>
+<div class="ttc" id="aclass_sistema_html_a834e54e412fd43af406f1372ce993189"><div class="ttname"><a href="class_sistema.html#a834e54e412fd43af406f1372ce993189">Sistema::SugerirFilme</a></div><div class="ttdeci">void SugerirFilme()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:528</div></div>
+<div class="ttc" id="aclass_sistema_html_a84c8dd898bf56c221aa82d59098791a2"><div class="ttname"><a href="class_sistema.html#a84c8dd898bf56c221aa82d59098791a2">Sistema::animacaoSalvando</a></div><div class="ttdeci">void animacaoSalvando()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:455</div></div>
+<div class="ttc" id="aclass_sistema_html_a889ceaa0b0c95b113ea0dea5ff7fba46"><div class="ttname"><a href="class_sistema.html#a889ceaa0b0c95b113ea0dea5ff7fba46">Sistema::TratarSenha</a></div><div class="ttdeci">void TratarSenha(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:372</div></div>
+<div class="ttc" id="aclass_sistema_html_a8a5c53b3a8f71860f9e9a97751fddb77"><div class="ttname"><a href="class_sistema.html#a8a5c53b3a8f71860f9e9a97751fddb77">Sistema::decrementarEstoque</a></div><div class="ttdeci">void decrementarEstoque(int &amp;, int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:506</div></div>
+<div class="ttc" id="aclass_sistema_html_a8b601e66c0d09fe689d01664042ab78f"><div class="ttname"><a href="class_sistema.html#a8b601e66c0d09fe689d01664042ab78f">Sistema::TratarListagemU</a></div><div class="ttdeci">void TratarListagemU(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:41</div></div>
+<div class="ttc" id="aclass_sistema_html_a8c2354bea3738a93cb1c97af9ebd08bd"><div class="ttname"><a href="class_sistema.html#a8c2354bea3738a93cb1c97af9ebd08bd">Sistema::ExisteUsuario</a></div><div class="ttdeci">bool ExisteUsuario(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:130</div></div>
+<div class="ttc" id="aclass_sistema_html_a8e75980801dbb7512a454314d5736e43"><div class="ttname"><a href="class_sistema.html#a8e75980801dbb7512a454314d5736e43">Sistema::TratarListagemF</a></div><div class="ttdeci">void TratarListagemF(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:142</div></div>
+<div class="ttc" id="aclass_sistema_html_a99f4792e325595d926889ffdc4ea1c20"><div class="ttname"><a href="class_sistema.html#a99f4792e325595d926889ffdc4ea1c20">Sistema::TratarQuantidade</a></div><div class="ttdeci">void TratarQuantidade(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:178</div></div>
+<div class="ttc" id="aclass_sistema_html_aa42fde18efeb939c0d863838ec64d842"><div class="ttname"><a href="class_sistema.html#aa42fde18efeb939c0d863838ec64d842">Sistema::TratarCod</a></div><div class="ttdeci">void TratarCod(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:190</div></div>
+<div class="ttc" id="aclass_sistema_html_aa9d25c52f5c57a3de43ba081f3b9f256"><div class="ttname"><a href="class_sistema.html#aa9d25c52f5c57a3de43ba081f3b9f256">Sistema::CadastrarFilmesDoArquivo</a></div><div class="ttdeci">void CadastrarFilmesDoArquivo(std::ifstream &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:341</div></div>
+<div class="ttc" id="aclass_sistema_html_aab6487a3583a2de5a9cc21e2e15f56a9"><div class="ttname"><a href="class_sistema.html#aab6487a3583a2de5a9cc21e2e15f56a9">Sistema::TratarTIPO</a></div><div class="ttdeci">void TratarTIPO(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:214</div></div>
+<div class="ttc" id="aclass_sistema_html_aad031a561e162ba13a6968fae727116e"><div class="ttname"><a href="class_sistema.html#aad031a561e162ba13a6968fae727116e">Sistema::Recibo</a></div><div class="ttdeci">void Recibo(std::string &amp;, int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:329</div></div>
+<div class="ttc" id="aclass_sistema_html_aaf1c9b1139b9519bceaa8a16afa6311a"><div class="ttname"><a href="class_sistema.html#aaf1c9b1139b9519bceaa8a16afa6311a">Sistema::SaveData</a></div><div class="ttdeci">void SaveData()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:403</div></div>
+<div class="ttc" id="aclass_sistema_html_aafc86e0f2c3d734fb4c0985f70c27a1a"><div class="ttname"><a href="class_sistema.html#aafc86e0f2c3d734fb4c0985f70c27a1a">Sistema::~Sistema</a></div><div class="ttdeci">~Sistema()</div><div class="ttdef"><b>Definição</b> system.hpp:24</div></div>
+<div class="ttc" id="aclass_sistema_html_abdf7bb57e8d0a0909604ea8acea7137d"><div class="ttname"><a href="class_sistema.html#abdf7bb57e8d0a0909604ea8acea7137d">Sistema::TratarExistenciaU</a></div><div class="ttdeci">void TratarExistenciaU(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:28</div></div>
+<div class="ttc" id="aclass_sistema_html_ac16c2bd691dcc5e2d5c3f4de6d312b88"><div class="ttname"><a href="class_sistema.html#ac16c2bd691dcc5e2d5c3f4de6d312b88">Sistema::CadastrarFilme</a></div><div class="ttdeci">void CadastrarFilme(filme *&amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:251</div></div>
+<div class="ttc" id="aclass_sistema_html_ac28072400c37b923306d51fd0ca0af6c"><div class="ttname"><a href="class_sistema.html#ac28072400c37b923306d51fd0ca0af6c">Sistema::AnimCarregarDados</a></div><div class="ttdeci">void AnimCarregarDados()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:415</div></div>
+<div class="ttc" id="aclass_sistema_html_ac95fdc6ad7fd4c9007154357a1f45edb"><div class="ttname"><a href="class_sistema.html#ac95fdc6ad7fd4c9007154357a1f45edb">Sistema::TratarCat</a></div><div class="ttdeci">void TratarCat(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:166</div></div>
+<div class="ttc" id="aclass_sistema_html_ace6ae0977f7b8df45e5fc5eeef99da6b"><div class="ttname"><a href="class_sistema.html#ace6ae0977f7b8df45e5fc5eeef99da6b">Sistema::CadastrarCliente</a></div><div class="ttdeci">void CadastrarCliente(Usuario *&amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:53</div></div>
+<div class="ttc" id="aclass_sistema_html_add6e0e472ee1f8d97cc18d6496d3d598"><div class="ttname"><a href="class_sistema.html#add6e0e472ee1f8d97cc18d6496d3d598">Sistema::ListarEstoque</a></div><div class="ttdeci">void ListarEstoque()</div><div class="ttdef"><b>Definição</b> Isystem.cpp:475</div></div>
+<div class="ttc" id="aclass_sistema_html_adf1e7f892c5783ab8bb94593649f7c64"><div class="ttname"><a href="class_sistema.html#adf1e7f892c5783ab8bb94593649f7c64">Sistema::RemoverCliente</a></div><div class="ttdeci">void RemoverCliente(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:58</div></div>
+<div class="ttc" id="aclass_sistema_html_ae0fee079ef82d6e4d80e371d670192df"><div class="ttname"><a href="class_sistema.html#ae0fee079ef82d6e4d80e371d670192df">Sistema::TratarExistenciaF</a></div><div class="ttdeci">void TratarExistenciaF(int &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:154</div></div>
+<div class="ttc" id="aclass_sistema_html_ae4fca6b4cd6e1022c5388afeba41f305"><div class="ttname"><a href="class_sistema.html#ae4fca6b4cd6e1022c5388afeba41f305">Sistema::TratarOE</a></div><div class="ttdeci">void TratarOE(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:516</div></div>
+<div class="ttc" id="aclass_sistema_html_ae53cb4481bb0fd274851aafa59dfc373"><div class="ttname"><a href="class_sistema.html#ae53cb4481bb0fd274851aafa59dfc373">Sistema::TratarCPF</a></div><div class="ttdeci">void TratarCPF(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:4</div></div>
+<div class="ttc" id="aclass_sistema_html_ae9911431bf2d901ffe6a5c071fe8d9d2"><div class="ttname"><a href="class_sistema.html#ae9911431bf2d901ffe6a5c071fe8d9d2">Sistema::VerificarNome</a></div><div class="ttdeci">bool VerificarNome(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:117</div></div>
+<div class="ttc" id="aclass_sistema_html_aecf6c160fcbe4412dd7a7ea20161023e"><div class="ttname"><a href="class_sistema.html#aecf6c160fcbe4412dd7a7ea20161023e">Sistema::TratarNome</a></div><div class="ttdeci">void TratarNome(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:16</div></div>
+<div class="ttc" id="aclass_sistema_html_aef9f3f9294e93493fb0a525865ce8e93"><div class="ttname"><a href="class_sistema.html#aef9f3f9294e93493fb0a525865ce8e93">Sistema::VerificaTitulo</a></div><div class="ttdeci">bool VerificaTitulo(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:227</div></div>
+<div class="ttc" id="aclass_sistema_html_af9dad634b8058eeedc6cffd6541089df"><div class="ttname"><a href="class_sistema.html#af9dad634b8058eeedc6cffd6541089df">Sistema::ListarFilmes</a></div><div class="ttdeci">void ListarFilmes(std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:267</div></div>
+<div class="ttc" id="aclass_sistema_html_afa3e3a9e36354a8eaf02ea67cc38b0d8"><div class="ttname"><a href="class_sistema.html#afa3e3a9e36354a8eaf02ea67cc38b0d8">Sistema::AdicionarCarrinho</a></div><div class="ttdeci">void AdicionarCarrinho(int &amp;, std::string &amp;)</div><div class="ttdef"><b>Definição</b> Isystem.cpp:296</div></div>
+<div class="ttc" id="aclass_usuario_html"><div class="ttname"><a href="class_usuario.html">Usuario</a></div><div class="ttdef"><b>Definição</b> usuario.hpp:14</div></div>
+<div class="ttc" id="aclassfilme_html"><div class="ttname"><a href="classfilme.html">filme</a></div><div class="ttdoc">Representa os filmes da locadora. Classe que contém informações básicas de um filme,...</div><div class="ttdef"><b>Definição</b> film.hpp:6</div></div>
+<div class="ttc" id="afilm_8hpp_html"><div class="ttname"><a href="film_8hpp.html">film.hpp</a></div></div>
+<div class="ttc" id="afunction_8hpp_html"><div class="ttname"><a href="function_8hpp.html">function.hpp</a></div></div>
+<div class="ttc" id="ausuario_8hpp_html"><div class="ttname"><a href="usuario_8hpp.html">usuario.hpp</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8
+</small></address>
+</body>
+</html>
