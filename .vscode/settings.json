@@ -61,5 +61,8 @@
         "thread": "cpp",
         "variant": "cpp",
         "unordered_set": "cpp"
-    }
+    },
+    "githubPullRequests.ignoredPullRequestBranches": [
+        "main"
+    ]
 }
