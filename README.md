@@ -12,6 +12,6 @@ Para isso, criamos um sistema que simula uma vídeo-locadora focando em criar um
 Em Colaboração de:
 
  - Felipe Martins
- - Diego 
+ - Diego Mota
  - Luiz Felipe 
  - Luis Antonio 
